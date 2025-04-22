@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy&display=swap');
+
+
+/* Custom fonts */
+@layer base {
+  @font-face {
+    font-family: 'OFL_Sorts_Mill_Goudy_TT';
+    src: local('OFL Sorts Mill Goudy TT');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  body {
+    font-family: 'OFL_Sorts_Mill_Goudy_TT', system-ui, Helvetica, Arial, sans-serif;
+  }
+}
+
+/* Custom elements that are harder to do with pure Tailwind */
+@layer components {
+  .tab-container:hover .dropdown {
+    display: block;
+  }
+  
+  .sidebar:hover ~ .overlay {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .sidebar:hover {
+    width: 320px;
+  }
+  
+  .sidebar:hover .head h1 {
+    opacity: 1;
+  }
+}
