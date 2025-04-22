@@ -17,7 +17,7 @@ const formattedDate = today.toLocaleDateString('en-US', options).toUpperCase()
     <Router>
       <div className="flex flex-col h-screen w-screen bg-white">
         {/* Full-width white header */}
-        <header className="w-full h-[90px] bg-white shadow-sm p-2 z-10 flex justify-between items-center pl-10 pr-5">
+        <header className="w-full h-[75px] bg-white shadow-sm p-2 z-10 flex justify-between items-center pl-10 pr-5">
           <h1 className="font-['Cinzel'] text-[55px] font-bold text-[#8E1751]">
             {activePanel === 'dashboard' ? 'DASHBOARD' : 'INVENTORY'}
           </h1>

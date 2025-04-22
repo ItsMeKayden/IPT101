@@ -1,7 +1,7 @@
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import salesData from './data/salesData.json';
+import salesData from './SampleData/salesData.json';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 ChartJS.register(ChartDataLabels);
 
@@ -19,7 +19,7 @@ export default function Dashboard() {
         <div className="absolute top-[10px] left-[35px] font-bold text-[#ffe2f0] text-[35px] hover:text-[#fff] transition-colors duration-200">
           TOTAL STOCKS
         </div>
-        <div className="absolute top-[50px] left-[100px] font-bold text-[#ffe2f0] text-[55px] hover:scale-105 transition-transform duration-200">
+        <div className="absolute top-[50px] left-[120px] font-bold text-[#ffe2f0] text-[55px] hover:scale-105 transition-transform duration-200">
           300
         </div>
         <div className="absolute top-[10px] right-[10px] w-[70%] h-[140px] bg-[#65366F] rounded-[20px] flex items-center justify-center gap-4 md:gap-20 shadow-[inset_0_4px_4px_rgba(0,0,0,0.25)] hover:bg-[#7a4488] transition-all duration-300">
@@ -86,41 +86,41 @@ export default function Dashboard() {
             <div className="flex flex-col md:flex-row h-[calc(100%-100px)]">
               <div className="w-full md:w-[55%] h-full flex items-center justify-center relative">
               <Doughnut 
-  data={salesOverview.chartData}
-  options={{
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        position: window.innerWidth < 768 ? 'bottom' : 'right',
-        labels: {
-          font: {
-            size: 14,
-            family: "'Inter', sans-serif",
-            weight: 'bold'
-          },
-          color: '#270a4e',
-          padding: 20,
-          usePointStyle: true,
-          pointStyle: 'circle'
-        }
-      },
-      datalabels: {
-        color: '#fff',
-        font: {
-          weight: 'bold',
-          size: 14
-        },
-        formatter: (value, context) => {
-          const total = context.chart._metasets[0].total;
-          const percentage = ((value / total) * 100).toFixed(1);
-          return `${percentage}%`;
-        }
-      }
-    }
-  }}
-  plugins={[ChartDataLabels]}
-/>
+                data={salesOverview.chartData}
+                options={{
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  plugins: {
+                    legend: {
+                      position: window.innerWidth < 768 ? 'bottom' : 'right',
+                      labels: {
+                        font: {
+                          size: 14,
+                          family: "'Inter', sans-serif",
+                          weight: 'bold'
+                        },
+                        color: '#270a4e',
+                        padding: 20,
+                        usePointStyle: true,
+                        pointStyle: 'circle'
+                      }
+                    },
+                    datalabels: {
+                      color: '#fff',
+                      font: {
+                        weight: 'bold',
+                        size: 14
+                      },
+                      formatter: (value, context) => {
+                        const total = context.chart._metasets[0].total;
+                        const percentage = ((value / total) * 100).toFixed(1);
+                        return `${percentage}%`;
+                      }
+                    }
+                  }
+                }}
+                plugins={[ChartDataLabels]}
+              />
 
               </div>
 

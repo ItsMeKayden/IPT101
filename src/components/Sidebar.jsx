@@ -88,24 +88,24 @@ export default function Sidebar({ onExpand, setActivePanel, activePanel = 'dashb
       </div>
 
       {/* Footer Button */}
-<div className="mt-[270px] border-t border-[#d2679f]">
-  <button className={`mt-auto w-full p-3 flex items-center outline-none rounded-none transition-colors hover:bg-[#d2679f] ${
-    collapsed ? 'justify-center' : 'justify-start px-3'
-  }`}>
-    <div className="mt-auto w-8 h-10 flex items-center justify-center">
-      <img 
-        src="/icons/settings.png" 
-        alt="Settings" 
-        className="w-full h-full object-contain"
-      />
-    </div>
-    {!collapsed && (
-      <span className="ml-3 text-[#ffea99]">
-        SETTINGS
-      </span>
-    )}
-  </button>
-</div>
+      <div className="mt-[270px] border-t border-[#d2679f]">
+        <button className={`mt-auto w-full p-3 flex items-center outline-none rounded-none transition-colors hover:bg-[#d2679f] ${
+          collapsed ? 'justify-center' : 'justify-start px-3'
+        }`}>
+          <div className="mt-auto w-8 h-10 flex items-center justify-center">
+            <img 
+              src="/icons/settings.png" 
+              alt="Settings" 
+              className="w-full h-full object-contain"
+            />
+          </div>
+          {!collapsed && (
+            <span className="ml-3 text-[#ffea99]">
+              SETTINGS
+            </span>
+          )}
+        </button>
+      </div>
 
     </div>
   )
