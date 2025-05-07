@@ -112,10 +112,10 @@ function Inventory() {
                   <div className="py-2 text-center">L</div>
                 </div>
 
-                {/* Stock numbers */}
-                <div className="w-16 bg-white text-[#841c4f]">
+                {/* Total Stocks numbers */}
+                <div className="w-24 bg-white text-[#841c4f]">
                   <div className="py-2 text-center bg-[#841c4f] text-white">
-                    STOCKS
+                    TOTAL
                   </div>
                   <div className="py-2 text-center">
                     {product.sizes?.small || 0}
@@ -125,6 +125,22 @@ function Inventory() {
                   </div>
                   <div className="py-2 text-center">
                     {product.sizes?.large || 0}
+                  </div>
+                </div>
+
+                {/* Remaining Stocks numbers */}
+                <div className="w-24 bg-white text-[#841c4f]">
+                  <div className="py-2 text-center bg-[#841c4f] text-white">
+                    REMAINING
+                  </div>
+                  <div className="py-2 text-center">
+                    {product.sizes?.smallRemaining || 0}
+                  </div>
+                  <div className="py-2 text-center">
+                    {product.sizes?.mediumRemaining || 0}
+                  </div>
+                  <div className="py-2 text-center">
+                    {product.sizes?.largeRemaining || 0}
                   </div>
                 </div>
               </div>

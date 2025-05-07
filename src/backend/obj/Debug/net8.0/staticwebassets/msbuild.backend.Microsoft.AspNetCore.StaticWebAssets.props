@@ -144,6 +144,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\ba1b3a61-0e67-4053-a967-27690c8f2ea7_QCU_Logo_2019.png'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\be3e61fd-d33f-4559-86fe-b9f6379a3af4_Snapinst.app_485645352_18008255768726067_7072190477111491614_n_1080.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>backend</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/backend</BasePath>
+      <RelativePath>uploads/be3e61fd-d33f-4559-86fe-b9f6379a3af4_Snapinst.app_485645352_18008255768726067_7072190477111491614_n_1080.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>66wy0osuhh</Fingerprint>
+      <Integrity>oojxLQ/tY0HwpPMycKF3XYj6Vgx7EKoy5ibVJ02mptc=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\be3e61fd-d33f-4559-86fe-b9f6379a3af4_Snapinst.app_485645352_18008255768726067_7072190477111491614_n_1080.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\d27329c5-fa19-4afd-838f-77e7f723435f_QCU_Logo_2019.png'))">
       <SourceType>Package</SourceType>
       <SourceId>backend</SourceId>
