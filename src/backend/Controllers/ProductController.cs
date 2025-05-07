@@ -89,41 +89,46 @@ namespace IPT101.Controllers
             }
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetProducts()
-        {
-            try
+        // In ProductController.cs
+[HttpGet]
+public async Task<IActionResult> GetProducts()
+{
+    try
+    {
+        var products = await _context.Products
+            .Include(p => p.Sizes)
+            .Select(p => new
             {
-                var products = await _context.Products
-                    .Include(p => p.Sizes)
-                    .Select(p => new
-                    {
-                        id = p.Id,
-                        name = p.Name,
-                        price = p.Price,
-                        imagePath = p.ImagePath,
-                        sizes = new
-                        {
-                            smallFB = p.Sizes.SmallFB,
-                            mediumFB = p.Sizes.MediumFB,
-                            largeFB = p.Sizes.LargeFB,
-                            smallIG = p.Sizes.SmallIG,
-                            mediumIG = p.Sizes.MediumIG,
-                            largeIG = p.Sizes.LargeIG,
-                            smallShopee = p.Sizes.SmallShopee,
-                            mediumShopee = p.Sizes.MediumShopee,
-                            largeShopee = p.Sizes.LargeShopee
-                        }
-                    })
-                    .ToListAsync();
+                id = p.Id,
+                name = p.Name,
+                price = p.Price,
+                imagePath = p.ImagePath,
+                sizes = new
+                {
+                    small = p.Sizes.Small,         // Add main stock quantities
+                    medium = p.Sizes.Medium,
+                    large = p.Sizes.Large,
+                    smallFB = p.Sizes.SmallFB,
+                    mediumFB = p.Sizes.MediumFB,
+                    largeFB = p.Sizes.LargeFB,
+                    smallIG = p.Sizes.SmallIG,
+                    mediumIG = p.Sizes.MediumIG,
+                    largeIG = p.Sizes.LargeIG,
+                    smallShopee = p.Sizes.SmallShopee,
+                    mediumShopee = p.Sizes.MediumShopee,
+                    largeShopee = p.Sizes.LargeShopee
+                }
+            })
+            .ToListAsync();
 
-                return Ok(products);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { message = "Error fetching products", error = ex.Message });
-            }
-        }
+        return Ok(products);
+    }
+    catch (Exception ex)
+    {
+        return StatusCode(500, new { message = "Error fetching products", error = ex.Message });
+    }
+}
+        
 
         [HttpPost("{id}/updateStock")]
         public async Task<IActionResult> UpdateStock(int id, [FromBody] UpdateStockRequest request)

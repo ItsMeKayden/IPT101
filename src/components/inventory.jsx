@@ -106,7 +106,7 @@ function Inventory() {
               <div className="flex">
                 {/* Purple section with S M L */}
                 <div className="w-20 bg-[#841c4f] text-white">
-                  <div className="py-2 text-center font-bold">STOCKS</div>
+                  <div className="py-2 text-center font-bold invisible">.</div>
                   <div className="py-2 text-center">S</div>
                   <div className="py-2 text-center">M</div>
                   <div className="py-2 text-center">L</div>
@@ -114,7 +114,9 @@ function Inventory() {
 
                 {/* Stock numbers */}
                 <div className="w-16 bg-white text-[#841c4f]">
-                  <div className="py-2 text-center invisible">.</div>
+                  <div className="py-2 text-center bg-[#841c4f] text-white">
+                    STOCKS
+                  </div>
                   <div className="py-2 text-center">
                     {product.sizes?.small || 0}
                   </div>
@@ -696,12 +698,12 @@ function AddProductForm({ fetchProducts }) {
     formDataToSend.append('name', formData.name);
     formDataToSend.append('price', formData.price);
 
-    // Append original stock quantities
+    // Send the main stock quantities correctly
     formDataToSend.append('small', formData.sizes.small);
     formDataToSend.append('medium', formData.sizes.medium);
     formDataToSend.append('large', formData.sizes.large);
 
-    // Initialize platform stocks to 0
+    // Initialize platform-specific stocks
     formDataToSend.append('smallFB', 0);
     formDataToSend.append('mediumFB', 0);
     formDataToSend.append('largeFB', 0);
