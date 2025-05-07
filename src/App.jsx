@@ -1,17 +1,23 @@
-import React, { useState } from 'react'
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
-import Sidebar from './components/Sidebar'
-import Dashboard from './components/Dashboard'
-import Inventory from './components/Inventory'
+import React, { useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
+import Sidebar from './components/Sidebar';
+import Dashboard from './components/Dashboard';
+import Inventory from './components/inventory';
 
 export default function App() {
-  const [blurred, setBlurred] = useState(false)
-  const [activePanel, setActivePanel] = useState('dashboard')
+  const [blurred, setBlurred] = useState(false);
+  const [activePanel, setActivePanel] = useState('dashboard');
 
-  const today = new Date()
-const options = { year: 'numeric', month: 'long', day: 'numeric' }
-const formattedDate = today.toLocaleDateString('en-US', options).toUpperCase()
-
+  const today = new Date();
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const formattedDate = today
+    .toLocaleDateString('en-US', options)
+    .toUpperCase();
 
   return (
     <Router>
@@ -32,14 +38,18 @@ const formattedDate = today.toLocaleDateString('en-US', options).toUpperCase()
         {/* Main content area with sidebar */}
         <div className="flex flex-1 overflow-hidden">
           {/* Sidebar - using your existing component */}
-          <Sidebar 
-            onExpand={setBlurred} 
+          <Sidebar
+            onExpand={setBlurred}
             setActivePanel={setActivePanel}
             activePanel={activePanel}
           />
-          
+
           {/* Content Area - with left margin to account for sidebar */}
-          <main className={`flex-1 overflow-auto ml-20 transition-all duration-300 ${blurred ? 'blur-sm' : ''}`}>
+          <main
+            className={`flex-1 overflow-auto ml-20 transition-all duration-300 ${
+              blurred ? 'blur-sm' : ''
+            }`}
+          >
             <Routes>
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/inventory" element={<Inventory />} />
@@ -49,5 +59,5 @@ const formattedDate = today.toLocaleDateString('en-US', options).toUpperCase()
         </div>
       </div>
     </Router>
-  )
+  );
 }
