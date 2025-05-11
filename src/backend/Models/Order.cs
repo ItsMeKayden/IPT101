@@ -21,10 +21,10 @@ namespace IPT101.Models
         
         public bool IsPaid { get; set; } = false;
         
-        public DateTime OrderDate { get; set; } = DateTime.Now;
+        public DateTime OrderDate { get; set; } = DateTime.UtcNow;
         
         public int ProductId { get; set; }
         
-        public Product Product { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

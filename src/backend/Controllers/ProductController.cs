@@ -292,6 +292,30 @@ namespace IPT101.Controllers
                 return StatusCode(500, new { message = "Error fetching orders", error = ex.Message });
             }
         }
+
+        [HttpPut("orders/{orderId}/updatePayment")]
+        public async Task<IActionResult> UpdatePaymentStatus(int orderId, [FromBody] UpdatePaymentRequest request)
+        {
+            try
+            {
+                var order = await _context.Orders.FindAsync(orderId);
+                
+                if (order == null)
+                    return NotFound(new { message = "Order not found" });
+
+                order.IsPaid = request.IsPaid;
+                await _context.SaveChangesAsync();
+
+                return Ok(new { 
+                    message = "Payment status updated successfully",
+                    isPaid = order.IsPaid 
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Error updating payment status", error = ex.Message });
+            }
+        }
     }
 
     public class UpdateStockRequest
@@ -307,5 +331,10 @@ namespace IPT101.Controllers
         
         [Range(1, int.MaxValue)]
         public int Quantity { get; set; }
+    }
+
+    public class UpdatePaymentRequest
+    {
+        public bool IsPaid { get; set; }
     }
 }

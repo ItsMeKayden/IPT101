@@ -54,6 +54,13 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+// Add this line to debug routes
+app.Use(async (context, next) =>
+{
+    Console.WriteLine($"Request Path: {context.Request.Path}");
+    await next();
+});
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

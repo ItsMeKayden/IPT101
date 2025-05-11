@@ -1166,10 +1166,11 @@ function OrderForm({ product, onClose, onSubmit }) {
 function ViewOrdersDialog({ product, onClose }) {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [confirmDialog, setConfirmDialog] = useState(null);
 
   useEffect(() => {
     fetchOrders();
-  }, [product.id]); // Add product.id as dependency
+  }, [product.id]);
 
   const fetchOrders = async () => {
     try {
@@ -1185,6 +1186,59 @@ function ViewOrdersDialog({ product, onClose }) {
       console.error('Error fetching orders:', error);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handlePaymentToggle = (order) => {
+    setConfirmDialog({
+      orderId: order.id,
+      currentStatus: order.isPaid,
+      customerName: order.customerName,
+    });
+  };
+
+  const confirmStatusChange = async () => {
+    try {
+      const response = await fetch(
+        `http://localhost:5231/api/Product/orders/${confirmDialog.orderId}/updatePayment`,
+        {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            isPaid: !confirmDialog.currentStatus,
+          }),
+        }
+      );
+
+      console.log('Response status:', response.status);
+
+      if (!response.ok) {
+        const errorData = await response.text();
+        console.log('Error response:', errorData);
+        throw new Error(
+          `Failed to update payment status: ${response.status} ${response.statusText}`
+        );
+      }
+
+      const data = await response.json();
+      console.log('Update successful:', data);
+
+      // Update local state
+      setOrders(
+        orders.map((order) =>
+          order.id === confirmDialog.orderId
+            ? { ...order, isPaid: !confirmDialog.currentStatus }
+            : order
+        )
+      );
+
+      setConfirmDialog(null);
+    } catch (error) {
+      console.error('Error details:', error);
+      alert(`Failed to update payment status: ${error.message}`);
     }
   };
 
@@ -1227,15 +1281,16 @@ function ViewOrdersDialog({ product, onClose }) {
                       ₱{order.totalAmount.toFixed(2)}
                     </td>
                     <td className="py-2 px-4 text-center">
-                      <span
-                        className={`px-2 py-1 rounded ${
+                      <button
+                        onClick={() => handlePaymentToggle(order)}
+                        className={`px-3 py-1 rounded-full transition-colors ${
                           order.isPaid
-                            ? 'bg-green-100 text-green-800'
-                            : 'bg-yellow-100 text-yellow-800'
+                            ? 'bg-green-100 text-green-800 hover:bg-green-200'
+                            : 'bg-yellow-100 text-yellow-800 hover:bg-yellow-200'
                         }`}
                       >
                         {order.isPaid ? 'Paid' : 'Pending'}
-                      </span>
+                      </button>
                     </td>
                   </tr>
                 ))}
@@ -1244,6 +1299,38 @@ function ViewOrdersDialog({ product, onClose }) {
           </div>
         )}
       </div>
+
+      {/* Confirmation Dialog */}
+      {confirmDialog && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[60]">
+          <div className="bg-white rounded-lg p-6 max-w-md">
+            <h3 className="text-lg font-bold text-[#841c4f] mb-4">
+              Confirm Status Change
+            </h3>
+            <p className="mb-6">
+              Are you sure you want to mark the order for{' '}
+              <span className="font-semibold">
+                {confirmDialog.customerName}
+              </span>{' '}
+              as {confirmDialog.currentStatus ? 'pending' : 'paid'}?
+            </p>
+            <div className="flex justify-end gap-4">
+              <button
+                onClick={() => setConfirmDialog(null)}
+                className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={confirmStatusChange}
+                className="px-4 py-2 bg-[#841c4f] text-white rounded hover:bg-[#6a183f]"
+              >
+                Confirm
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
