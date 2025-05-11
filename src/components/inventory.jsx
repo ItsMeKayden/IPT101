@@ -1,5 +1,14 @@
 import React, { useEffect, useState } from 'react';
 
+const PRODUCT_CATEGORIES = [
+  { value: 'dress', label: 'Dress' },
+  { value: 'top', label: 'Top' },
+  { value: 'bottoms', label: 'Bottoms' },
+  { value: 'skirts', label: 'Skirts' },
+  { value: 'accessories', label: 'Accessories' },
+  { value: 'others', label: 'Others' },
+];
+
 // Main App Component
 function Inventory() {
   const [products, setProducts] = useState([]);
@@ -108,11 +117,21 @@ function Inventory() {
                   className="w-full h-[120px] object-cover"
                 />
               </div>
-              <div className="bg-[#ffea99] p-2 rounded-lg mt-2">
-                <div className="font-['OFL_Sorts_Mill_Goudy_TT'] text-[12px] uppercase">
+              <div className="bg-[#ffea99] p-3 rounded-lg mt-2">
+                <div className="font-['OFL_Sorts_Mill_Goudy_TT'] text-[13px]">
                   {product.name}
                 </div>
-                <div className="font-['OFL_Sorts_Mill_Goudy_TT'] text-lg">
+                <div className="font-['OFL_Sorts_Mill_Goudy_TT'] text-sm text-center text-[#841c4f] italic">
+                  {product?.category &&
+                  PRODUCT_CATEGORIES.find(
+                    (cat) => cat.value === product.category
+                  )
+                    ? PRODUCT_CATEGORIES.find(
+                        (cat) => cat.value === product.category
+                      ).label
+                    : 'Uncategorized'}
+                </div>
+                <div className="font-['OFL_Sorts_Mill_Goudy_TT'] text-xl">
                   P {Number(product.price).toFixed(2)}
                 </div>
               </div>
@@ -502,6 +521,13 @@ function ProductSection() {
                   <div className="font-['OFL_Sorts_Mill_Goudy_TT'] text-[13px]">
                     {product.name}
                   </div>
+                  <div className="font-['OFL_Sorts_Mill_Goudy_TT'] text-sm text-center text-[#841c4f] italic">
+                    {product?.category
+                      ? PRODUCT_CATEGORIES.find(
+                          (cat) => cat.value === product.category
+                        )?.label || product.category
+                      : 'Uncategorized'}
+                  </div>
                   <div className="font-['OFL_Sorts_Mill_Goudy_TT'] text-xl">
                     P {Number(product.price).toFixed(2)}
                   </div>
@@ -702,6 +728,7 @@ function DialogOverlay({ fetchProducts }) {
 function AddProductForm({ fetchProducts }) {
   const [formData, setFormData] = useState({
     name: '',
+    category: '', // Add category field
     price: '',
     image: null,
     small: 0,
@@ -714,7 +741,12 @@ function AddProductForm({ fetchProducts }) {
 
     try {
       const formDataToSend = new FormData();
+
+      // Log the category before sending
+      console.log('Category being sent:', formData.category);
+
       formDataToSend.append('Name', formData.name);
+      formDataToSend.append('Category', formData.category);
       formDataToSend.append('Price', formData.price);
       formDataToSend.append('Small', formData.small);
       formDataToSend.append('Medium', formData.medium);
@@ -724,7 +756,11 @@ function AddProductForm({ fetchProducts }) {
         formDataToSend.append('Image', formData.image);
       }
 
-      console.log('Sending data:', Object.fromEntries(formDataToSend));
+      // Log the complete FormData
+      console.log(
+        'Form data entries:',
+        Object.fromEntries(formDataToSend.entries())
+      );
 
       const response = await fetch('http://localhost:5231/api/product', {
         method: 'POST',
@@ -737,13 +773,15 @@ function AddProductForm({ fetchProducts }) {
       }
 
       const result = await response.json();
-      console.log('Success:', result);
+      // Log the response from the server
+      console.log('Server response:', result);
 
       await fetchProducts();
 
       // Reset form
       setFormData({
         name: '',
+        category: '',
         price: '',
         image: null,
         small: 0,
@@ -757,7 +795,7 @@ function AddProductForm({ fetchProducts }) {
 
       alert('Product added successfully!');
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error submitting form:', error);
       alert(error.message);
     }
   };
@@ -773,6 +811,26 @@ function AddProductForm({ fetchProducts }) {
           className="w-full p-2 rounded border border-gray-300"
           required
         />
+      </div>
+
+      {/* Add the category dropdown */}
+      <div>
+        <label className="block text-[#841c4f] mb-2">Category:</label>
+        <select
+          value={formData.category}
+          onChange={(e) =>
+            setFormData({ ...formData, category: e.target.value })
+          }
+          className="w-full p-2 rounded border border-gray-300"
+          required
+        >
+          <option value="">Select a category</option>
+          {PRODUCT_CATEGORIES.map((category) => (
+            <option key={category.value} value={category.value}>
+              {category.label}
+            </option>
+          ))}
+        </select>
       </div>
 
       <div>

@@ -33,6 +33,7 @@ namespace IPT101.Controllers
                 var product = new Product
                 {
                     Name = model.Name,
+                    Category = model.Category, // Make sure this is being set
                     Price = model.Price,
                     Sizes = new ProductSizes
                     {
@@ -64,6 +65,9 @@ namespace IPT101.Controllers
                     }
                 };
 
+                // Log the product being created
+                Console.WriteLine($"Creating product with category: {product.Category}");
+
                 // Handle image upload
                 if (model.Image != null && model.Image.Length > 0)
                 {
@@ -84,13 +88,13 @@ namespace IPT101.Controllers
                 _context.Products.Add(product);
                 await _context.SaveChangesAsync();
 
-                return Ok(new
-                {
-                    message = "Product added successfully",
-                    product = new
-                    {
+                // Return the created product with all its properties
+                return Ok(new { 
+                    message = "Product added successfully", 
+                    product = new {
                         id = product.Id,
                         name = product.Name,
+                        category = product.Category, // Include category in response
                         price = product.Price,
                         imagePath = product.ImagePath,
                         sizes = product.Sizes
@@ -99,7 +103,7 @@ namespace IPT101.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { message = "Error adding product", error = ex.Message });
+                return StatusCode(500, new { message = "Error creating product", error = ex.Message });
             }
         }
 
@@ -114,6 +118,7 @@ namespace IPT101.Controllers
                     {
                         id = p.Id,
                         name = p.Name,
+                        category = p.Category, // Add this line to include category
                         price = p.Price,
                         imagePath = p.ImagePath,
                         sizes = new

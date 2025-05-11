@@ -5,16 +5,13 @@ namespace IPT101.Models
 {
     public class Product
     {
-        public Product()
-        {
-            Orders = new List<Order>();
-        }
-
-        [Key]
         public int Id { get; set; }
         
         [Required]
-        public required string Name { get; set; }
+        public string Name { get; set; }
+        
+        [Required]
+        public string Category { get; set; } // Make sure this exists
         
         [Required]
         [Column(TypeName = "decimal(18,2)")]
@@ -22,8 +19,7 @@ namespace IPT101.Models
         
         public string? ImagePath { get; set; }
         
-        [Required]
-        public required ProductSizes Sizes { get; set; }
+        public virtual ProductSizes Sizes { get; set; }
         
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         

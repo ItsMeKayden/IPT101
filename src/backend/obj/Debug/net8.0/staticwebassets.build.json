@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "GXQcaQlhF6gnO1nc6wl1K7W6dtNA1cHjbg+q2rCmFyw=",
+  "Hash": "Snv+cDoiSOzkoIEZQ8lyxRz+tjujwvroeP39n0+xcFA=",
   "Source": "backend",
   "BasePath": "_content/backend",
   "Mode": "Default",
@@ -162,6 +162,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\2eb4022a-7c05-4e3c-869a-5249adc49727_QCU_Logo_2019.png"
+    },
+    {
+      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\58df31fa-af81-4f61-a0a0-7da72e52d28f_Diosdado.jpg",
+      "SourceId": "backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "BasePath": "_content/backend",
+      "RelativePath": "uploads/58df31fa-af81-4f61-a0a0-7da72e52d28f_Diosdado#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "dv7686nk40",
+      "Integrity": "p0Ij3Rc5kjjASrVs/nzBMTVUGp6FAPd3YoMJO4sJFRQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\58df31fa-af81-4f61-a0a0-7da72e52d28f_Diosdado.jpg"
     },
     {
       "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\59e54809-86dd-475e-b258-a448ee51654e_QCU_Logo_2019.png",
@@ -374,6 +395,27 @@
       "OriginalItemSpec": "wwwroot\\uploads\\a8584cef-b08a-413b-a144-cdfcd0dd6b48_QCU_Logo_2019.png"
     },
     {
+      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ab09432e-c97e-43d3-af2b-9531496e3bde_QCU_Logo_2019.png",
+      "SourceId": "backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "BasePath": "_content/backend",
+      "RelativePath": "uploads/ab09432e-c97e-43d3-af2b-9531496e3bde_QCU_Logo_2019#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "3kbnfsfr41",
+      "Integrity": "vVZap66UPQXRg3HxC9O+K5H3bFw9RGTIK185JHsCVoo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\ab09432e-c97e-43d3-af2b-9531496e3bde_QCU_Logo_2019.png"
+    },
+    {
       "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ab0d2130-6e9b-4a15-84dc-8d8241363918_SpoilerImgTroll.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
@@ -563,6 +605,27 @@
       "OriginalItemSpec": "wwwroot\\uploads\\df355002-86e9-460d-a197-5845a6b2e333_malupiton.jpg"
     },
     {
+      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\e831e0bc-bd93-45db-afa7-befe6f1fcd0a_Screenshot_20241106-000200_1.png",
+      "SourceId": "backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "BasePath": "_content/backend",
+      "RelativePath": "uploads/e831e0bc-bd93-45db-afa7-befe6f1fcd0a_Screenshot_20241106-000200_1#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "vbefmlioh5",
+      "Integrity": "tZ935zq/4L7hkHxvWflawa+cFy/PPhRyFVXiRzkvLZk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\e831e0bc-bd93-45db-afa7-befe6f1fcd0a_Screenshot_20241106-000200_1.png"
+    },
+    {
       "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\e8cd11f1-9d43-4f3d-a130-0c0a81a813ac_Green Modern Simple Farming Presentation (1).png",
       "SourceId": "backend",
       "SourceType": "Discovered",
@@ -603,6 +666,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\eaf676ea-8b05-4eef-8ca9-3626e8eab7c4_20250309_120627_0000.png"
+    },
+    {
+      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\eca20ecc-f170-4db6-9f96-bd4b28e48a8f_SpoilerImgTroll.png",
+      "SourceId": "backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "BasePath": "_content/backend",
+      "RelativePath": "uploads/eca20ecc-f170-4db6-9f96-bd4b28e48a8f_SpoilerImgTroll#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "a08cp84usu",
+      "Integrity": "drPFck7jg6THuQW64szkJiaFk0P81KfydXHhUemw4rM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\eca20ecc-f170-4db6-9f96-bd4b28e48a8f_SpoilerImgTroll.png"
     },
     {
       "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ecaa71c6-d421-4038-a3a0-0f5f71b0b9c8_malupiton.jpg",
@@ -1198,6 +1282,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-vVZap66UPQXRg3HxC9O+K5H3bFw9RGTIK185JHsCVoo="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/58df31fa-af81-4f61-a0a0-7da72e52d28f_Diosdado.dv7686nk40.jpg",
+      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\58df31fa-af81-4f61-a0a0-7da72e52d28f_Diosdado.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5786"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"p0Ij3Rc5kjjASrVs/nzBMTVUGp6FAPd3YoMJO4sJFRQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 11 May 2025 10:03:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dv7686nk40"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/58df31fa-af81-4f61-a0a0-7da72e52d28f_Diosdado.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-p0Ij3Rc5kjjASrVs/nzBMTVUGp6FAPd3YoMJO4sJFRQ="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/58df31fa-af81-4f61-a0a0-7da72e52d28f_Diosdado.jpg",
+      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\58df31fa-af81-4f61-a0a0-7da72e52d28f_Diosdado.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5786"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"p0Ij3Rc5kjjASrVs/nzBMTVUGp6FAPd3YoMJO4sJFRQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 11 May 2025 10:03:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-p0Ij3Rc5kjjASrVs/nzBMTVUGp6FAPd3YoMJO4sJFRQ="
         }
       ]
     },
@@ -2022,6 +2188,88 @@
       ]
     },
     {
+      "Route": "uploads/ab09432e-c97e-43d3-af2b-9531496e3bde_QCU_Logo_2019.3kbnfsfr41.png",
+      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ab09432e-c97e-43d3-af2b-9531496e3bde_QCU_Logo_2019.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "114936"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vVZap66UPQXRg3HxC9O+K5H3bFw9RGTIK185JHsCVoo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 11 May 2025 10:46:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "3kbnfsfr41"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/ab09432e-c97e-43d3-af2b-9531496e3bde_QCU_Logo_2019.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-vVZap66UPQXRg3HxC9O+K5H3bFw9RGTIK185JHsCVoo="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/ab09432e-c97e-43d3-af2b-9531496e3bde_QCU_Logo_2019.png",
+      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ab09432e-c97e-43d3-af2b-9531496e3bde_QCU_Logo_2019.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "114936"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vVZap66UPQXRg3HxC9O+K5H3bFw9RGTIK185JHsCVoo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 11 May 2025 10:46:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-vVZap66UPQXRg3HxC9O+K5H3bFw9RGTIK185JHsCVoo="
+        }
+      ]
+    },
+    {
       "Route": "uploads/ab0d2130-6e9b-4a15-84dc-8d8241363918_SpoilerImgTroll.a08cp84usu.png",
       "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ab0d2130-6e9b-4a15-84dc-8d8241363918_SpoilerImgTroll.png",
       "Selectors": [],
@@ -2760,6 +3008,88 @@
       ]
     },
     {
+      "Route": "uploads/e831e0bc-bd93-45db-afa7-befe6f1fcd0a_Screenshot_20241106-000200_1.png",
+      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\e831e0bc-bd93-45db-afa7-befe6f1fcd0a_Screenshot_20241106-000200_1.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "47047"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tZ935zq/4L7hkHxvWflawa+cFy/PPhRyFVXiRzkvLZk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 11 May 2025 10:35:30 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-tZ935zq/4L7hkHxvWflawa+cFy/PPhRyFVXiRzkvLZk="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/e831e0bc-bd93-45db-afa7-befe6f1fcd0a_Screenshot_20241106-000200_1.vbefmlioh5.png",
+      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\e831e0bc-bd93-45db-afa7-befe6f1fcd0a_Screenshot_20241106-000200_1.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "47047"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tZ935zq/4L7hkHxvWflawa+cFy/PPhRyFVXiRzkvLZk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 11 May 2025 10:35:30 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "vbefmlioh5"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/e831e0bc-bd93-45db-afa7-befe6f1fcd0a_Screenshot_20241106-000200_1.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-tZ935zq/4L7hkHxvWflawa+cFy/PPhRyFVXiRzkvLZk="
+        }
+      ]
+    },
+    {
       "Route": "uploads/e8cd11f1-9d43-4f3d-a130-0c0a81a813ac_Green Modern Simple Farming Presentation (1).pjbr11if54.png",
       "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\e8cd11f1-9d43-4f3d-a130-0c0a81a813ac_Green Modern Simple Farming Presentation (1).png",
       "Selectors": [],
@@ -2920,6 +3250,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-ov7eUj/wl2f7T6rxNvLv/BcS8xUIuzjYVhoRf7afkG0="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/eca20ecc-f170-4db6-9f96-bd4b28e48a8f_SpoilerImgTroll.a08cp84usu.png",
+      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\eca20ecc-f170-4db6-9f96-bd4b28e48a8f_SpoilerImgTroll.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "26109"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"drPFck7jg6THuQW64szkJiaFk0P81KfydXHhUemw4rM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 11 May 2025 10:23:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "a08cp84usu"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/eca20ecc-f170-4db6-9f96-bd4b28e48a8f_SpoilerImgTroll.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-drPFck7jg6THuQW64szkJiaFk0P81KfydXHhUemw4rM="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/eca20ecc-f170-4db6-9f96-bd4b28e48a8f_SpoilerImgTroll.png",
+      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\eca20ecc-f170-4db6-9f96-bd4b28e48a8f_SpoilerImgTroll.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "26109"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"drPFck7jg6THuQW64szkJiaFk0P81KfydXHhUemw4rM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 11 May 2025 10:23:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-drPFck7jg6THuQW64szkJiaFk0P81KfydXHhUemw4rM="
         }
       ]
     },
