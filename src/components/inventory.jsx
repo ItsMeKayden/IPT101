@@ -1169,7 +1169,7 @@ function ViewOrdersDialog({ product, onClose }) {
 
   useEffect(() => {
     fetchOrders();
-  }, []);
+  }, [product.id]); // Add product.id as dependency
 
   const fetchOrders = async () => {
     try {

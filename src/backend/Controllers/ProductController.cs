@@ -177,6 +177,19 @@ namespace IPT101.Controllers
                     });
                 }
 
+                // Create new order
+                var order = new Order
+                {
+                    CustomerName = request.CustomerName,
+                    Quantity = request.Quantity,
+                    Size = request.Size,
+                    Platform = request.Platform,
+                    TotalAmount = product.Price * request.Quantity,
+                    ProductId = product.Id
+                };
+
+                _context.Orders.Add(order);
+
                 // Update remaining stock and platform stock
                 switch (request.Size.ToLower())
                 {
@@ -232,11 +245,16 @@ namespace IPT101.Controllers
                 await _context.SaveChangesAsync();
 
                 return Ok(new { 
-                    message = "Stock updated successfully",
-                    remainingStock = new {
-                        small = product.Sizes.RemainingSmall,
-                        medium = product.Sizes.RemainingMedium,
-                        large = product.Sizes.RemainingLarge
+                    message = "Order placed successfully",
+                    order = new {
+                        id = order.Id,
+                        customerName = order.CustomerName,
+                        quantity = order.Quantity,
+                        size = order.Size,
+                        platform = order.Platform,
+                        totalAmount = order.TotalAmount,
+                        isPaid = order.IsPaid,
+                        orderDate = order.OrderDate
                     }
                 });
             }
