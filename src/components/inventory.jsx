@@ -38,42 +38,59 @@ function Inventory() {
     setShowOrderForm(true);
   };
 
+  const handleOrderComplete = async () => {
+    // Refresh products to update quantities
+    await fetchProducts();
+    setShowOrderForm(false);
+    setSelectedProduct(null);
+  };
+
   const handleViewOrders = (product) => {
     setSelectedProduct(product);
     setShowOrdersDialog(true);
   };
 
-  const updateProductStock = async (productId, orderData) => {
+  const updateProductStock = async (product, formData) => {
     try {
       const response = await fetch(
-        `http://localhost:5231/api/product/${productId}/updateStock`,
+        `http://localhost:5231/api/product/${product.id}/updateStock`,
         {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            customerName: orderData.customerName,
-            size: orderData.size,
-            quantity: parseInt(orderData.quantity),
-            platform: orderData.platform,
+            customerName: formData.customerName,
+            quantity: formData.quantity,
+            size: formData.size,
+            platform: formData.platform,
           }),
         }
       );
 
-      const data = await response.json();
-
       if (!response.ok) {
-        throw new Error(data.message || 'Failed to update stock');
+        const error = await response.json();
+        throw new Error(error.message);
       }
 
-      await fetchProducts(); // Refresh products list
-      alert('Order placed successfully!');
+      const result = await response.json();
+      await fetchProducts(); // Refresh the products list
+      return result;
     } catch (error) {
-      console.error('Error updating stock:', error);
-      alert(error.message || 'Failed to update stock');
+      throw new Error(error.message);
     }
   };
+
+  const handleOrderSubmit = async (result) => {
+    try {
+      await fetchProducts(); // Refresh the products list
+      setShowOrderForm(false);
+    } catch (error) {
+      console.error('Error updating products:', error);
+      alert('Error updating products. Please try again.');
+    }
+  };
+
   const renderProducts = () => (
     <div className="px-12">
       {products.map((product) => (
@@ -251,6 +268,19 @@ function Inventory() {
         <div className="text-center py-8">Loading products...</div>
       ) : (
         renderProducts()
+      )}
+      {showOrderForm && (
+        <OrderForm
+          product={selectedProduct}
+          onClose={() => setShowOrderForm(false)}
+          onSubmit={handleOrderSubmit}
+        />
+      )}
+      {showOrdersDialog && (
+        <ViewOrdersDialog
+          product={selectedProduct}
+          onClose={() => setShowOrdersDialog(false)}
+        />
       )}
     </div>
   );
@@ -940,18 +970,19 @@ function SizePopup({ id, title, icon }) {
 function OrderForm({ product, onClose, onSubmit }) {
   const [orderData, setOrderData] = useState({
     customerName: '',
-    quantity: 0,
+    quantity: 1,
     size: 'small',
-    platform: 'facebook',
-    totalAmount: 0,
+    platform: '',
+    totalAmount: product.price,
   });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setOrderData((prev) => {
       const newData = { ...prev, [name]: value };
+      // Update total amount when quantity changes
       if (name === 'quantity') {
-        newData.totalAmount = parseFloat(product.price) * parseInt(value || 0);
+        newData.totalAmount = product.price * parseInt(value || 0);
       }
       return newData;
     });
@@ -960,13 +991,65 @@ function OrderForm({ product, onClose, onSubmit }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (orderData.quantity > product.sizes[orderData.size]) {
-      alert('Not enough stock available!');
+    // Validate form data
+    if (!orderData.customerName.trim()) {
+      alert('Please enter customer name');
       return;
     }
 
-    await onSubmit(product.id, orderData);
-    onClose();
+    if (!orderData.platform) {
+      alert('Please select a platform');
+      return;
+    }
+
+    // Check remaining stock
+    const remainingStock =
+      product.sizes[
+        `remaining${
+          orderData.size.charAt(0).toUpperCase() + orderData.size.slice(1)
+        }`
+      ];
+
+    if (parseInt(orderData.quantity) > remainingStock) {
+      alert(
+        `Not enough stock available! Only ${remainingStock} ${orderData.size} items remaining.`
+      );
+      return;
+    }
+
+    try {
+      // Create the request body with the exact properties the API expects
+      const requestBody = {
+        customerName: orderData.customerName,
+        quantity: parseInt(orderData.quantity),
+        size: orderData.size.toLowerCase(),
+        platform: orderData.platform.toLowerCase(),
+      };
+
+      console.log('Sending order:', requestBody); // Debug log
+
+      const response = await fetch(
+        `http://localhost:5231/api/product/${product.id}/updateStock`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(requestBody),
+        }
+      );
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to place order');
+      }
+
+      const result = await response.json();
+      await onSubmit(result);
+      onClose();
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   return (
@@ -1028,6 +1111,7 @@ function OrderForm({ product, onClose, onSubmit }) {
                 value="facebook"
                 checked={orderData.platform === 'facebook'}
                 onChange={handleInputChange}
+                required
               />
               <img
                 src="icons/image 10.png"
@@ -1042,6 +1126,7 @@ function OrderForm({ product, onClose, onSubmit }) {
                 value="instagram"
                 checked={orderData.platform === 'instagram'}
                 onChange={handleInputChange}
+                required
               />
               <img
                 src="icons/image 9.png"
@@ -1056,6 +1141,7 @@ function OrderForm({ product, onClose, onSubmit }) {
                 value="shopee"
                 checked={orderData.platform === 'shopee'}
                 onChange={handleInputChange}
+                required
               />
               <img src="icons/image 8.png" alt="Shopee" className="w-8 h-8" />
             </label>
@@ -1104,40 +1190,53 @@ function ViewOrdersDialog({ product, onClose }) {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-pink-100 rounded-lg p-6 w-[600px]">
-        <div className="flex justify-between mb-4">
-          <h2 className="text-[#841c4f] text-xl font-bold">Order History</h2>
-          <button onClick={onClose} className="text-[#841c4f]">
-            &times;
+      <div className="bg-pink-100 rounded-lg p-6 w-[800px]">
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-[#841c4f] text-xl font-bold">ORDERS</h2>
+          <button
+            onClick={onClose}
+            className="text-[#841c4f] text-2xl hover:text-red-600"
+          >
+            ×
           </button>
         </div>
 
         {loading ? (
-          <div className="text-center">Loading orders...</div>
+          <div className="text-center py-4">Loading orders...</div>
         ) : (
           <div className="max-h-[400px] overflow-y-auto">
-            <table className="w-full">
-              <thead className="bg-[#841c4f] text-white">
-                <tr>
-                  <th className="p-2">Date</th>
-                  <th className="p-2">Customer</th>
-                  <th className="p-2">Platform</th>
-                  <th className="p-2">Size</th>
-                  <th className="p-2">Qty</th>
-                  <th className="p-2">Total</th>
+            <table className="w-full border-collapse">
+              <thead>
+                <tr className="bg-[#FFE2F0] text-[#841c4f]">
+                  <th className="py-2 px-4 text-left">Names</th>
+                  <th className="py-2 px-4">Quantity</th>
+                  <th className="py-2 px-4">Size</th>
+                  <th className="py-2 px-4">Platform</th>
+                  <th className="py-2 px-4">Total Amount</th>
+                  <th className="py-2 px-4">Status</th>
                 </tr>
               </thead>
               <tbody>
                 {orders.map((order) => (
-                  <tr key={order.id} className="border-b">
-                    <td className="p-2">
-                      {new Date(order.orderDate).toLocaleDateString()}
+                  <tr key={order.id} className="border-b border-pink-200">
+                    <td className="py-2 px-4">{order.customerName}</td>
+                    <td className="py-2 px-4 text-center">{order.quantity}</td>
+                    <td className="py-2 px-4 text-center">{order.size}</td>
+                    <td className="py-2 px-4 text-center">{order.platform}</td>
+                    <td className="py-2 px-4 text-center">
+                      ₱{order.totalAmount.toFixed(2)}
                     </td>
-                    <td className="p-2">{order.customerName}</td>
-                    <td className="p-2">{order.platform}</td>
-                    <td className="p-2">{order.size}</td>
-                    <td className="p-2">{order.quantity}</td>
-                    <td className="p-2">₱{order.totalAmount.toFixed(2)}</td>
+                    <td className="py-2 px-4 text-center">
+                      <span
+                        className={`px-2 py-1 rounded ${
+                          order.isPaid
+                            ? 'bg-green-100 text-green-800'
+                            : 'bg-yellow-100 text-yellow-800'
+                        }`}
+                      >
+                        {order.isPaid ? 'Paid' : 'Pending'}
+                      </span>
+                    </td>
                   </tr>
                 ))}
               </tbody>

@@ -5,26 +5,15 @@ namespace IPT101.Models
 {
     public class Order
     {
-        [Key]
         public int Id { get; set; }
-        
-        public int ProductId { get; set; }
-        public virtual Product? Product { get; set; }
-        
-        [Required]
-        public required string CustomerName { get; set; }
-        
+        public string CustomerName { get; set; }
         public int Quantity { get; set; }
-        
-        [Required]
-        public required string Size { get; set; }
-        
-        [Required]
-        public required string Platform { get; set; }
-        
-        [Column(TypeName = "decimal(18,2)")]
+        public string Size { get; set; }
+        public string Platform { get; set; }
         public decimal TotalAmount { get; set; }
-        
-        public DateTime OrderDate { get; set; } = DateTime.UtcNow;
+        public bool IsPaid { get; set; } = false;
+        public DateTime OrderDate { get; set; } = DateTime.Now;
+        public int ProductId { get; set; }
+        public Product Product { get; set; }
     }
 }

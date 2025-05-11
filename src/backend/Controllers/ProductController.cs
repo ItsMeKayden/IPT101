@@ -160,107 +160,85 @@ namespace IPT101.Controllers
                 if (product == null)
                     return NotFound(new { message = "Product not found" });
 
-                // Update platform-specific stock
-                int currentStock = 0;
-                switch (request.Platform.ToLower())
+                // Check remaining stock only (not platform-specific)
+                int remainingStock = request.Size.ToLower() switch
                 {
-                    case "facebook":
-                        switch (request.Size.ToLower())
-                        {
-                            case "small":
-                                currentStock = product.Sizes.SmallFB;
-                                if (currentStock < request.Quantity)
-                                    return BadRequest(new { message = "Insufficient small size stock for Facebook" });
-                                product.Sizes.SmallFB -= request.Quantity;
-                                break;
-                            case "medium":
-                                currentStock = product.Sizes.MediumFB;
-                                if (currentStock < request.Quantity)
-                                    return BadRequest(new { message = "Insufficient medium size stock for Facebook" });
-                                product.Sizes.MediumFB -= request.Quantity;
-                                break;
-                            case "large":
-                                currentStock = product.Sizes.LargeFB;
-                                if (currentStock < request.Quantity)
-                                    return BadRequest(new { message = "Insufficient large size stock for Facebook" });
-                                product.Sizes.LargeFB -= request.Quantity;
-                                break;
-                            default:
-                                return BadRequest(new { message = "Invalid size" });
-                        }
-                        break;
-
-                    case "instagram":
-                        switch (request.Size.ToLower())
-                        {
-                            case "small":
-                                currentStock = product.Sizes.SmallIG;
-                                if (currentStock < request.Quantity)
-                                    return BadRequest(new { message = "Insufficient small size stock for Instagram" });
-                                product.Sizes.SmallIG -= request.Quantity;
-                                break;
-                            case "medium":
-                                currentStock = product.Sizes.MediumIG;
-                                if (currentStock < request.Quantity)
-                                    return BadRequest(new { message = "Insufficient medium size stock for Instagram" });
-                                product.Sizes.MediumIG -= request.Quantity;
-                                break;
-                            case "large":
-                                currentStock = product.Sizes.LargeIG;
-                                if (currentStock < request.Quantity)
-                                    return BadRequest(new { message = "Insufficient large size stock for Instagram" });
-                                product.Sizes.LargeIG -= request.Quantity;
-                                break;
-                            default:
-                                return BadRequest(new { message = "Invalid size" });
-                        }
-                        break;
-
-                    case "shopee":
-                        switch (request.Size.ToLower())
-                        {
-                            case "small":
-                                currentStock = product.Sizes.SmallShopee;
-                                if (currentStock < request.Quantity)
-                                    return BadRequest(new { message = "Insufficient small size stock for Shopee" });
-                                product.Sizes.SmallShopee -= request.Quantity;
-                                break;
-                            case "medium":
-                                currentStock = product.Sizes.MediumShopee;
-                                if (currentStock < request.Quantity)
-                                    return BadRequest(new { message = "Insufficient medium size stock for Shopee" });
-                                product.Sizes.MediumShopee -= request.Quantity;
-                                break;
-                            case "large":
-                                currentStock = product.Sizes.LargeShopee;
-                                if (currentStock < request.Quantity)
-                                    return BadRequest(new { message = "Insufficient large size stock for Shopee" });
-                                product.Sizes.LargeShopee -= request.Quantity;
-                                break;
-                            default:
-                                return BadRequest(new { message = "Invalid size" });
-                        }
-                        break;
-
-                    default:
-                        return BadRequest(new { message = "Invalid platform" });
-                }
-
-                var order = new Order
-                {
-                    ProductId = id,
-                    CustomerName = request.CustomerName,
-                    Quantity = request.Quantity,
-                    Size = request.Size,
-                    Platform = request.Platform,
-                    TotalAmount = product.Price * request.Quantity,
-                    OrderDate = DateTime.UtcNow
+                    "small" => product.Sizes.RemainingSmall,
+                    "medium" => product.Sizes.RemainingMedium,
+                    "large" => product.Sizes.RemainingLarge,
+                    _ => throw new ArgumentException("Invalid size")
                 };
 
-                _context.Orders.Add(order);
+                // Validate remaining stock availability
+                if (remainingStock < request.Quantity)
+                {
+                    return BadRequest(new { 
+                        message = $"Insufficient stock. Only {remainingStock} {request.Size} size items remaining." 
+                    });
+                }
+
+                // Update remaining stock and platform stock
+                switch (request.Size.ToLower())
+                {
+                    case "small":
+                        product.Sizes.RemainingSmall -= request.Quantity;
+                        switch (request.Platform.ToLower())
+                        {
+                            case "facebook":
+                                product.Sizes.SmallFB += request.Quantity;
+                                break;
+                            case "instagram":
+                                product.Sizes.SmallIG += request.Quantity;
+                                break;
+                            case "shopee":
+                                product.Sizes.SmallShopee += request.Quantity;
+                                break;
+                        }
+                        break;
+
+                    case "medium":
+                        product.Sizes.RemainingMedium -= request.Quantity;
+                        switch (request.Platform.ToLower())
+                        {
+                            case "facebook":
+                                product.Sizes.MediumFB += request.Quantity;
+                                break;
+                            case "instagram":
+                                product.Sizes.MediumIG += request.Quantity;
+                                break;
+                            case "shopee":
+                                product.Sizes.MediumShopee += request.Quantity;
+                                break;
+                        }
+                        break;
+
+                    case "large":
+                        product.Sizes.RemainingLarge -= request.Quantity;
+                        switch (request.Platform.ToLower())
+                        {
+                            case "facebook":
+                                product.Sizes.LargeFB += request.Quantity;
+                                break;
+                            case "instagram":
+                                product.Sizes.LargeIG += request.Quantity;
+                                break;
+                            case "shopee":
+                                product.Sizes.LargeShopee += request.Quantity;
+                                break;
+                        }
+                        break;
+                }
+
                 await _context.SaveChangesAsync();
 
-                return Ok(new { message = "Stock updated successfully", order });
+                return Ok(new { 
+                    message = "Stock updated successfully",
+                    remainingStock = new {
+                        small = product.Sizes.RemainingSmall,
+                        medium = product.Sizes.RemainingMedium,
+                        large = product.Sizes.RemainingLarge
+                    }
+                });
             }
             catch (Exception ex)
             {
@@ -276,6 +254,17 @@ namespace IPT101.Controllers
                 var orders = await _context.Orders
                     .Where(o => o.ProductId == productId)
                     .OrderByDescending(o => o.OrderDate)
+                    .Select(o => new
+                    {
+                        id = o.Id,
+                        customerName = o.CustomerName,
+                        quantity = o.Quantity,
+                        size = o.Size,
+                        platform = o.Platform,
+                        totalAmount = o.TotalAmount,
+                        isPaid = o.IsPaid,
+                        orderDate = o.OrderDate
+                    })
                     .ToListAsync();
 
                 return Ok(orders);

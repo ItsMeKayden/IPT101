@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ABkZ6w13pqVvz8SxZBGkO0n6iHUgUaqcgImX8a76a/w=",
+  "Hash": "d3BJf3NrqyirSUin7iDVSIALdI6ntjmdBE2tFNlc6i8=",
   "Source": "backend",
   "BasePath": "_content/backend",
   "Mode": "Default",
@@ -204,6 +204,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\5a55f72d-e426-4aa9-9631-d7bb0aba4093_20250309_120627_0000.png"
+    },
+    {
+      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\6051c7bc-c8e6-4f27-ae7c-008fe8b8513a_benegas.jpg",
+      "SourceId": "backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "BasePath": "_content/backend",
+      "RelativePath": "uploads/6051c7bc-c8e6-4f27-ae7c-008fe8b8513a_benegas#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "kupe1kwmqa",
+      "Integrity": "pJS5EKvhZt+1xVGEK2em2XlVMA7X28GmB1DNahq1QSY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\6051c7bc-c8e6-4f27-ae7c-008fe8b8513a_benegas.jpg"
     },
     {
       "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\6874bd3d-d4c6-4bb4-9a2d-32a6a5720af9_benegas.jpg",
@@ -519,6 +540,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\de8a8542-545d-4d39-9767-a08f86df7894_SpoilerImgTroll.png"
+    },
+    {
+      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\df355002-86e9-460d-a197-5845a6b2e333_malupiton.jpg",
+      "SourceId": "backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "BasePath": "_content/backend",
+      "RelativePath": "uploads/df355002-86e9-460d-a197-5845a6b2e333_malupiton#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "1q1a2whrpn",
+      "Integrity": "x0bb26Ac+CKkdeVrOPuKO6Tc2+ihNzGkNZsBQyaG084=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\df355002-86e9-460d-a197-5845a6b2e333_malupiton.jpg"
     },
     {
       "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\e8cd11f1-9d43-4f3d-a130-0c0a81a813ac_Green Modern Simple Farming Presentation (1).png",
@@ -1299,6 +1341,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-ov7eUj/wl2f7T6rxNvLv/BcS8xUIuzjYVhoRf7afkG0="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/6051c7bc-c8e6-4f27-ae7c-008fe8b8513a_benegas.jpg",
+      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\6051c7bc-c8e6-4f27-ae7c-008fe8b8513a_benegas.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "72436"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pJS5EKvhZt+1xVGEK2em2XlVMA7X28GmB1DNahq1QSY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 11 May 2025 05:00:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-pJS5EKvhZt+1xVGEK2em2XlVMA7X28GmB1DNahq1QSY="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/6051c7bc-c8e6-4f27-ae7c-008fe8b8513a_benegas.kupe1kwmqa.jpg",
+      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\6051c7bc-c8e6-4f27-ae7c-008fe8b8513a_benegas.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "72436"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pJS5EKvhZt+1xVGEK2em2XlVMA7X28GmB1DNahq1QSY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 11 May 2025 05:00:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "kupe1kwmqa"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/6051c7bc-c8e6-4f27-ae7c-008fe8b8513a_benegas.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-pJS5EKvhZt+1xVGEK2em2XlVMA7X28GmB1DNahq1QSY="
         }
       ]
     },
@@ -2529,6 +2653,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-drPFck7jg6THuQW64szkJiaFk0P81KfydXHhUemw4rM="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/df355002-86e9-460d-a197-5845a6b2e333_malupiton.1q1a2whrpn.jpg",
+      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\df355002-86e9-460d-a197-5845a6b2e333_malupiton.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "29074"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"x0bb26Ac+CKkdeVrOPuKO6Tc2+ihNzGkNZsBQyaG084=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 11 May 2025 04:57:14 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "1q1a2whrpn"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/df355002-86e9-460d-a197-5845a6b2e333_malupiton.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-x0bb26Ac+CKkdeVrOPuKO6Tc2+ihNzGkNZsBQyaG084="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/df355002-86e9-460d-a197-5845a6b2e333_malupiton.jpg",
+      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\df355002-86e9-460d-a197-5845a6b2e333_malupiton.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "29074"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"x0bb26Ac+CKkdeVrOPuKO6Tc2+ihNzGkNZsBQyaG084=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 11 May 2025 04:57:14 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-x0bb26Ac+CKkdeVrOPuKO6Tc2+ihNzGkNZsBQyaG084="
         }
       ]
     },
