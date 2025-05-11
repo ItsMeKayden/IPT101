@@ -134,13 +134,13 @@ function Inventory() {
                     REMAINING
                   </div>
                   <div className="py-2 text-center">
-                    {product.sizes?.smallRemaining || 0}
+                    {product.sizes?.remainingSmall || 0}
                   </div>
                   <div className="py-2 text-center">
-                    {product.sizes?.mediumRemaining || 0}
+                    {product.sizes?.remainingMedium || 0}
                   </div>
                   <div className="py-2 text-center">
-                    {product.sizes?.largeRemaining || 0}
+                    {product.sizes?.remainingLarge || 0}
                   </div>
                 </div>
               </div>
@@ -674,67 +674,28 @@ function AddProductForm({ fetchProducts }) {
     name: '',
     price: '',
     image: null,
-    sizes: {
-      small: 0,
-      medium: 0,
-      large: 0,
-    },
+    small: 0,
+    medium: 0,
+    large: 0,
   });
-
-  const handleInputChange = (e) => {
-    const { name, value, type, files } = e.target;
-
-    if (type === 'file') {
-      setFormData((prev) => ({
-        ...prev,
-        image: files[0],
-      }));
-    } else {
-      setFormData((prev) => ({
-        ...prev,
-        [name]: value,
-      }));
-    }
-  };
-
-  const handleSizeChange = (size, value) => {
-    setFormData((prev) => ({
-      ...prev,
-      sizes: {
-        ...prev.sizes,
-        [size]: parseInt(value) || 0,
-      },
-    }));
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const formDataToSend = new FormData();
-    formDataToSend.append('name', formData.name);
-    formDataToSend.append('price', formData.price);
-
-    // Send the main stock quantities correctly
-    formDataToSend.append('small', formData.sizes.small);
-    formDataToSend.append('medium', formData.sizes.medium);
-    formDataToSend.append('large', formData.sizes.large);
-
-    // Initialize platform-specific stocks
-    formDataToSend.append('smallFB', 0);
-    formDataToSend.append('mediumFB', 0);
-    formDataToSend.append('largeFB', 0);
-    formDataToSend.append('smallIG', 0);
-    formDataToSend.append('mediumIG', 0);
-    formDataToSend.append('largeIG', 0);
-    formDataToSend.append('smallShopee', 0);
-    formDataToSend.append('mediumShopee', 0);
-    formDataToSend.append('largeShopee', 0);
-
-    if (formData.image) {
-      formDataToSend.append('image', formData.image);
-    }
-
     try {
+      const formDataToSend = new FormData();
+      formDataToSend.append('Name', formData.name);
+      formDataToSend.append('Price', formData.price);
+      formDataToSend.append('Small', formData.small);
+      formDataToSend.append('Medium', formData.medium);
+      formDataToSend.append('Large', formData.large);
+
+      if (formData.image) {
+        formDataToSend.append('Image', formData.image);
+      }
+
+      console.log('Sending data:', Object.fromEntries(formDataToSend));
+
       const response = await fetch('http://localhost:5231/api/product', {
         method: 'POST',
         body: formDataToSend,
@@ -746,25 +707,28 @@ function AddProductForm({ fetchProducts }) {
       }
 
       const result = await response.json();
-      console.log('Product added:', result);
+      console.log('Success:', result);
+
+      await fetchProducts();
 
       // Reset form
       setFormData({
         name: '',
         price: '',
         image: null,
-        sizes: {
-          small: 0,
-          medium: 0,
-          large: 0,
-        },
+        small: 0,
+        medium: 0,
+        large: 0,
       });
 
-      await fetchProducts();
+      // Close dialog
+      const dialog = document.querySelector('.dialog-overlay');
+      if (dialog) dialog.style.display = 'none';
+
       alert('Product added successfully!');
     } catch (error) {
-      console.error('Connection error:', error);
-      alert(error.message || 'Failed to add product');
+      console.error('Error:', error);
+      alert(error.message);
     }
   };
 
@@ -774,10 +738,9 @@ function AddProductForm({ fetchProducts }) {
         <label className="block text-[#841c4f] mb-2">Product Name:</label>
         <input
           type="text"
-          name="name"
           value={formData.name}
-          onChange={handleInputChange}
-          className="w-full p-2 rounded border border-[#841c4f] bg-white/70"
+          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+          className="w-full p-2 rounded border border-gray-300"
           required
         />
       </div>
@@ -786,10 +749,9 @@ function AddProductForm({ fetchProducts }) {
         <label className="block text-[#841c4f] mb-2">Product Price:</label>
         <input
           type="number"
-          name="price"
           value={formData.price}
-          onChange={handleInputChange}
-          className="w-full p-2 rounded border border-[#841c4f] bg-white/70"
+          onChange={(e) => setFormData({ ...formData, price: e.target.value })}
+          className="w-full p-2 rounded border border-gray-300"
           min="0"
           step="0.01"
           required
@@ -800,41 +762,72 @@ function AddProductForm({ fetchProducts }) {
         <label className="block text-[#841c4f] mb-2">Upload Image:</label>
         <input
           type="file"
-          name="image"
-          onChange={handleInputChange}
+          onChange={(e) =>
+            setFormData({ ...formData, image: e.target.files[0] })
+          }
           className="w-full p-2"
           accept="image/*"
         />
       </div>
 
-      {/* Size inputs */}
-      <div className="bg-white/50 p-4 rounded-lg">
-        <label className="block text-[#841c4f] mb-2 font-bold">
-          Stock Quantities:
-        </label>
-        <div className="grid grid-cols-3 gap-4">
-          {['small', 'medium', 'large'].map((size) => (
-            <div key={size}>
-              <label className="block text-[#841c4f] text-sm mb-1">
-                {size.charAt(0).toUpperCase() + size.slice(1)}
-              </label>
-              <input
-                type="number"
-                value={formData.sizes[size]}
-                onChange={(e) => handleSizeChange(size, e.target.value)}
-                className="w-full p-2 rounded border border-[#841c4f] bg-white/70 text-center"
-                min="0"
-              />
-            </div>
-          ))}
+      <div className="space-y-4">
+        <div className="flex justify-between gap-4">
+          <div>
+            <label className="block text-sm text-center mb-1">Small</label>
+            <input
+              type="number"
+              value={formData.small}
+              onChange={(e) =>
+                setFormData({
+                  ...formData,
+                  small: parseInt(e.target.value) || 0,
+                })
+              }
+              className="w-full p-2 rounded border border-gray-300"
+              min="0"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-sm text-center mb-1">Medium</label>
+            <input
+              type="number"
+              value={formData.medium}
+              onChange={(e) =>
+                setFormData({
+                  ...formData,
+                  medium: parseInt(e.target.value) || 0,
+                })
+              }
+              className="w-full p-2 rounded border border-gray-300"
+              min="0"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-sm text-center mb-1">Large</label>
+            <input
+              type="number"
+              value={formData.large}
+              onChange={(e) =>
+                setFormData({
+                  ...formData,
+                  large: parseInt(e.target.value) || 0,
+                })
+              }
+              className="w-full p-2 rounded border border-gray-300"
+              min="0"
+              required
+            />
+          </div>
         </div>
       </div>
 
       <button
         type="submit"
-        className="w-full bg-[#ffea99] text-[#841c4f] py-3 px-4 rounded font-semibold hover:bg-[#f0dc8e] transition-colors"
+        className="w-full bg-yellow-200 hover:bg-yellow-300 text-gray-800 font-bold py-2 px-4 rounded-lg transition duration-200"
       >
-        Add Product
+        ADD PRODUCT
       </button>
     </form>
   );

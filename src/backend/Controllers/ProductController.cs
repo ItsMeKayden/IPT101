@@ -25,25 +25,47 @@ namespace IPT101.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
                 var product = new Product
                 {
                     Name = model.Name,
                     Price = model.Price,
                     Sizes = new ProductSizes
                     {
-                        SmallFB = model.SmallFB,
-                        MediumFB = model.MediumFB,
-                        LargeFB = model.LargeFB,
-                        SmallIG = model.SmallIG,
-                        MediumIG = model.MediumIG,
-                        LargeIG = model.LargeIG,
-                        SmallShopee = model.SmallShopee,
-                        MediumShopee = model.MediumShopee,
-                        LargeShopee = model.LargeShopee
+                        // Set total quantities
+                        TotalSmall = model.Small,
+                        TotalMedium = model.Medium,
+                        TotalLarge = model.Large,
+
+                        // Set remaining quantities equal to total
+                        RemainingSmall = model.Small,
+                        RemainingMedium = model.Medium,
+                        RemainingLarge = model.Large,
+
+                        // Set main quantities
+                        Small = 0,  // Changed to 0
+                        Medium = 0, // Changed to 0
+                        Large = 0,  // Changed to 0
+
+                        // Keep platform quantities at 0
+                        SmallFB = 0,
+                        MediumFB = 0,
+                        LargeFB = 0,
+                        SmallIG = 0,
+                        MediumIG = 0,
+                        LargeIG = 0,
+                        SmallShopee = 0,
+                        MediumShopee = 0,
+                        LargeShopee = 0
                     }
                 };
 
-                if (model.Image != null)
+                // Handle image upload
+                if (model.Image != null && model.Image.Length > 0)
                 {
                     var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads");
                     Directory.CreateDirectory(uploadsFolder);
@@ -62,24 +84,16 @@ namespace IPT101.Controllers
                 _context.Products.Add(product);
                 await _context.SaveChangesAsync();
 
-                return Ok(new { 
+                return Ok(new
+                {
                     message = "Product added successfully",
-                    product = new {
+                    product = new
+                    {
                         id = product.Id,
                         name = product.Name,
                         price = product.Price,
                         imagePath = product.ImagePath,
-                        sizes = new {
-                            smallFB = product.Sizes.SmallFB,
-                            mediumFB = product.Sizes.MediumFB,
-                            largeFB = product.Sizes.LargeFB,
-                            smallIG = product.Sizes.SmallIG,
-                            mediumIG = product.Sizes.MediumIG,
-                            largeIG = product.Sizes.LargeIG,
-                            smallShopee = product.Sizes.SmallShopee,
-                            mediumShopee = product.Sizes.MediumShopee,
-                            largeShopee = product.Sizes.LargeShopee
-                        }
+                        sizes = product.Sizes
                     }
                 });
             }
@@ -89,46 +103,50 @@ namespace IPT101.Controllers
             }
         }
 
-        // In ProductController.cs
-[HttpGet]
-public async Task<IActionResult> GetProducts()
-{
-    try
-    {
-        var products = await _context.Products
-            .Include(p => p.Sizes)
-            .Select(p => new
+        [HttpGet]
+        public async Task<IActionResult> GetProducts()
+        {
+            try
             {
-                id = p.Id,
-                name = p.Name,
-                price = p.Price,
-                imagePath = p.ImagePath,
-                sizes = new
-                {
-                    small = p.Sizes.Small,         // Add main stock quantities
-                    medium = p.Sizes.Medium,
-                    large = p.Sizes.Large,
-                    smallFB = p.Sizes.SmallFB,
-                    mediumFB = p.Sizes.MediumFB,
-                    largeFB = p.Sizes.LargeFB,
-                    smallIG = p.Sizes.SmallIG,
-                    mediumIG = p.Sizes.MediumIG,
-                    largeIG = p.Sizes.LargeIG,
-                    smallShopee = p.Sizes.SmallShopee,
-                    mediumShopee = p.Sizes.MediumShopee,
-                    largeShopee = p.Sizes.LargeShopee
-                }
-            })
-            .ToListAsync();
+                var products = await _context.Products
+                    .Include(p => p.Sizes)
+                    .Select(p => new
+                    {
+                        id = p.Id,
+                        name = p.Name,
+                        price = p.Price,
+                        imagePath = p.ImagePath,
+                        sizes = new
+                        {
+                            // Changed to display total quantities properly
+                            small = p.Sizes.TotalSmall,
+                            medium = p.Sizes.TotalMedium,
+                            large = p.Sizes.TotalLarge,
+                            // Remaining quantities
+                            remainingSmall = p.Sizes.RemainingSmall,
+                            remainingMedium = p.Sizes.RemainingMedium,
+                            remainingLarge = p.Sizes.RemainingLarge,
+                            // Platform quantities
+                            smallFB = p.Sizes.SmallFB,
+                            mediumFB = p.Sizes.MediumFB,
+                            largeFB = p.Sizes.LargeFB,
+                            smallIG = p.Sizes.SmallIG,
+                            mediumIG = p.Sizes.MediumIG,
+                            largeIG = p.Sizes.LargeIG,
+                            smallShopee = p.Sizes.SmallShopee,
+                            mediumShopee = p.Sizes.MediumShopee,
+                            largeShopee = p.Sizes.LargeShopee
+                        }
+                    })
+                    .ToListAsync();
 
-        return Ok(products);
-    }
-    catch (Exception ex)
-    {
-        return StatusCode(500, new { message = "Error fetching products", error = ex.Message });
-    }
-}
-        
+                return Ok(products);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Error fetching products", error = ex.Message });
+            }
+        }
 
         [HttpPost("{id}/updateStock")]
         public async Task<IActionResult> UpdateStock(int id, [FromBody] UpdateStockRequest request)

@@ -6,36 +6,21 @@ namespace IPT101.Models
     public class ProductViewModel
     {
         [Required]
-        public required string Name { get; set; }
-
+        public string Name { get; set; } = string.Empty;
+        
         [Required]
-        [Range(0, double.MaxValue)]
+        [Range(0.01, double.MaxValue)]
         public decimal Price { get; set; }
-
+        
         public IFormFile? Image { get; set; }
-
-        // Facebook stocks
+        
         [Range(0, int.MaxValue)]
-        public int SmallFB { get; set; }
+        public int Small { get; set; }
+        
         [Range(0, int.MaxValue)]
-        public int MediumFB { get; set; }
+        public int Medium { get; set; }
+        
         [Range(0, int.MaxValue)]
-        public int LargeFB { get; set; }
-
-        // Instagram stocks
-        [Range(0, int.MaxValue)]
-        public int SmallIG { get; set; }
-        [Range(0, int.MaxValue)]
-        public int MediumIG { get; set; }
-        [Range(0, int.MaxValue)]
-        public int LargeIG { get; set; }
-
-        // Shopee stocks
-        [Range(0, int.MaxValue)]
-        public int SmallShopee { get; set; }
-        [Range(0, int.MaxValue)]
-        public int MediumShopee { get; set; }
-        [Range(0, int.MaxValue)]
-        public int LargeShopee { get; set; }
+        public int Large { get; set; }
     }
 }
