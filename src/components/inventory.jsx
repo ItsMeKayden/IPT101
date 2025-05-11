@@ -6,6 +6,7 @@ const PRODUCT_CATEGORIES = [
   { value: 'bottoms', label: 'Bottoms' },
   { value: 'skirts', label: 'Skirts' },
   { value: 'accessories', label: 'Accessories' },
+  { value: 'hats', label: 'Hats' },
   { value: 'others', label: 'Others' },
 ];
 
