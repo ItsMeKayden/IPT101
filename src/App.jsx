@@ -8,6 +8,9 @@ import {
 import Sidebar from './components/Sidebar';
 import Dashboard from './components/Dashboard';
 import Inventory from './components/inventory';
+import SalesHistory from './components/SalesHistory';
+
+
 
 export default function App() {
   const [blurred, setBlurred] = useState(false);
@@ -54,6 +57,7 @@ export default function App() {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/inventory" element={<Inventory />} />
               <Route path="/" element={<Navigate to="/dashboard" replace />} />
+              <Route path="/sales-history" element={<SalesHistory />} />
             </Routes>
           </main>
         </div>

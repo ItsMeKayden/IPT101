@@ -15,7 +15,12 @@ export default function Sidebar({ onExpand, setActivePanel, activePanel = 'dashb
       id: 'inventory', 
       label: 'INVENTORY', 
       icon: '/icons/inventory.png'
-    }
+    },
+     {
+    id: 'sales-history',
+    label: 'SALES HISTORY',
+    icon: '/icons/sales.png'
+  }
   ]
 
   const handleNavigation = (itemId) => {

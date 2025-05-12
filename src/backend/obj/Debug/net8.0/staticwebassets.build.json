@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Snv+cDoiSOzkoIEZQ8lyxRz+tjujwvroeP39n0+xcFA=",
+  "Hash": "iAhmWlfsCkt9UyzIiB67uxdy1QNYmumPUQWeVnDg6cs=",
   "Source": "backend",
   "BasePath": "_content/backend",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "backend\\wwwroot",
       "Source": "backend",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\0884ded3-7a51-4054-af35-4eda0c55b04a_QCU_Logo_2019.png",
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\0884ded3-7a51-4054-af35-4eda0c55b04a_QCU_Logo_2019.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/0884ded3-7a51-4054-af35-4eda0c55b04a_QCU_Logo_2019#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -38,10 +38,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\0884ded3-7a51-4054-af35-4eda0c55b04a_QCU_Logo_2019.png"
     },
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\12_6687c9c9-e0e8-44b7-87fd-af2d955e518f_SpoilerImgTroll.png",
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\12_6687c9c9-e0e8-44b7-87fd-af2d955e518f_SpoilerImgTroll.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/12_6687c9c9-e0e8-44b7-87fd-af2d955e518f_SpoilerImgTroll#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -59,10 +59,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\12_6687c9c9-e0e8-44b7-87fd-af2d955e518f_SpoilerImgTroll.png"
     },
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\14222346-3b6a-40aa-9bec-8fbe9d285110_Crop Calendar.png",
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\14222346-3b6a-40aa-9bec-8fbe9d285110_Crop Calendar.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/14222346-3b6a-40aa-9bec-8fbe9d285110_Crop Calendar#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -80,10 +80,31 @@
       "OriginalItemSpec": "wwwroot\\uploads\\14222346-3b6a-40aa-9bec-8fbe9d285110_Crop Calendar.png"
     },
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\161586c4-346b-41aa-8537-d069acd28566_QCU_Logo_2019.png",
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\15074dbc-bd8b-4b28-9545-250239341c75_lavagown.jpg",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "BasePath": "_content/backend",
+      "RelativePath": "uploads/15074dbc-bd8b-4b28-9545-250239341c75_lavagown#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "81tch2nhum",
+      "Integrity": "BDm7GLA6r2DUO1CKwTrNOmQ6uIHoGKXWGfipNM9eqdE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\15074dbc-bd8b-4b28-9545-250239341c75_lavagown.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\161586c4-346b-41aa-8537-d069acd28566_QCU_Logo_2019.png",
+      "SourceId": "backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/161586c4-346b-41aa-8537-d069acd28566_QCU_Logo_2019#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -101,10 +122,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\161586c4-346b-41aa-8537-d069acd28566_QCU_Logo_2019.png"
     },
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\20836143-b3b6-49f0-aaa9-22e0ac54b0d7_SpoilerImgTroll.png",
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\20836143-b3b6-49f0-aaa9-22e0ac54b0d7_SpoilerImgTroll.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/20836143-b3b6-49f0-aaa9-22e0ac54b0d7_SpoilerImgTroll#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -122,10 +143,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\20836143-b3b6-49f0-aaa9-22e0ac54b0d7_SpoilerImgTroll.png"
     },
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\2e3767c0-32b5-4e45-8170-d86c6831a1e0_QCU_Logo_2019.png",
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\2e3767c0-32b5-4e45-8170-d86c6831a1e0_QCU_Logo_2019.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/2e3767c0-32b5-4e45-8170-d86c6831a1e0_QCU_Logo_2019#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -143,10 +164,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\2e3767c0-32b5-4e45-8170-d86c6831a1e0_QCU_Logo_2019.png"
     },
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\2eb4022a-7c05-4e3c-869a-5249adc49727_QCU_Logo_2019.png",
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\2eb4022a-7c05-4e3c-869a-5249adc49727_QCU_Logo_2019.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/2eb4022a-7c05-4e3c-869a-5249adc49727_QCU_Logo_2019#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -164,10 +185,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\2eb4022a-7c05-4e3c-869a-5249adc49727_QCU_Logo_2019.png"
     },
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\58df31fa-af81-4f61-a0a0-7da72e52d28f_Diosdado.jpg",
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\58df31fa-af81-4f61-a0a0-7da72e52d28f_Diosdado.jpg",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/58df31fa-af81-4f61-a0a0-7da72e52d28f_Diosdado#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
@@ -185,10 +206,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\58df31fa-af81-4f61-a0a0-7da72e52d28f_Diosdado.jpg"
     },
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\59e54809-86dd-475e-b258-a448ee51654e_QCU_Logo_2019.png",
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\59e54809-86dd-475e-b258-a448ee51654e_QCU_Logo_2019.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/59e54809-86dd-475e-b258-a448ee51654e_QCU_Logo_2019#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -206,10 +227,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\59e54809-86dd-475e-b258-a448ee51654e_QCU_Logo_2019.png"
     },
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\5a55f72d-e426-4aa9-9631-d7bb0aba4093_20250309_120627_0000.png",
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\5a55f72d-e426-4aa9-9631-d7bb0aba4093_20250309_120627_0000.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/5a55f72d-e426-4aa9-9631-d7bb0aba4093_20250309_120627_0000#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -227,10 +248,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\5a55f72d-e426-4aa9-9631-d7bb0aba4093_20250309_120627_0000.png"
     },
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\6051c7bc-c8e6-4f27-ae7c-008fe8b8513a_benegas.jpg",
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\6051c7bc-c8e6-4f27-ae7c-008fe8b8513a_benegas.jpg",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/6051c7bc-c8e6-4f27-ae7c-008fe8b8513a_benegas#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
@@ -248,10 +269,31 @@
       "OriginalItemSpec": "wwwroot\\uploads\\6051c7bc-c8e6-4f27-ae7c-008fe8b8513a_benegas.jpg"
     },
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\6874bd3d-d4c6-4bb4-9a2d-32a6a5720af9_benegas.jpg",
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\62af33bc-60bd-42ae-b67f-24de9b4f14e7_top.jpg",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "BasePath": "_content/backend",
+      "RelativePath": "uploads/62af33bc-60bd-42ae-b67f-24de9b4f14e7_top#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "igcduw7ulb",
+      "Integrity": "Us4kiL0D89NDZ3s3w4rYnKP+frW6MNgkO9WCi/Vpue4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\62af33bc-60bd-42ae-b67f-24de9b4f14e7_top.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\6874bd3d-d4c6-4bb4-9a2d-32a6a5720af9_benegas.jpg",
+      "SourceId": "backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/6874bd3d-d4c6-4bb4-9a2d-32a6a5720af9_benegas#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
@@ -269,10 +311,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\6874bd3d-d4c6-4bb4-9a2d-32a6a5720af9_benegas.jpg"
     },
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\6c38741e-b4c7-48b6-9219-db3af86c7c90_SpoilerImgTroll.png",
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\6c38741e-b4c7-48b6-9219-db3af86c7c90_SpoilerImgTroll.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/6c38741e-b4c7-48b6-9219-db3af86c7c90_SpoilerImgTroll#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -290,10 +332,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\6c38741e-b4c7-48b6-9219-db3af86c7c90_SpoilerImgTroll.png"
     },
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\74364907-b87e-47b5-bcca-a71d40024efb_SpoilerImgTroll.png",
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\74364907-b87e-47b5-bcca-a71d40024efb_SpoilerImgTroll.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/74364907-b87e-47b5-bcca-a71d40024efb_SpoilerImgTroll#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -311,10 +353,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\74364907-b87e-47b5-bcca-a71d40024efb_SpoilerImgTroll.png"
     },
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\74f41406-e5e0-4066-9597-6d10d8e3bc80_20250309_120627_0000.png",
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\74f41406-e5e0-4066-9597-6d10d8e3bc80_20250309_120627_0000.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/74f41406-e5e0-4066-9597-6d10d8e3bc80_20250309_120627_0000#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -332,10 +374,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\74f41406-e5e0-4066-9597-6d10d8e3bc80_20250309_120627_0000.png"
     },
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\7a5e6cab-2a6a-4ce3-a0d0-01db93939662_Crop Calendar.png",
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\7a5e6cab-2a6a-4ce3-a0d0-01db93939662_Crop Calendar.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/7a5e6cab-2a6a-4ce3-a0d0-01db93939662_Crop Calendar#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -353,10 +395,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\7a5e6cab-2a6a-4ce3-a0d0-01db93939662_Crop Calendar.png"
     },
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\9425bf48-0584-40c1-ab58-a4dbca3ee615_QCU_Logo_2019.png",
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\9425bf48-0584-40c1-ab58-a4dbca3ee615_QCU_Logo_2019.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/9425bf48-0584-40c1-ab58-a4dbca3ee615_QCU_Logo_2019#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -374,10 +416,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\9425bf48-0584-40c1-ab58-a4dbca3ee615_QCU_Logo_2019.png"
     },
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\a8584cef-b08a-413b-a144-cdfcd0dd6b48_QCU_Logo_2019.png",
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\a8584cef-b08a-413b-a144-cdfcd0dd6b48_QCU_Logo_2019.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/a8584cef-b08a-413b-a144-cdfcd0dd6b48_QCU_Logo_2019#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -395,10 +437,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\a8584cef-b08a-413b-a144-cdfcd0dd6b48_QCU_Logo_2019.png"
     },
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ab09432e-c97e-43d3-af2b-9531496e3bde_QCU_Logo_2019.png",
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ab09432e-c97e-43d3-af2b-9531496e3bde_QCU_Logo_2019.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/ab09432e-c97e-43d3-af2b-9531496e3bde_QCU_Logo_2019#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -416,10 +458,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\ab09432e-c97e-43d3-af2b-9531496e3bde_QCU_Logo_2019.png"
     },
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ab0d2130-6e9b-4a15-84dc-8d8241363918_SpoilerImgTroll.png",
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ab0d2130-6e9b-4a15-84dc-8d8241363918_SpoilerImgTroll.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/ab0d2130-6e9b-4a15-84dc-8d8241363918_SpoilerImgTroll#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -437,10 +479,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\ab0d2130-6e9b-4a15-84dc-8d8241363918_SpoilerImgTroll.png"
     },
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ba1b3a61-0e67-4053-a967-27690c8f2ea7_QCU_Logo_2019.png",
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ba1b3a61-0e67-4053-a967-27690c8f2ea7_QCU_Logo_2019.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/ba1b3a61-0e67-4053-a967-27690c8f2ea7_QCU_Logo_2019#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -458,10 +500,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\ba1b3a61-0e67-4053-a967-27690c8f2ea7_QCU_Logo_2019.png"
     },
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\be3e61fd-d33f-4559-86fe-b9f6379a3af4_Snapinst.app_485645352_18008255768726067_7072190477111491614_n_1080.jpg",
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\be3e61fd-d33f-4559-86fe-b9f6379a3af4_Snapinst.app_485645352_18008255768726067_7072190477111491614_n_1080.jpg",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/be3e61fd-d33f-4559-86fe-b9f6379a3af4_Snapinst.app_485645352_18008255768726067_7072190477111491614_n_1080#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
@@ -479,10 +521,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\be3e61fd-d33f-4559-86fe-b9f6379a3af4_Snapinst.app_485645352_18008255768726067_7072190477111491614_n_1080.jpg"
     },
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\c57cb970-ec8f-4197-90a7-4451379fec57_Diosdado Macapagal.jpg",
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\c57cb970-ec8f-4197-90a7-4451379fec57_Diosdado Macapagal.jpg",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/c57cb970-ec8f-4197-90a7-4451379fec57_Diosdado Macapagal#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
@@ -500,10 +542,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\c57cb970-ec8f-4197-90a7-4451379fec57_Diosdado Macapagal.jpg"
     },
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\d27329c5-fa19-4afd-838f-77e7f723435f_QCU_Logo_2019.png",
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\d27329c5-fa19-4afd-838f-77e7f723435f_QCU_Logo_2019.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/d27329c5-fa19-4afd-838f-77e7f723435f_QCU_Logo_2019#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -521,10 +563,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\d27329c5-fa19-4afd-838f-77e7f723435f_QCU_Logo_2019.png"
     },
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\d5c74aeb-684c-4fa7-a5dc-fdac7953916c_Screenshot_20241106-000200_1.png",
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\d5c74aeb-684c-4fa7-a5dc-fdac7953916c_Screenshot_20241106-000200_1.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/d5c74aeb-684c-4fa7-a5dc-fdac7953916c_Screenshot_20241106-000200_1#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -542,10 +584,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\d5c74aeb-684c-4fa7-a5dc-fdac7953916c_Screenshot_20241106-000200_1.png"
     },
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ddaf6720-6223-4c5d-8708-577e58823382_Diosdado.jpg",
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ddaf6720-6223-4c5d-8708-577e58823382_Diosdado.jpg",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/ddaf6720-6223-4c5d-8708-577e58823382_Diosdado#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
@@ -563,10 +605,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\ddaf6720-6223-4c5d-8708-577e58823382_Diosdado.jpg"
     },
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\de8a8542-545d-4d39-9767-a08f86df7894_SpoilerImgTroll.png",
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\de8a8542-545d-4d39-9767-a08f86df7894_SpoilerImgTroll.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/de8a8542-545d-4d39-9767-a08f86df7894_SpoilerImgTroll#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -584,10 +626,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\de8a8542-545d-4d39-9767-a08f86df7894_SpoilerImgTroll.png"
     },
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\df355002-86e9-460d-a197-5845a6b2e333_malupiton.jpg",
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\df355002-86e9-460d-a197-5845a6b2e333_malupiton.jpg",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/df355002-86e9-460d-a197-5845a6b2e333_malupiton#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
@@ -605,10 +647,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\df355002-86e9-460d-a197-5845a6b2e333_malupiton.jpg"
     },
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\e831e0bc-bd93-45db-afa7-befe6f1fcd0a_Screenshot_20241106-000200_1.png",
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\e831e0bc-bd93-45db-afa7-befe6f1fcd0a_Screenshot_20241106-000200_1.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/e831e0bc-bd93-45db-afa7-befe6f1fcd0a_Screenshot_20241106-000200_1#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -626,10 +668,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\e831e0bc-bd93-45db-afa7-befe6f1fcd0a_Screenshot_20241106-000200_1.png"
     },
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\e8cd11f1-9d43-4f3d-a130-0c0a81a813ac_Green Modern Simple Farming Presentation (1).png",
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\e8cd11f1-9d43-4f3d-a130-0c0a81a813ac_Green Modern Simple Farming Presentation (1).png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/e8cd11f1-9d43-4f3d-a130-0c0a81a813ac_Green Modern Simple Farming Presentation (1)#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -647,10 +689,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\e8cd11f1-9d43-4f3d-a130-0c0a81a813ac_Green Modern Simple Farming Presentation (1).png"
     },
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\eaf676ea-8b05-4eef-8ca9-3626e8eab7c4_20250309_120627_0000.png",
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\eaf676ea-8b05-4eef-8ca9-3626e8eab7c4_20250309_120627_0000.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/eaf676ea-8b05-4eef-8ca9-3626e8eab7c4_20250309_120627_0000#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -668,10 +710,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\eaf676ea-8b05-4eef-8ca9-3626e8eab7c4_20250309_120627_0000.png"
     },
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\eca20ecc-f170-4db6-9f96-bd4b28e48a8f_SpoilerImgTroll.png",
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\eca20ecc-f170-4db6-9f96-bd4b28e48a8f_SpoilerImgTroll.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/eca20ecc-f170-4db6-9f96-bd4b28e48a8f_SpoilerImgTroll#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -689,10 +731,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\eca20ecc-f170-4db6-9f96-bd4b28e48a8f_SpoilerImgTroll.png"
     },
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ecaa71c6-d421-4038-a3a0-0f5f71b0b9c8_malupiton.jpg",
+      "Identity": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ecaa71c6-d421-4038-a3a0-0f5f71b0b9c8_malupiton.jpg",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/ecaa71c6-d421-4038-a3a0-0f5f71b0b9c8_malupiton#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
@@ -713,7 +755,7 @@
   "Endpoints": [
     {
       "Route": "uploads/0884ded3-7a51-4054-af35-4eda0c55b04a_QCU_Logo_2019.3kbnfsfr41.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\0884ded3-7a51-4054-af35-4eda0c55b04a_QCU_Logo_2019.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\0884ded3-7a51-4054-af35-4eda0c55b04a_QCU_Logo_2019.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -734,7 +776,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 20:44:26 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -758,7 +800,7 @@
     },
     {
       "Route": "uploads/0884ded3-7a51-4054-af35-4eda0c55b04a_QCU_Logo_2019.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\0884ded3-7a51-4054-af35-4eda0c55b04a_QCU_Logo_2019.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\0884ded3-7a51-4054-af35-4eda0c55b04a_QCU_Logo_2019.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -779,7 +821,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 20:44:26 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -795,7 +837,7 @@
     },
     {
       "Route": "uploads/12_6687c9c9-e0e8-44b7-87fd-af2d955e518f_SpoilerImgTroll.a08cp84usu.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\12_6687c9c9-e0e8-44b7-87fd-af2d955e518f_SpoilerImgTroll.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\12_6687c9c9-e0e8-44b7-87fd-af2d955e518f_SpoilerImgTroll.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -816,7 +858,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 03:11:47 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -840,7 +882,7 @@
     },
     {
       "Route": "uploads/12_6687c9c9-e0e8-44b7-87fd-af2d955e518f_SpoilerImgTroll.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\12_6687c9c9-e0e8-44b7-87fd-af2d955e518f_SpoilerImgTroll.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\12_6687c9c9-e0e8-44b7-87fd-af2d955e518f_SpoilerImgTroll.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -861,7 +903,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 03:11:47 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -877,7 +919,7 @@
     },
     {
       "Route": "uploads/14222346-3b6a-40aa-9bec-8fbe9d285110_Crop Calendar.9265jdf97n.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\14222346-3b6a-40aa-9bec-8fbe9d285110_Crop Calendar.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\14222346-3b6a-40aa-9bec-8fbe9d285110_Crop Calendar.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -898,7 +940,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 04:11:22 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -922,7 +964,7 @@
     },
     {
       "Route": "uploads/14222346-3b6a-40aa-9bec-8fbe9d285110_Crop Calendar.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\14222346-3b6a-40aa-9bec-8fbe9d285110_Crop Calendar.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\14222346-3b6a-40aa-9bec-8fbe9d285110_Crop Calendar.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -943,7 +985,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 04:11:22 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -958,8 +1000,90 @@
       ]
     },
     {
+      "Route": "uploads/15074dbc-bd8b-4b28-9545-250239341c75_lavagown.81tch2nhum.jpg",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\15074dbc-bd8b-4b28-9545-250239341c75_lavagown.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7985"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BDm7GLA6r2DUO1CKwTrNOmQ6uIHoGKXWGfipNM9eqdE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "81tch2nhum"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/15074dbc-bd8b-4b28-9545-250239341c75_lavagown.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-BDm7GLA6r2DUO1CKwTrNOmQ6uIHoGKXWGfipNM9eqdE="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/15074dbc-bd8b-4b28-9545-250239341c75_lavagown.jpg",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\15074dbc-bd8b-4b28-9545-250239341c75_lavagown.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7985"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BDm7GLA6r2DUO1CKwTrNOmQ6uIHoGKXWGfipNM9eqdE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-BDm7GLA6r2DUO1CKwTrNOmQ6uIHoGKXWGfipNM9eqdE="
+        }
+      ]
+    },
+    {
       "Route": "uploads/161586c4-346b-41aa-8537-d069acd28566_QCU_Logo_2019.3kbnfsfr41.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\161586c4-346b-41aa-8537-d069acd28566_QCU_Logo_2019.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\161586c4-346b-41aa-8537-d069acd28566_QCU_Logo_2019.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -980,7 +1104,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 22:18:11 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1004,7 +1128,7 @@
     },
     {
       "Route": "uploads/161586c4-346b-41aa-8537-d069acd28566_QCU_Logo_2019.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\161586c4-346b-41aa-8537-d069acd28566_QCU_Logo_2019.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\161586c4-346b-41aa-8537-d069acd28566_QCU_Logo_2019.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1025,7 +1149,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 22:18:11 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1041,7 +1165,7 @@
     },
     {
       "Route": "uploads/20836143-b3b6-49f0-aaa9-22e0ac54b0d7_SpoilerImgTroll.a08cp84usu.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\20836143-b3b6-49f0-aaa9-22e0ac54b0d7_SpoilerImgTroll.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\20836143-b3b6-49f0-aaa9-22e0ac54b0d7_SpoilerImgTroll.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1062,7 +1186,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 20:28:45 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1086,7 +1210,7 @@
     },
     {
       "Route": "uploads/20836143-b3b6-49f0-aaa9-22e0ac54b0d7_SpoilerImgTroll.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\20836143-b3b6-49f0-aaa9-22e0ac54b0d7_SpoilerImgTroll.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\20836143-b3b6-49f0-aaa9-22e0ac54b0d7_SpoilerImgTroll.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1107,7 +1231,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 20:28:45 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1123,7 +1247,7 @@
     },
     {
       "Route": "uploads/2e3767c0-32b5-4e45-8170-d86c6831a1e0_QCU_Logo_2019.3kbnfsfr41.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\2e3767c0-32b5-4e45-8170-d86c6831a1e0_QCU_Logo_2019.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\2e3767c0-32b5-4e45-8170-d86c6831a1e0_QCU_Logo_2019.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1144,7 +1268,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 04:24:53 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1168,7 +1292,7 @@
     },
     {
       "Route": "uploads/2e3767c0-32b5-4e45-8170-d86c6831a1e0_QCU_Logo_2019.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\2e3767c0-32b5-4e45-8170-d86c6831a1e0_QCU_Logo_2019.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\2e3767c0-32b5-4e45-8170-d86c6831a1e0_QCU_Logo_2019.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1189,7 +1313,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 04:24:53 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1205,7 +1329,7 @@
     },
     {
       "Route": "uploads/2eb4022a-7c05-4e3c-869a-5249adc49727_QCU_Logo_2019.3kbnfsfr41.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\2eb4022a-7c05-4e3c-869a-5249adc49727_QCU_Logo_2019.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\2eb4022a-7c05-4e3c-869a-5249adc49727_QCU_Logo_2019.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1226,7 +1350,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 04:54:37 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1250,7 +1374,7 @@
     },
     {
       "Route": "uploads/2eb4022a-7c05-4e3c-869a-5249adc49727_QCU_Logo_2019.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\2eb4022a-7c05-4e3c-869a-5249adc49727_QCU_Logo_2019.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\2eb4022a-7c05-4e3c-869a-5249adc49727_QCU_Logo_2019.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1271,7 +1395,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 04:54:37 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1287,7 +1411,7 @@
     },
     {
       "Route": "uploads/58df31fa-af81-4f61-a0a0-7da72e52d28f_Diosdado.dv7686nk40.jpg",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\58df31fa-af81-4f61-a0a0-7da72e52d28f_Diosdado.jpg",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\58df31fa-af81-4f61-a0a0-7da72e52d28f_Diosdado.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1308,7 +1432,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 10:03:41 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1332,7 +1456,7 @@
     },
     {
       "Route": "uploads/58df31fa-af81-4f61-a0a0-7da72e52d28f_Diosdado.jpg",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\58df31fa-af81-4f61-a0a0-7da72e52d28f_Diosdado.jpg",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\58df31fa-af81-4f61-a0a0-7da72e52d28f_Diosdado.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1353,7 +1477,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 10:03:41 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1369,7 +1493,7 @@
     },
     {
       "Route": "uploads/59e54809-86dd-475e-b258-a448ee51654e_QCU_Logo_2019.3kbnfsfr41.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\59e54809-86dd-475e-b258-a448ee51654e_QCU_Logo_2019.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\59e54809-86dd-475e-b258-a448ee51654e_QCU_Logo_2019.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1390,7 +1514,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 04:43:18 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1414,7 +1538,7 @@
     },
     {
       "Route": "uploads/59e54809-86dd-475e-b258-a448ee51654e_QCU_Logo_2019.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\59e54809-86dd-475e-b258-a448ee51654e_QCU_Logo_2019.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\59e54809-86dd-475e-b258-a448ee51654e_QCU_Logo_2019.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1435,7 +1559,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 04:43:18 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1451,7 +1575,7 @@
     },
     {
       "Route": "uploads/5a55f72d-e426-4aa9-9631-d7bb0aba4093_20250309_120627_0000.ibcw3u66q9.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\5a55f72d-e426-4aa9-9631-d7bb0aba4093_20250309_120627_0000.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\5a55f72d-e426-4aa9-9631-d7bb0aba4093_20250309_120627_0000.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1472,7 +1596,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 20:26:34 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1496,7 +1620,7 @@
     },
     {
       "Route": "uploads/5a55f72d-e426-4aa9-9631-d7bb0aba4093_20250309_120627_0000.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\5a55f72d-e426-4aa9-9631-d7bb0aba4093_20250309_120627_0000.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\5a55f72d-e426-4aa9-9631-d7bb0aba4093_20250309_120627_0000.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1517,7 +1641,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 20:26:34 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1533,7 +1657,7 @@
     },
     {
       "Route": "uploads/6051c7bc-c8e6-4f27-ae7c-008fe8b8513a_benegas.jpg",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\6051c7bc-c8e6-4f27-ae7c-008fe8b8513a_benegas.jpg",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\6051c7bc-c8e6-4f27-ae7c-008fe8b8513a_benegas.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1554,7 +1678,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 05:00:02 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1570,7 +1694,7 @@
     },
     {
       "Route": "uploads/6051c7bc-c8e6-4f27-ae7c-008fe8b8513a_benegas.kupe1kwmqa.jpg",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\6051c7bc-c8e6-4f27-ae7c-008fe8b8513a_benegas.jpg",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\6051c7bc-c8e6-4f27-ae7c-008fe8b8513a_benegas.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1591,7 +1715,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 05:00:02 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1614,8 +1738,90 @@
       ]
     },
     {
+      "Route": "uploads/62af33bc-60bd-42ae-b67f-24de9b4f14e7_top.igcduw7ulb.jpg",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\62af33bc-60bd-42ae-b67f-24de9b4f14e7_top.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6094"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Us4kiL0D89NDZ3s3w4rYnKP+frW6MNgkO9WCi/Vpue4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "igcduw7ulb"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/62af33bc-60bd-42ae-b67f-24de9b4f14e7_top.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Us4kiL0D89NDZ3s3w4rYnKP+frW6MNgkO9WCi/Vpue4="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/62af33bc-60bd-42ae-b67f-24de9b4f14e7_top.jpg",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\62af33bc-60bd-42ae-b67f-24de9b4f14e7_top.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6094"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Us4kiL0D89NDZ3s3w4rYnKP+frW6MNgkO9WCi/Vpue4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Us4kiL0D89NDZ3s3w4rYnKP+frW6MNgkO9WCi/Vpue4="
+        }
+      ]
+    },
+    {
       "Route": "uploads/6874bd3d-d4c6-4bb4-9a2d-32a6a5720af9_benegas.jpg",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\6874bd3d-d4c6-4bb4-9a2d-32a6a5720af9_benegas.jpg",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\6874bd3d-d4c6-4bb4-9a2d-32a6a5720af9_benegas.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1636,7 +1842,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 04:49:39 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1652,7 +1858,7 @@
     },
     {
       "Route": "uploads/6874bd3d-d4c6-4bb4-9a2d-32a6a5720af9_benegas.kupe1kwmqa.jpg",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\6874bd3d-d4c6-4bb4-9a2d-32a6a5720af9_benegas.jpg",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\6874bd3d-d4c6-4bb4-9a2d-32a6a5720af9_benegas.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1673,7 +1879,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 04:49:39 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1697,7 +1903,7 @@
     },
     {
       "Route": "uploads/6c38741e-b4c7-48b6-9219-db3af86c7c90_SpoilerImgTroll.a08cp84usu.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\6c38741e-b4c7-48b6-9219-db3af86c7c90_SpoilerImgTroll.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\6c38741e-b4c7-48b6-9219-db3af86c7c90_SpoilerImgTroll.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1718,7 +1924,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 23:24:37 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1742,7 +1948,7 @@
     },
     {
       "Route": "uploads/6c38741e-b4c7-48b6-9219-db3af86c7c90_SpoilerImgTroll.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\6c38741e-b4c7-48b6-9219-db3af86c7c90_SpoilerImgTroll.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\6c38741e-b4c7-48b6-9219-db3af86c7c90_SpoilerImgTroll.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1763,7 +1969,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 23:24:37 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1779,7 +1985,7 @@
     },
     {
       "Route": "uploads/74364907-b87e-47b5-bcca-a71d40024efb_SpoilerImgTroll.a08cp84usu.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\74364907-b87e-47b5-bcca-a71d40024efb_SpoilerImgTroll.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\74364907-b87e-47b5-bcca-a71d40024efb_SpoilerImgTroll.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1800,7 +2006,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 02:58:02 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1824,7 +2030,7 @@
     },
     {
       "Route": "uploads/74364907-b87e-47b5-bcca-a71d40024efb_SpoilerImgTroll.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\74364907-b87e-47b5-bcca-a71d40024efb_SpoilerImgTroll.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\74364907-b87e-47b5-bcca-a71d40024efb_SpoilerImgTroll.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1845,7 +2051,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 02:58:02 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1861,7 +2067,7 @@
     },
     {
       "Route": "uploads/74f41406-e5e0-4066-9597-6d10d8e3bc80_20250309_120627_0000.ibcw3u66q9.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\74f41406-e5e0-4066-9597-6d10d8e3bc80_20250309_120627_0000.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\74f41406-e5e0-4066-9597-6d10d8e3bc80_20250309_120627_0000.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1882,7 +2088,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 07 May 2025 00:47:34 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1906,7 +2112,7 @@
     },
     {
       "Route": "uploads/74f41406-e5e0-4066-9597-6d10d8e3bc80_20250309_120627_0000.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\74f41406-e5e0-4066-9597-6d10d8e3bc80_20250309_120627_0000.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\74f41406-e5e0-4066-9597-6d10d8e3bc80_20250309_120627_0000.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1927,7 +2133,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 07 May 2025 00:47:34 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1943,7 +2149,7 @@
     },
     {
       "Route": "uploads/7a5e6cab-2a6a-4ce3-a0d0-01db93939662_Crop Calendar.9265jdf97n.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\7a5e6cab-2a6a-4ce3-a0d0-01db93939662_Crop Calendar.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\7a5e6cab-2a6a-4ce3-a0d0-01db93939662_Crop Calendar.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1964,7 +2170,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 04:11:20 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1988,7 +2194,7 @@
     },
     {
       "Route": "uploads/7a5e6cab-2a6a-4ce3-a0d0-01db93939662_Crop Calendar.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\7a5e6cab-2a6a-4ce3-a0d0-01db93939662_Crop Calendar.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\7a5e6cab-2a6a-4ce3-a0d0-01db93939662_Crop Calendar.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2009,7 +2215,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 04:11:20 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2025,7 +2231,7 @@
     },
     {
       "Route": "uploads/9425bf48-0584-40c1-ab58-a4dbca3ee615_QCU_Logo_2019.3kbnfsfr41.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\9425bf48-0584-40c1-ab58-a4dbca3ee615_QCU_Logo_2019.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\9425bf48-0584-40c1-ab58-a4dbca3ee615_QCU_Logo_2019.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2046,7 +2252,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 04:24:53 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2070,7 +2276,7 @@
     },
     {
       "Route": "uploads/9425bf48-0584-40c1-ab58-a4dbca3ee615_QCU_Logo_2019.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\9425bf48-0584-40c1-ab58-a4dbca3ee615_QCU_Logo_2019.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\9425bf48-0584-40c1-ab58-a4dbca3ee615_QCU_Logo_2019.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2091,7 +2297,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 04:24:53 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2107,7 +2313,7 @@
     },
     {
       "Route": "uploads/a8584cef-b08a-413b-a144-cdfcd0dd6b48_QCU_Logo_2019.3kbnfsfr41.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\a8584cef-b08a-413b-a144-cdfcd0dd6b48_QCU_Logo_2019.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\a8584cef-b08a-413b-a144-cdfcd0dd6b48_QCU_Logo_2019.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2128,7 +2334,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 22:49:53 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2152,7 +2358,7 @@
     },
     {
       "Route": "uploads/a8584cef-b08a-413b-a144-cdfcd0dd6b48_QCU_Logo_2019.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\a8584cef-b08a-413b-a144-cdfcd0dd6b48_QCU_Logo_2019.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\a8584cef-b08a-413b-a144-cdfcd0dd6b48_QCU_Logo_2019.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2173,7 +2379,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 22:49:53 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2189,7 +2395,7 @@
     },
     {
       "Route": "uploads/ab09432e-c97e-43d3-af2b-9531496e3bde_QCU_Logo_2019.3kbnfsfr41.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ab09432e-c97e-43d3-af2b-9531496e3bde_QCU_Logo_2019.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ab09432e-c97e-43d3-af2b-9531496e3bde_QCU_Logo_2019.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2210,7 +2416,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 10:46:49 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2234,7 +2440,7 @@
     },
     {
       "Route": "uploads/ab09432e-c97e-43d3-af2b-9531496e3bde_QCU_Logo_2019.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ab09432e-c97e-43d3-af2b-9531496e3bde_QCU_Logo_2019.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ab09432e-c97e-43d3-af2b-9531496e3bde_QCU_Logo_2019.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2255,7 +2461,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 10:46:49 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2271,7 +2477,7 @@
     },
     {
       "Route": "uploads/ab0d2130-6e9b-4a15-84dc-8d8241363918_SpoilerImgTroll.a08cp84usu.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ab0d2130-6e9b-4a15-84dc-8d8241363918_SpoilerImgTroll.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ab0d2130-6e9b-4a15-84dc-8d8241363918_SpoilerImgTroll.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2292,7 +2498,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 04:45:54 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2316,7 +2522,7 @@
     },
     {
       "Route": "uploads/ab0d2130-6e9b-4a15-84dc-8d8241363918_SpoilerImgTroll.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ab0d2130-6e9b-4a15-84dc-8d8241363918_SpoilerImgTroll.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ab0d2130-6e9b-4a15-84dc-8d8241363918_SpoilerImgTroll.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2337,7 +2543,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 04:45:54 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2353,7 +2559,7 @@
     },
     {
       "Route": "uploads/ba1b3a61-0e67-4053-a967-27690c8f2ea7_QCU_Logo_2019.3kbnfsfr41.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ba1b3a61-0e67-4053-a967-27690c8f2ea7_QCU_Logo_2019.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ba1b3a61-0e67-4053-a967-27690c8f2ea7_QCU_Logo_2019.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2374,7 +2580,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 07 May 2025 00:11:53 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2398,7 +2604,7 @@
     },
     {
       "Route": "uploads/ba1b3a61-0e67-4053-a967-27690c8f2ea7_QCU_Logo_2019.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ba1b3a61-0e67-4053-a967-27690c8f2ea7_QCU_Logo_2019.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ba1b3a61-0e67-4053-a967-27690c8f2ea7_QCU_Logo_2019.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2419,7 +2625,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 07 May 2025 00:11:53 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2435,7 +2641,7 @@
     },
     {
       "Route": "uploads/be3e61fd-d33f-4559-86fe-b9f6379a3af4_Snapinst.app_485645352_18008255768726067_7072190477111491614_n_1080.66wy0osuhh.jpg",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\be3e61fd-d33f-4559-86fe-b9f6379a3af4_Snapinst.app_485645352_18008255768726067_7072190477111491614_n_1080.jpg",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\be3e61fd-d33f-4559-86fe-b9f6379a3af4_Snapinst.app_485645352_18008255768726067_7072190477111491614_n_1080.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2456,7 +2662,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 07 May 2025 01:04:19 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2480,7 +2686,7 @@
     },
     {
       "Route": "uploads/be3e61fd-d33f-4559-86fe-b9f6379a3af4_Snapinst.app_485645352_18008255768726067_7072190477111491614_n_1080.jpg",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\be3e61fd-d33f-4559-86fe-b9f6379a3af4_Snapinst.app_485645352_18008255768726067_7072190477111491614_n_1080.jpg",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\be3e61fd-d33f-4559-86fe-b9f6379a3af4_Snapinst.app_485645352_18008255768726067_7072190477111491614_n_1080.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2501,7 +2707,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 07 May 2025 01:04:19 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2517,7 +2723,7 @@
     },
     {
       "Route": "uploads/c57cb970-ec8f-4197-90a7-4451379fec57_Diosdado Macapagal.3pcoo1k0dc.jpg",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\c57cb970-ec8f-4197-90a7-4451379fec57_Diosdado Macapagal.jpg",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\c57cb970-ec8f-4197-90a7-4451379fec57_Diosdado Macapagal.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2538,7 +2744,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 04:29:50 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2562,7 +2768,7 @@
     },
     {
       "Route": "uploads/c57cb970-ec8f-4197-90a7-4451379fec57_Diosdado Macapagal.jpg",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\c57cb970-ec8f-4197-90a7-4451379fec57_Diosdado Macapagal.jpg",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\c57cb970-ec8f-4197-90a7-4451379fec57_Diosdado Macapagal.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2583,7 +2789,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 04:29:50 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2599,7 +2805,7 @@
     },
     {
       "Route": "uploads/d27329c5-fa19-4afd-838f-77e7f723435f_QCU_Logo_2019.3kbnfsfr41.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\d27329c5-fa19-4afd-838f-77e7f723435f_QCU_Logo_2019.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\d27329c5-fa19-4afd-838f-77e7f723435f_QCU_Logo_2019.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2620,7 +2826,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 20:41:12 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2644,7 +2850,7 @@
     },
     {
       "Route": "uploads/d27329c5-fa19-4afd-838f-77e7f723435f_QCU_Logo_2019.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\d27329c5-fa19-4afd-838f-77e7f723435f_QCU_Logo_2019.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\d27329c5-fa19-4afd-838f-77e7f723435f_QCU_Logo_2019.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2665,7 +2871,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 20:41:12 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2681,7 +2887,7 @@
     },
     {
       "Route": "uploads/d5c74aeb-684c-4fa7-a5dc-fdac7953916c_Screenshot_20241106-000200_1.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\d5c74aeb-684c-4fa7-a5dc-fdac7953916c_Screenshot_20241106-000200_1.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\d5c74aeb-684c-4fa7-a5dc-fdac7953916c_Screenshot_20241106-000200_1.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2702,7 +2908,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 04:27:17 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2718,7 +2924,7 @@
     },
     {
       "Route": "uploads/d5c74aeb-684c-4fa7-a5dc-fdac7953916c_Screenshot_20241106-000200_1.vbefmlioh5.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\d5c74aeb-684c-4fa7-a5dc-fdac7953916c_Screenshot_20241106-000200_1.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\d5c74aeb-684c-4fa7-a5dc-fdac7953916c_Screenshot_20241106-000200_1.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2739,7 +2945,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 04:27:17 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2763,7 +2969,7 @@
     },
     {
       "Route": "uploads/ddaf6720-6223-4c5d-8708-577e58823382_Diosdado.dv7686nk40.jpg",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ddaf6720-6223-4c5d-8708-577e58823382_Diosdado.jpg",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ddaf6720-6223-4c5d-8708-577e58823382_Diosdado.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2784,7 +2990,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 23:22:00 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2808,7 +3014,7 @@
     },
     {
       "Route": "uploads/ddaf6720-6223-4c5d-8708-577e58823382_Diosdado.jpg",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ddaf6720-6223-4c5d-8708-577e58823382_Diosdado.jpg",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ddaf6720-6223-4c5d-8708-577e58823382_Diosdado.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2829,7 +3035,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 23:22:00 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2845,7 +3051,7 @@
     },
     {
       "Route": "uploads/de8a8542-545d-4d39-9767-a08f86df7894_SpoilerImgTroll.a08cp84usu.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\de8a8542-545d-4d39-9767-a08f86df7894_SpoilerImgTroll.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\de8a8542-545d-4d39-9767-a08f86df7894_SpoilerImgTroll.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2866,7 +3072,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 07 May 2025 00:47:55 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2890,7 +3096,7 @@
     },
     {
       "Route": "uploads/de8a8542-545d-4d39-9767-a08f86df7894_SpoilerImgTroll.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\de8a8542-545d-4d39-9767-a08f86df7894_SpoilerImgTroll.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\de8a8542-545d-4d39-9767-a08f86df7894_SpoilerImgTroll.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2911,7 +3117,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 07 May 2025 00:47:55 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2927,7 +3133,7 @@
     },
     {
       "Route": "uploads/df355002-86e9-460d-a197-5845a6b2e333_malupiton.1q1a2whrpn.jpg",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\df355002-86e9-460d-a197-5845a6b2e333_malupiton.jpg",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\df355002-86e9-460d-a197-5845a6b2e333_malupiton.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2948,7 +3154,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 04:57:14 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2972,7 +3178,7 @@
     },
     {
       "Route": "uploads/df355002-86e9-460d-a197-5845a6b2e333_malupiton.jpg",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\df355002-86e9-460d-a197-5845a6b2e333_malupiton.jpg",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\df355002-86e9-460d-a197-5845a6b2e333_malupiton.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2993,7 +3199,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 04:57:14 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3009,7 +3215,7 @@
     },
     {
       "Route": "uploads/e831e0bc-bd93-45db-afa7-befe6f1fcd0a_Screenshot_20241106-000200_1.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\e831e0bc-bd93-45db-afa7-befe6f1fcd0a_Screenshot_20241106-000200_1.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\e831e0bc-bd93-45db-afa7-befe6f1fcd0a_Screenshot_20241106-000200_1.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3030,7 +3236,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 10:35:30 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3046,7 +3252,7 @@
     },
     {
       "Route": "uploads/e831e0bc-bd93-45db-afa7-befe6f1fcd0a_Screenshot_20241106-000200_1.vbefmlioh5.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\e831e0bc-bd93-45db-afa7-befe6f1fcd0a_Screenshot_20241106-000200_1.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\e831e0bc-bd93-45db-afa7-befe6f1fcd0a_Screenshot_20241106-000200_1.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3067,7 +3273,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 10:35:30 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3091,7 +3297,7 @@
     },
     {
       "Route": "uploads/e8cd11f1-9d43-4f3d-a130-0c0a81a813ac_Green Modern Simple Farming Presentation (1).pjbr11if54.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\e8cd11f1-9d43-4f3d-a130-0c0a81a813ac_Green Modern Simple Farming Presentation (1).png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\e8cd11f1-9d43-4f3d-a130-0c0a81a813ac_Green Modern Simple Farming Presentation (1).png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3112,7 +3318,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 23:58:44 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3136,7 +3342,7 @@
     },
     {
       "Route": "uploads/e8cd11f1-9d43-4f3d-a130-0c0a81a813ac_Green Modern Simple Farming Presentation (1).png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\e8cd11f1-9d43-4f3d-a130-0c0a81a813ac_Green Modern Simple Farming Presentation (1).png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\e8cd11f1-9d43-4f3d-a130-0c0a81a813ac_Green Modern Simple Farming Presentation (1).png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3157,7 +3363,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 23:58:44 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3173,7 +3379,7 @@
     },
     {
       "Route": "uploads/eaf676ea-8b05-4eef-8ca9-3626e8eab7c4_20250309_120627_0000.ibcw3u66q9.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\eaf676ea-8b05-4eef-8ca9-3626e8eab7c4_20250309_120627_0000.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\eaf676ea-8b05-4eef-8ca9-3626e8eab7c4_20250309_120627_0000.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3194,7 +3400,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 20:25:39 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3218,7 +3424,7 @@
     },
     {
       "Route": "uploads/eaf676ea-8b05-4eef-8ca9-3626e8eab7c4_20250309_120627_0000.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\eaf676ea-8b05-4eef-8ca9-3626e8eab7c4_20250309_120627_0000.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\eaf676ea-8b05-4eef-8ca9-3626e8eab7c4_20250309_120627_0000.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3239,7 +3445,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 20:25:39 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3255,7 +3461,7 @@
     },
     {
       "Route": "uploads/eca20ecc-f170-4db6-9f96-bd4b28e48a8f_SpoilerImgTroll.a08cp84usu.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\eca20ecc-f170-4db6-9f96-bd4b28e48a8f_SpoilerImgTroll.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\eca20ecc-f170-4db6-9f96-bd4b28e48a8f_SpoilerImgTroll.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3276,7 +3482,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 10:23:36 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3300,7 +3506,7 @@
     },
     {
       "Route": "uploads/eca20ecc-f170-4db6-9f96-bd4b28e48a8f_SpoilerImgTroll.png",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\eca20ecc-f170-4db6-9f96-bd4b28e48a8f_SpoilerImgTroll.png",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\eca20ecc-f170-4db6-9f96-bd4b28e48a8f_SpoilerImgTroll.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3321,7 +3527,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 10:23:36 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3337,7 +3543,7 @@
     },
     {
       "Route": "uploads/ecaa71c6-d421-4038-a3a0-0f5f71b0b9c8_malupiton.1q1a2whrpn.jpg",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ecaa71c6-d421-4038-a3a0-0f5f71b0b9c8_malupiton.jpg",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ecaa71c6-d421-4038-a3a0-0f5f71b0b9c8_malupiton.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3358,7 +3564,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 06:44:36 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3382,7 +3588,7 @@
     },
     {
       "Route": "uploads/ecaa71c6-d421-4038-a3a0-0f5f71b0b9c8_malupiton.jpg",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ecaa71c6-d421-4038-a3a0-0f5f71b0b9c8_malupiton.jpg",
+      "AssetFile": "C:\\Users\\MY PC\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ecaa71c6-d421-4038-a3a0-0f5f71b0b9c8_malupiton.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3403,7 +3609,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 06:44:36 GMT"
+          "Value": "Sun, 11 May 2025 12:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
