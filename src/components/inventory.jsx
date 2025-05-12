@@ -17,9 +17,36 @@ function Inventory() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [showOrderForm, setShowOrderForm] = useState(false);
   const [showOrdersDialog, setShowOrdersDialog] = useState(false);
+  const [showAddProductDialog, setShowAddProductDialog] = useState(false);
 
   useEffect(() => {
     fetchProducts();
+    
+    // Handle category tab activation
+    const categoryTabs = document.querySelectorAll('.tab-btn');
+    categoryTabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        categoryTabs.forEach((t) => t.classList.remove('active', 'text-white'));
+        tab.classList.add('active', 'text-white');
+      });
+    });
+
+    // Handle Add Button popup
+    const addButton = document.querySelector('.add-btn');
+    if (addButton) {
+      addButton.addEventListener('click', () => {
+        setShowAddProductDialog(true);
+      });
+    }
+
+    return () => {
+      categoryTabs.forEach(tab => {
+        tab.removeEventListener('click', () => {});
+      });
+      if (addButton) {
+        addButton.removeEventListener('click', () => {});
+      }
+    };
   }, []);
 
   const fetchProducts = async () => {
@@ -102,177 +129,108 @@ function Inventory() {
   };
 
   const renderProducts = () => (
-    <div className="px-12">
+    <div className="px-12 pl-[62px]">
       {products.map((product) => (
-        <div key={product.id} className="mb-6">
-          <div className="flex items-start gap-4">
-            {/* Product Image and Info */}
-            <div className="w-[120px]">
-              <div className="bg-white rounded-lg">
-                <img
-                  src={
-                    `http://localhost:5231${product.imagePath}` ||
-                    'icons/image (2).png'
-                  }
-                  alt={product.name}
-                  className="w-full h-[120px] object-cover"
-                />
+        <div key={product.id} className="mb-8 flex items-start gap-6">
+          {/* Product Image and Info */}
+          <div className="relative w-[150px] flex flex-col items-center group">
+            <div className="w-[170px] h-[220px] flex items-center justify-center overflow-visible z-20 relative" style={{marginBottom: '-20px'}}>
+              <img
+                src={
+                  `http://localhost:5231${product.imagePath}` ||
+                  'icons/image (2).png'
+                }
+                alt={product.name}
+                className="w-full h-full object-cover rounded-xl border border-[#65366F]/30 shadow-lg transition-transform duration-300 group-hover:scale-110 bg-white"
+                style={{zIndex: 2, position: 'relative'}}
+              />
+            </div>
+            {/* Overlay Product Name/Price */}
+            <div className="w-[170px] h-[100px] bg-[#ffea99] rounded-xl flex flex-col items-center justify-center py-2 px-2 shadow-lg z-10 border border-yellow-200 relative" style={{marginTop: '-5px'}}>
+              <div className="font-['OFL_Sorts_Mill_Goudy_TT'] text-[15px] uppercase text-center w-full mt-[25px]">
+                {product.name}
               </div>
-              <div className="bg-[#ffea99] p-3 rounded-lg mt-2">
-                <div className="font-['OFL_Sorts_Mill_Goudy_TT'] text-[13px]">
-                  {product.name}
-                </div>
-                <div className="font-['OFL_Sorts_Mill_Goudy_TT'] text-sm text-center text-[#841c4f] italic">
-                  {product?.category &&
-                  PRODUCT_CATEGORIES.find(
-                    (cat) => cat.value === product.category
-                  )
-                    ? PRODUCT_CATEGORIES.find(
-                        (cat) => cat.value === product.category
-                      ).label
-                    : 'Uncategorized'}
-                </div>
-                <div className="font-['OFL_Sorts_Mill_Goudy_TT'] text-xl">
-                  P {Number(product.price).toFixed(2)}
-                </div>
+              <div className="font-['OFL_Sorts_Mill_Goudy_TT'] text-sm text-center text-[#841c4f] italic">
+                {product?.category &&
+                PRODUCT_CATEGORIES.find(
+                  (cat) => cat.value === product.category
+                )
+                  ? PRODUCT_CATEGORIES.find(
+                      (cat) => cat.value === product.category
+                    ).label
+                  : 'Uncategorized'}
+              </div>
+              <div className="font-['OFL_Sorts_Mill_Goudy_TT'] text-xl text-center w-full">
+                P {Number(product.price).toFixed(2)}
               </div>
             </div>
+          </div>
 
-            <div className="flex flex-1 bg-[#FFE2F0]/30 rounded-xl overflow-hidden">
-              {/* Stock Display */}
-              <div className="flex">
-                {/* Purple section with S M L */}
-                <div className="w-20 bg-[#841c4f] text-white">
-                  <div className="py-2 text-center font-bold invisible">.</div>
-                  <div className="py-2 text-center">S</div>
-                  <div className="py-2 text-center">M</div>
-                  <div className="py-2 text-center">L</div>
-                </div>
-
-                {/* Total Stocks numbers */}
-                <div className="w-24 bg-white text-[#841c4f]">
-                  <div className="py-2 text-center bg-[#841c4f] text-white">
-                    TOTAL
-                  </div>
-                  <div className="py-2 text-center">
-                    {product.sizes?.small || 0}
-                  </div>
-                  <div className="py-2 text-center">
-                    {product.sizes?.medium || 0}
-                  </div>
-                  <div className="py-2 text-center">
-                    {product.sizes?.large || 0}
-                  </div>
-                </div>
-
-                {/* Remaining Stocks numbers */}
-                <div className="w-24 bg-white text-[#841c4f]">
-                  <div className="py-2 text-center bg-[#841c4f] text-white">
-                    REMAINING
-                  </div>
-                  <div className="py-2 text-center">
-                    {product.sizes?.remainingSmall || 0}
-                  </div>
-                  <div className="py-2 text-center">
-                    {product.sizes?.remainingMedium || 0}
-                  </div>
-                  <div className="py-2 text-center">
-                    {product.sizes?.remainingLarge || 0}
-                  </div>
-                </div>
+          {/* Stock Table */}
+          <div 
+            className="flex-1 min-h-[218px] h-[218px] bg-[#f9eef5] rounded-xl flex items-stretch shadow-[0_4px_8px_rgba(101,54,111,0.2)] overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
+            onClick={() => handleViewOrders(product)}
+          >
+            {/* S/M/L Panel */}
+            <div className="flex flex-col items-center bg-[#65366F] text-white px-3 py-2 rounded-l-xl w-[48px] gap-[30px]">
+              <div className="font-bold mt-[50px]">S</div>
+              <div className="font-bold">M</div>
+              <div className="font-bold">L</div>
+            </div>
+            {/* Table Columns */}
+            <div className="flex-1 grid grid-cols-5 divide-x divide-[#e5d0e5]">
+              {/* Total */}
+              <div className="flex flex-col items-center gap-[30px] mt-2">
+                <div className="font-bold text-[#841c4f]">TOTAL</div>
+                <div>{product.sizes?.small || 0}</div>
+                <div>{product.sizes?.medium || 0}</div>
+                <div>{product.sizes?.large || 0}</div>
               </div>
-
-              {/* Platform columns */}
-              <div className="flex-1">
-                <div className="grid grid-cols-3">
-                  <div className="py-2 bg-[#841c4f] text-white text-center">
-                    <div className="flex items-center justify-center gap-2">
-                      <img
-                        src="icons/image 10.png"
-                        alt="Facebook"
-                        className="w-5 h-5"
-                      />
-                      FACEBOOK
-                    </div>
-                  </div>
-                  <div className="py-2 bg-[#841c4f] text-white text-center">
-                    <div className="flex items-center justify-center gap-2">
-                      <img
-                        src="icons/image 9.png"
-                        alt="Instagram"
-                        className="w-5 h-5"
-                      />
-                      INSTAGRAM
-                    </div>
-                  </div>
-                  <div className="py-2 bg-[#841c4f] text-white text-center">
-                    <div className="flex items-center justify-center gap-2">
-                      <img
-                        src="icons/image 8.png"
-                        alt="Shopee"
-                        className="w-5 h-5"
-                      />
-                      SHOPEE
-                    </div>
-                  </div>
-
-                  {/* Facebook Column */}
-                  <div>
-                    <div className="py-2 text-center">
-                      {product.sizes.smallFB}
-                    </div>
-                    <div className="py-2 text-center">
-                      {product.sizes.mediumFB}
-                    </div>
-                    <div className="py-2 text-center">
-                      {product.sizes.largeFB}
-                    </div>
-                  </div>
-
-                  {/* Instagram Column */}
-                  <div>
-                    <div className="py-2 text-center">
-                      {product.sizes.smallIG}
-                    </div>
-                    <div className="py-2 text-center">
-                      {product.sizes.mediumIG}
-                    </div>
-                    <div className="py-2 text-center">
-                      {product.sizes.largeIG}
-                    </div>
-                  </div>
-
-                  {/* Shopee Column */}
-                  <div>
-                    <div className="py-2 text-center">
-                      {product.sizes.smallShopee}
-                    </div>
-                    <div className="py-2 text-center">
-                      {product.sizes.mediumShopee}
-                    </div>
-                    <div className="py-2 text-center">
-                      {product.sizes.largeShopee}
-                    </div>
-                  </div>
-                </div>
+              {/* Remaining */}
+              <div className="flex flex-col items-center gap-[30px] mt-2">
+                <div className="font-bold text-[#841c4f]">REMAINING</div>
+                <div className={getStockColorClass(product.sizes?.remainingSmall || 0)}>{product.sizes?.remainingSmall || 0}</div>
+                <div className={getStockColorClass(product.sizes?.remainingMedium || 0)}>{product.sizes?.remainingMedium || 0}</div>
+                <div className={getStockColorClass(product.sizes?.remainingLarge || 0)}>{product.sizes?.remainingLarge || 0}</div>
+              </div>
+              {/* Facebook */}
+              <div className="flex flex-col items-center gap-[30px] mt-2">
+                <div className="font-bold flex items-center gap-1"><img src="icons/image 10.png" alt="Facebook" className="w-5 h-5" />FACEBOOK</div>
+                <div>{product.sizes.smallFB}</div>
+                <div>{product.sizes.mediumFB}</div>
+                <div>{product.sizes.largeFB}</div>
+              </div>
+              {/* Instagram */}
+              <div className="flex flex-col items-center gap-[30px] mt-2">
+                <div className="font-bold flex items-center gap-1"><img src="icons/image 9.png" alt="Instagram" className="w-5 h-5" />INSTAGRAM</div>
+                <div>{product.sizes.smallIG}</div>
+                <div>{product.sizes.mediumIG}</div>
+                <div>{product.sizes.largeIG}</div>
+              </div>
+              {/* Shopee */}
+              <div className="flex flex-col items-center gap-[30px] mt-2">
+                <div className="font-bold flex items-center gap-1"><img src="icons/image 8.png" alt="Shopee" className="w-5 h-5" />SHOPEE</div>
+                <div>{product.sizes.smallShopee}</div>
+                <div>{product.sizes.mediumShopee}</div>
+                <div>{product.sizes.largeShopee}</div>
               </div>
             </div>
+          </div>
 
-            {/* Action Buttons */}
-            <div className="flex flex-col gap-2">
-              <button
-                onClick={() => handleOrder(product)}
-                className="bg-[#FFE2F0] text-[#841c4f] px-4 py-1 rounded-lg text-sm hover:bg-[#841c4f] hover:text-white transition-colors"
-              >
-                Order
-              </button>
-              <button
-                onClick={() => handleViewOrders(product)}
-                className="bg-[#FFE2F0] text-[#841c4f] px-4 py-1 rounded-lg text-sm hover:bg-[#841c4f] hover:text-white transition-colors"
-              >
-                View Orders
-              </button>
-            </div>
+          {/* Action Buttons */}
+          <div className="flex flex-col gap-3 items-start justify-start h-[170px] ml-2">
+            <button
+              onClick={() => handleOrder(product)}
+              className="bg-[#FFE2F0] text-[#841c4f] w-[120px] h-[44px] rounded-lg text-base font-semibold hover:bg-[#c599ae] hover:text-white transition-colors"
+            >
+              Order
+            </button>
+            <button
+              onClick={() => handleViewOrders(product)}
+              className="bg-[#FFE2F0] text-[#841c4f] w-[120px] h-[44px] rounded-lg text-base font-semibold hover:bg-[#c599ae] hover:text-white transition-colors"
+            >
+              View Orders
+            </button>
           </div>
         </div>
       ))}
@@ -280,15 +238,57 @@ function Inventory() {
   );
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
-      <MainContent />
-      <DialogOverlay fetchProducts={fetchProducts} />
-      <SizePanelPopups />
-      {loading ? (
-        <div className="text-center py-8">Loading products...</div>
-      ) : (
-        renderProducts()
-      )}
+    <div className="min-h-screen flex flex-col bg-[#faf8f9]">
+      <div className="top-0 left-[80px] w-full h-[65px] bg-[#65366F] shadow-md z-10">
+        <div className="flex gap-5 h-full items-center justify-center overflow-visible">
+          <CategoryTab name="DRESS" active={true} />
+          <CategoryTab name="TOP" />
+          <CategoryTab name="BOTTOMS" />
+          <CategoryTab name="SKIRTS" />
+          <CategoryTab name="ACCESSORIES" />
+          <CategoryTab name="OTHERS" />
+        </div>
+      </div>
+      <div className="p-5">
+        <div className="flex justify-center mb-8 relative">
+          <input
+            type="text"
+            className="w-[903px] h-[40px] rounded-full border border-[#65366F] px-5 py-0 text-base bg-white text-gray-900"
+            placeholder="Search..."
+            onChange={(e) => console.log('Search:', e.target.value)}
+          />
+          <img
+            src="icons/Search.png"
+            alt="Search"
+            className="absolute right-[195px] top-1/2 transform -translate-y-1/2 w-5 h-5"
+          />
+        </div>
+        <div className="flex justify-between px-[45px] border-b border-transparent mb-5 font-medium">
+          <div className="flex items-center gap-[5px] font-['OFL_Sorts_Mill_Goudy_TT'] text-xl text-gray-900 px-[40px] select-none">
+            PRODUCTS
+          </div>
+          <div className="flex items-center font-['OFL_Sorts_Mill_Goudy_TT'] text-xl text-gray-900 px-[27px] mr-[500px] select-none">
+            STOCKS
+          </div>
+        </div>
+        {loading ? (
+          <div className="text-center py-8 text-gray-800">Loading products...</div>
+        ) : (
+          renderProducts()
+        )}
+      </div>
+      <div className="fixed right-5 bottom-[50px] flex flex-col gap-4">
+        <img
+          src="icons/Group 6.png"
+          alt="EDIT"
+          className="w-[60px] h-[60px] transition-transform duration-300 ease-in-out hover:scale-110"
+        />
+        <img
+          src="icons/addproduct.png"
+          alt="ADD"
+          className="w-[60px] h-[60px] object-cover transition-transform duration-300 ease-in-out hover:scale-110 add-btn brightness-75"
+        />
+      </div>
       {showOrderForm && (
         <OrderForm
           product={selectedProduct}
@@ -300,6 +300,12 @@ function Inventory() {
         <ViewOrdersDialog
           product={selectedProduct}
           onClose={() => setShowOrdersDialog(false)}
+        />
+      )}
+      {showAddProductDialog && (
+        <AddProductDialog
+          onClose={() => setShowAddProductDialog(false)}
+          fetchProducts={fetchProducts}
         />
       )}
     </div>
@@ -1077,15 +1083,12 @@ function OrderForm({ product, onClose, onSubmit }) {
     }
 
     try {
-      // Create the request body with the exact properties the API expects
       const requestBody = {
         customerName: orderData.customerName,
         quantity: parseInt(orderData.quantity),
         size: orderData.size.toLowerCase(),
         platform: orderData.platform.toLowerCase(),
       };
-
-      console.log('Sending order:', requestBody); // Debug log
 
       const response = await fetch(
         `http://localhost:5231/api/product/${product.id}/updateStock`,
@@ -1112,12 +1115,15 @@ function OrderForm({ product, onClose, onSubmit }) {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-pink-100 rounded-lg p-6 w-96">
-        <div className="flex justify-between mb-4">
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
+      <div className="bg-gradient-to-b from-[#e7d6f7] to-[#f7d6d0] rounded-lg p-6 w-96 shadow-lg">
+        <div className="flex justify-between items-center mb-4">
           <h2 className="text-[#841c4f] text-xl font-bold">Place Order</h2>
-          <button onClick={onClose} className="text-[#841c4f]">
-            &times;
+          <button 
+            onClick={onClose} 
+            className="text-[#841c4f] text-2xl hover:text-red-600"
+          >
+            ×
           </button>
         </div>
 
@@ -1129,7 +1135,7 @@ function OrderForm({ product, onClose, onSubmit }) {
               name="customerName"
               value={orderData.customerName}
               onChange={handleInputChange}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded bg-white/80 backdrop-blur-sm border-[#d2679f]/30 focus:border-[#d2679f] focus:outline-none"
               required
             />
           </div>
@@ -1141,7 +1147,7 @@ function OrderForm({ product, onClose, onSubmit }) {
               name="quantity"
               value={orderData.quantity}
               onChange={handleInputChange}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded bg-white/80 backdrop-blur-sm border-[#d2679f]/30 focus:border-[#d2679f] focus:outline-none"
               min="1"
               required
             />
@@ -1153,7 +1159,7 @@ function OrderForm({ product, onClose, onSubmit }) {
               name="size"
               value={orderData.size}
               onChange={handleInputChange}
-              className="w-full p-2 border rounded"
+              className="w-full p-3 border rounded bg-white/80 backdrop-blur-sm border-[#d2679f]/30 focus:border-[#d2679f] focus:outline-none text-[#841c4f] text-lg"
               required
             >
               <option value="small">Small</option>
@@ -1162,7 +1168,7 @@ function OrderForm({ product, onClose, onSubmit }) {
             </select>
           </div>
 
-          <div className="flex gap-4 justify-center">
+          <div className="flex gap-6 justify-center">
             <label className="flex items-center gap-2">
               <input
                 type="radio"
@@ -1170,6 +1176,7 @@ function OrderForm({ product, onClose, onSubmit }) {
                 value="facebook"
                 checked={orderData.platform === 'facebook'}
                 onChange={handleInputChange}
+                className="w-6 h-6 accent-[#ffb6c1]"
                 required
               />
               <img
@@ -1185,6 +1192,7 @@ function OrderForm({ product, onClose, onSubmit }) {
                 value="instagram"
                 checked={orderData.platform === 'instagram'}
                 onChange={handleInputChange}
+                className="w-6 h-6 accent-[#ffb6c1]"
                 required
               />
               <img
@@ -1200,6 +1208,7 @@ function OrderForm({ product, onClose, onSubmit }) {
                 value="shopee"
                 checked={orderData.platform === 'shopee'}
                 onChange={handleInputChange}
+                className="w-6 h-6 accent-[#ffb6c1]"
                 required
               />
               <img src="icons/image 8.png" alt="Shopee" className="w-8 h-8" />
@@ -1302,8 +1311,8 @@ function ViewOrdersDialog({ product, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-pink-100 rounded-lg p-6 w-[800px]">
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
+      <div className="bg-gradient-to-b from-[#e7d6f7] to-[#f7d6d0] rounded-lg p-6 w-[800px] shadow-lg">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-[#841c4f] text-xl font-bold">ORDERS</h2>
           <button
@@ -1320,7 +1329,7 @@ function ViewOrdersDialog({ product, onClose }) {
           <div className="max-h-[400px] overflow-y-auto">
             <table className="w-full border-collapse">
               <thead>
-                <tr className="bg-[#FFE2F0] text-[#841c4f]">
+                <tr className="bg-white/80 backdrop-blur-sm text-[#841c4f]">
                   <th className="py-2 px-4 text-left">Names</th>
                   <th className="py-2 px-4">Quantity</th>
                   <th className="py-2 px-4">Size</th>
@@ -1331,7 +1340,7 @@ function ViewOrdersDialog({ product, onClose }) {
               </thead>
               <tbody>
                 {orders.map((order) => (
-                  <tr key={order.id} className="border-b border-pink-200">
+                  <tr key={order.id} className="border-b border-[#d2679f]/30 bg-white/60 backdrop-blur-sm">
                     <td className="py-2 px-4">{order.customerName}</td>
                     <td className="py-2 px-4 text-center">{order.quantity}</td>
                     <td className="py-2 px-4 text-center">{order.size}</td>
@@ -1340,16 +1349,15 @@ function ViewOrdersDialog({ product, onClose }) {
                       ₱{order.totalAmount.toFixed(2)}
                     </td>
                     <td className="py-2 px-4 text-center">
-                      <button
-                        onClick={() => handlePaymentToggle(order)}
-                        className={`px-3 py-1 rounded-full transition-colors ${
+                      <span
+                        className={`px-2 py-1 rounded ${
                           order.isPaid
-                            ? 'bg-green-100 text-green-800 hover:bg-green-200'
-                            : 'bg-yellow-100 text-yellow-800 hover:bg-yellow-200'
+                            ? 'bg-green-100/80 backdrop-blur-sm text-green-800'
+                            : 'bg-yellow-100/80 backdrop-blur-sm text-yellow-800'
                         }`}
                       >
                         {order.isPaid ? 'Paid' : 'Pending'}
-                      </button>
+                      </span>
                     </td>
                   </tr>
                 ))}
@@ -1392,6 +1400,197 @@ function ViewOrdersDialog({ product, onClose }) {
       )}
     </div>
   );
+}
+
+function AddProductDialog({ onClose, fetchProducts }) {
+  const [formData, setFormData] = useState({
+    name: '',
+    category: '', // Added category field
+    price: '',
+    image: null,
+    small: 0,
+    medium: 0,
+    large: 0,
+  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const formDataToSend = new FormData();
+      formDataToSend.append('Name', formData.name);
+      formDataToSend.append('Category', formData.category); // Added category
+      formDataToSend.append('Price', formData.price);
+      formDataToSend.append('Small', formData.small);
+      formDataToSend.append('Medium', formData.medium);
+      formDataToSend.append('Large', formData.large);
+
+      if (formData.image) {
+        formDataToSend.append('Image', formData.image);
+      }
+
+      const response = await fetch('http://localhost:5231/api/product', {
+        method: 'POST',
+        body: formDataToSend,
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to add product');
+      }
+
+      const result = await response.json();
+      await fetchProducts();
+      onClose();
+    } catch (error) {
+      console.error('Error:', error);
+      alert(error.message);
+    }
+  };
+
+  return (
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
+      <div className="max-w-[500px] w-full rounded-xl relative bg-gradient-to-b from-[#e7d6f7] to-[#f7d6d0] shadow-lg">
+        <button 
+          onClick={onClose}
+          className="close-button absolute top-2 right-2 text-[#841c4f] text-2xl font-bold z-10"
+        >
+          ×
+        </button>
+        <form onSubmit={handleSubmit} className="p-6 space-y-6">
+          <div>
+            <label className="block text-[#841c4f] mb-2">Product Name:</label>
+            <input
+              type="text"
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              className="w-full p-2 rounded border border-gray-300"
+              required
+            />
+          </div>
+
+          {/* Added Category Dropdown */}
+          <div>
+            <label className="block text-[#841c4f] mb-2">Category:</label>
+            <select
+              value={formData.category}
+              onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+              className="w-full p-2 rounded border border-gray-300"
+              required
+            >
+              <option value="">Select a category</option>
+              {PRODUCT_CATEGORIES.map((category) => (
+                <option key={category.value} value={category.value}>
+                  {category.label}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-[#841c4f] mb-2">Product Price:</label>
+            <input
+              type="number"
+              value={formData.price}
+              onChange={(e) => setFormData({ ...formData, price: e.target.value })}
+              className="w-full p-2 rounded border border-gray-300"
+              min="0"
+              step="0.01"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block text-[#841c4f] mb-2">Product Image:</label>
+            <div className="flex items-center gap-3">
+              <label htmlFor="product-image-upload" className="flex items-center gap-2 cursor-pointer px-4 py-2 bg-white/80 border border-gray-300 rounded-lg shadow hover:bg-pink-100 transition">
+                <img src="/icons/addimage.png" alt="Add" className="w-6 h-6" />
+                <span className="text-[#841c4f] font-semibold">Add Image</span>
+                <input
+                  id="product-image-upload"
+                  type="file"
+                  onChange={(e) => setFormData({ ...formData, image: e.target.files[0] })}
+                  className="hidden"
+                  accept="image/*"
+                />
+              </label>
+              {formData.image && (
+                <span className="text-sm text-gray-700 truncate max-w-[150px]">{formData.image.name}</span>
+              )}
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <div className="flex justify-between gap-4">
+              <div>
+                <label className="block text-sm text-center mb-1">Small</label>
+                <input
+                  type="number"
+                  value={formData.small}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      small: parseInt(e.target.value) || 0,
+                    })
+                  }
+                  className="w-full p-2 rounded border border-gray-300"
+                  min="0"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm text-center mb-1">Medium</label>
+                <input
+                  type="number"
+                  value={formData.medium}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      medium: parseInt(e.target.value) || 0,
+                    })
+                  }
+                  className="w-full p-2 rounded border border-gray-300"
+                  min="0"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm text-center mb-1">Large</label>
+                <input
+                  type="number"
+                  value={formData.large}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      large: parseInt(e.target.value) || 0,
+                    })
+                  }
+                  className="w-full p-2 rounded border border-gray-300"
+                  min="0"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-yellow-200 hover:bg-yellow-300 text-gray-800 font-bold py-2 px-4 rounded-lg transition duration-200"
+          >
+            ADD PRODUCT
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+// Helper for stock color
+function getStockColorClass(stock) {
+  if (stock >= 10) return '';
+  if (stock >= 4 && stock <= 5) return 'text-yellow-500 font-bold';
+  if (stock >= 0 && stock <= 3) return 'text-red-500 font-bold';
+  return '';
 }
 
 export default Inventory;

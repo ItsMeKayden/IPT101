@@ -248,46 +248,46 @@ export default function SalesHistory() {
   }, [salesByDate]);
 
   // Colors for charts
-  const CHART_COLORS = ['#8E325E', '#C04C82', '#E46B9E', '#FBD1E6', '#591536', '#3F1028'];
+  const CHART_COLORS = ['#65366F', '#841c4f', '#c45d9c', '#FFE2F0', '#ffea99', '#f9eef5'];
 
   return (
-    <div className="p-6 text-gray-800 max-w-7xl mx-auto">
+    <div className="p-6 text-gray-800 max-w-7xl mx-auto ml-[80px]">
       {/* Header Section */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
-        <h1 className="text-3xl font-bold text-[#8E325E]">Sales History</h1>
+        <h1 className="text-3xl font-bold text-[#841c4f] font-['OFL_Sorts_Mill_Goudy_TT']">Sales History</h1>
         
         {/* Analytics Toggle */}
         <button 
           onClick={() => setShowAnalytics(prev => !prev)}
-          className="px-4 py-2 bg-[#8E325E] text-white rounded hover:bg-[#591536] transition-colors"
+          className="px-4 py-2 bg-[#65366F] text-white rounded-lg hover:bg-[#7d468a] transition-colors"
         >
           {showAnalytics ? 'Hide Analytics' : 'Show Analytics'}
         </button>
       </div>
       
       {/* Filters Section */}
-      <div className="bg-[#FBD1E6]/20 p-4 rounded-lg shadow mb-6">
-        <h2 className="text-lg font-semibold text-[#591536] mb-3">Filters</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+      <div className="bg-gradient-to-b from-[#e7d6f7] to-[#f7d6d0] p-6 rounded-xl shadow-[0_4px_8px_rgba(101,54,111,0.2)] mb-6">
+        <h2 className="text-lg font-semibold text-[#841c4f] mb-4 font-['OFL_Sorts_Mill_Goudy_TT']">Filters</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <div className="flex flex-col">
-            <label htmlFor="datePicker" className="text-sm font-medium text-[#591536] mb-1">Date:</label>
+            <label htmlFor="datePicker" className="text-sm font-medium text-[#841c4f] mb-2">Date:</label>
             <input
               id="datePicker"
               type="date"
               value={selectedDate}
               onChange={(e) => setSelectedDate(e.target.value)}
-              className="border px-3 py-2 rounded text-[#591536] focus:ring-2 focus:ring-[#8E325E] focus:border-transparent"
-              max="2025-05-13" // Based on your data
+              className="border border-[#65366F]/30 px-3 py-2 rounded-lg text-[#841c4f] focus:ring-2 focus:ring-[#65366F] focus:border-transparent bg-white/80 backdrop-blur-sm hover:bg-white/90"
+              max="2025-05-13"
             />
           </div>
           
           <div className="flex flex-col">
-            <label htmlFor="periodSelect" className="text-sm font-medium text-[#591536] mb-1">View Period:</label>
+            <label htmlFor="periodSelect" className="text-sm font-medium text-[#841c4f] mb-2">View Period:</label>
             <select
               id="periodSelect"
               value={viewPeriod}
               onChange={(e) => setViewPeriod(e.target.value)}
-              className="border px-3 py-2 rounded text-[#591536] focus:ring-2 focus:ring-[#8E325E] focus:border-transparent"
+              className="border border-[#65366F]/30 px-3 py-2 rounded-lg text-[#841c4f] focus:ring-2 focus:ring-[#65366F] focus:border-transparent bg-white/80 backdrop-blur-sm hover:bg-white/90"
             >
               <option value="day">Daily</option>
               <option value="week">Weekly</option>
@@ -296,12 +296,12 @@ export default function SalesHistory() {
           </div>
           
           <div className="flex flex-col">
-            <label htmlFor="platformSelect" className="text-sm font-medium text-[#591536] mb-1">Platform:</label>
+            <label htmlFor="platformSelect" className="text-sm font-medium text-[#841c4f] mb-2">Platform:</label>
             <select
               id="platformSelect"
               value={platformFilter}
               onChange={(e) => setPlatformFilter(e.target.value)}
-              className="border px-3 py-2 rounded text-[#591536] focus:ring-2 focus:ring-[#8E325E] focus:border-transparent"
+              className="border border-[#65366F]/30 px-3 py-2 rounded-lg text-[#841c4f] focus:ring-2 focus:ring-[#65366F] focus:border-transparent bg-white/80 backdrop-blur-sm hover:bg-white/90"
             >
               <option value="All">All Platforms</option>
               {filterOptions.platforms.map((platform, idx) => (
@@ -311,12 +311,12 @@ export default function SalesHistory() {
           </div>
           
           <div className="flex flex-col">
-            <label htmlFor="categorySelect" className="text-sm font-medium text-[#591536] mb-1">Category:</label>
+            <label htmlFor="categorySelect" className="text-sm font-medium text-[#841c4f] mb-2">Category:</label>
             <select
               id="categorySelect"
               value={categoryFilter}
               onChange={(e) => setCategoryFilter(e.target.value)}
-              className="border px-3 py-2 rounded text-[#591536] focus:ring-2 focus:ring-[#8E325E] focus:border-transparent"
+              className="border border-[#65366F]/30 px-3 py-2 rounded-lg text-[#841c4f] focus:ring-2 focus:ring-[#65366F] focus:border-transparent bg-white/80 backdrop-blur-sm hover:bg-white/90"
             >
               <option value="All">All Categories</option>
               {filterOptions.categories.map((category, idx) => (
@@ -327,53 +327,53 @@ export default function SalesHistory() {
         </div>
         
         {/* Search Box */}
-        <div className="mt-3">
-          <label htmlFor="searchBox" className="text-sm font-medium text-[#591536] mb-1">Search:</label>
+        <div className="mt-4">
+          <label htmlFor="searchBox" className="text-sm font-medium text-[#841c4f] mb-2">Search:</label>
           <input
             id="searchBox"
             type="text"
             placeholder="Search by customer, product, category..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full border px-3 py-2 rounded text-[#591536] focus:ring-2 focus:ring-[#8E325E] focus:border-transparent"
+            className="w-full border border-[#65366F]/30 px-3 py-2 rounded-lg text-[#841c4f] focus:ring-2 focus:ring-[#65366F] focus:border-transparent bg-white/80 backdrop-blur-sm hover:bg-white/90"
           />
         </div>
       </div>
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-        <div className="bg-[#FBD1E6] p-4 rounded-lg shadow">
-          <h3 className="text-lg font-semibold text-[#591536]">Total Sales</h3>
-          <p className="text-sm text-[#591536]">
+        <div className="bg-[#FFE2F0] p-6 rounded-xl shadow-[0_4px_8px_rgba(101,54,111,0.2)] transition-transform duration-300 hover:scale-105">
+          <h3 className="text-lg font-semibold text-[#841c4f] font-['OFL_Sorts_Mill_Goudy_TT']">Total Sales</h3>
+          <p className="text-sm text-[#841c4f]">
             {viewPeriod === 'day' ? `Daily: ${selectedDate}` : 
              viewPeriod === 'week' ? `Weekly: ${currentDateRange.start} to ${currentDateRange.end}` : 
              `Monthly: ${new Date(selectedDate).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}`}
           </p>
-          <p className="text-2xl font-bold text-[#8E325E] mt-2">₱{totalAmount.toLocaleString()}</p>
+          <p className="text-2xl font-bold text-[#841c4f] mt-2">₱{totalAmount.toLocaleString()}</p>
         </div>
         
-        <div className="bg-[#FBD1E6] p-4 rounded-lg shadow">
-          <h3 className="text-lg font-semibold text-[#591536]">Total Items Sold</h3>
-          <p className="text-sm text-[#591536]">Quantity across all orders</p>
-          <p className="text-2xl font-bold text-[#8E325E] mt-2">{totalItems} items</p>
+        <div className="bg-[#FFE2F0] p-6 rounded-xl shadow-[0_4px_8px_rgba(101,54,111,0.2)] transition-transform duration-300 hover:scale-105">
+          <h3 className="text-lg font-semibold text-[#841c4f] font-['OFL_Sorts_Mill_Goudy_TT']">Total Items Sold</h3>
+          <p className="text-sm text-[#841c4f]">Quantity across all orders</p>
+          <p className="text-2xl font-bold text-[#841c4f] mt-2">{totalItems} items</p>
         </div>
         
-        <div className="bg-[#FBD1E6] p-4 rounded-lg shadow">
-          <h3 className="text-lg font-semibold text-[#591536]">Average Order Value</h3>
-          <p className="text-sm text-[#591536]">Per transaction</p>
-          <p className="text-2xl font-bold text-[#8E325E] mt-2">₱{averageOrderValue.toLocaleString()}</p>
+        <div className="bg-[#FFE2F0] p-6 rounded-xl shadow-[0_4px_8px_rgba(101,54,111,0.2)] transition-transform duration-300 hover:scale-105">
+          <h3 className="text-lg font-semibold text-[#841c4f] font-['OFL_Sorts_Mill_Goudy_TT']">Average Order Value</h3>
+          <p className="text-sm text-[#841c4f]">Per transaction</p>
+          <p className="text-2xl font-bold text-[#841c4f] mt-2">₱{averageOrderValue.toLocaleString()}</p>
         </div>
       </div>
 
       {/* Analytics Section */}
       {showAnalytics && (
         <div className="mb-6">
-          <h2 className="text-xl font-semibold text-[#591536] mb-4">Sales Analytics</h2>
+          <h2 className="text-xl font-semibold text-[#841c4f] mb-4 font-['OFL_Sorts_Mill_Goudy_TT']">Sales Analytics</h2>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Platform Distribution Chart */}
-            <div className="bg-white p-4 rounded-lg shadow">
-              <h3 className="text-lg font-medium text-[#591536] mb-3">Sales by Platform</h3>
+            <div className="bg-[#f9eef5] p-6 rounded-xl shadow-[0_4px_8px_rgba(101,54,111,0.2)]">
+              <h3 className="text-lg font-medium text-[#841c4f] mb-3 font-['OFL_Sorts_Mill_Goudy_TT']">Sales by Platform</h3>
               <div className="h-64">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
@@ -399,8 +399,8 @@ export default function SalesHistory() {
             </div>
             
             {/* Category Distribution Chart */}
-            <div className="bg-white p-4 rounded-lg shadow">
-              <h3 className="text-lg font-medium text-[#591536] mb-3">Sales by Category</h3>
+            <div className="bg-[#f9eef5] p-6 rounded-xl shadow-[0_4px_8px_rgba(101,54,111,0.2)]">
+              <h3 className="text-lg font-medium text-[#841c4f] mb-3 font-['OFL_Sorts_Mill_Goudy_TT']">Sales by Category</h3>
               <div className="h-64">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
@@ -427,8 +427,8 @@ export default function SalesHistory() {
             
             {/* Daily Sales Trend */}
             {viewPeriod !== 'day' && (
-              <div className="bg-white p-4 rounded-lg shadow lg:col-span-2">
-                <h3 className="text-lg font-medium text-[#591536] mb-3">Daily Sales Trend</h3>
+              <div className="bg-[#f9eef5] p-6 rounded-xl shadow-[0_4px_8px_rgba(101,54,111,0.2)] lg:col-span-2">
+                <h3 className="text-lg font-medium text-[#841c4f] mb-3 font-['OFL_Sorts_Mill_Goudy_TT']">Daily Sales Trend</h3>
                 <div className="h-64">
                   <ResponsiveContainer width="100%" height="100%">
                     <BarChart data={dailySales}>
@@ -436,7 +436,7 @@ export default function SalesHistory() {
                       <YAxis />
                       <Tooltip formatter={(value) => `₱${value.toLocaleString()}`} />
                       <Legend />
-                      <Bar dataKey="amount" name="Sales Amount" fill="#8E325E" />
+                      <Bar dataKey="amount" name="Sales Amount" fill="#65366F" />
                     </BarChart>
                   </ResponsiveContainer>
                 </div>
@@ -447,77 +447,77 @@ export default function SalesHistory() {
       )}
 
       {/* Export Buttons */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
         <button 
           onClick={exportToExcel} 
-          className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded shadow transition-colors flex items-center justify-center gap-2"
+          className="bg-[#65366F] hover:bg-[#7d468a] text-white px-6 py-3 rounded-lg shadow-[0_4px_8px_rgba(101,54,111,0.2)] transition-colors flex items-center justify-center gap-2"
         >
           <span>Export {viewPeriod.charAt(0).toUpperCase() + viewPeriod.slice(1)} to Excel</span>
         </button>
         <button 
           onClick={exportAllToExcel} 
-          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded shadow transition-colors flex items-center justify-center gap-2"
+          className="bg-[#65366F] hover:bg-[#7d468a] text-white px-6 py-3 rounded-lg shadow-[0_4px_8px_rgba(101,54,111,0.2)] transition-colors flex items-center justify-center gap-2"
         >
           <span>Export All Data to Excel</span>
         </button>
       </div>
 
       {/* Orders Table */}
-      <div className="overflow-x-auto rounded-lg shadow">
+      <div className="overflow-x-auto rounded-xl shadow-[0_4px_8px_rgba(101,54,111,0.2)]">
         <table className="min-w-full bg-white">
-          <thead className="bg-[#FBD1E6] text-[#591536]">
+          <thead className="bg-[#65366F] text-white">
             <tr>
-              <th className="p-3 text-left border-b">
+              <th className="p-4 text-center border-b border-[#841c4f]/30">
                 <button 
-                  className="font-semibold flex items-center gap-1"
+                  className="font-semibold flex items-center justify-center gap-1 w-full"
                   onClick={() => requestSort('customer')}
                 >
                   Customer{getSortIndicator('customer')}
                 </button>
               </th>
-              <th className="p-3 text-left border-b">
+              <th className="p-4 text-center border-b border-[#841c4f]/30">
                 <button 
-                  className="font-semibold flex items-center gap-1"
+                  className="font-semibold flex items-center justify-center gap-1 w-full"
                   onClick={() => requestSort('product')}
                 >
                   Product{getSortIndicator('product')}
                 </button>
               </th>
-              <th className="p-3 text-left border-b">
+              <th className="p-4 text-center border-b border-[#841c4f]/30">
                 <button 
-                  className="font-semibold flex items-center gap-1"
+                  className="font-semibold flex items-center justify-center gap-1 w-full"
                   onClick={() => requestSort('category')}
                 >
                   Category{getSortIndicator('category')}
                 </button>
               </th>
-              <th className="p-3 text-center border-b">
+              <th className="p-4 text-center border-b border-[#841c4f]/30">
                 <button 
-                  className="font-semibold flex items-center justify-center gap-1"
+                  className="font-semibold flex items-center justify-center gap-1 w-full"
                   onClick={() => requestSort('quantity')}
                 >
                   Qty{getSortIndicator('quantity')}
                 </button>
               </th>
-              <th className="p-3 text-center border-b">
+              <th className="p-4 text-center border-b border-[#841c4f]/30">
                 <button 
-                  className="font-semibold flex items-center justify-center gap-1"
+                  className="font-semibold flex items-center justify-center gap-1 w-full"
                   onClick={() => requestSort('size')}
                 >
                   Size{getSortIndicator('size')}
                 </button>
               </th>
-              <th className="p-3 text-center border-b">
+              <th className="p-4 text-center border-b border-[#841c4f]/30">
                 <button 
-                  className="font-semibold flex items-center justify-center gap-1"
+                  className="font-semibold flex items-center justify-center gap-1 w-full"
                   onClick={() => requestSort('platform')}
                 >
                   Platform{getSortIndicator('platform')}
                 </button>
               </th>
-              <th className="p-3 text-right border-b">
+              <th className="p-4 text-center border-b border-[#841c4f]/30">
                 <button 
-                  className="font-semibold flex items-center justify-end gap-1"
+                  className="font-semibold flex items-center justify-center gap-1 w-full"
                   onClick={() => requestSort('amount')}
                 >
                   Amount (₱){getSortIndicator('amount')}
@@ -530,36 +530,36 @@ export default function SalesHistory() {
               filteredOrders.map((order, idx) => (
                 <tr 
                   key={idx} 
-                  className={`${idx % 2 === 0 ? 'bg-white' : 'bg-gray-50'} hover:bg-[#FBD1E6]/10 transition-colors`}
+                  className={`${idx % 2 === 0 ? 'bg-white' : 'bg-[#f9eef5]'} hover:bg-[#FFE2F0]/50 transition-colors`}
                 >
-                  <td className="p-3 border-b">{order.customer}</td>
-                  <td className="p-3 border-b">{order.product}</td>
-                  <td className="p-3 border-b">{order.category}</td>
-                  <td className="p-3 text-center border-b">{order.quantity}</td>
-                  <td className="p-3 text-center border-b">{order.size}</td>
-                  <td className="p-3 text-center border-b">{order.platform}</td>
-                  <td className="p-3 text-right border-b">₱{order.amount.toLocaleString()}</td>
+                  <td className="p-4 text-center border-b border-[#841c4f]/30">{order.customer}</td>
+                  <td className="p-4 text-center border-b border-[#841c4f]/30">{order.product}</td>
+                  <td className="p-4 text-center border-b border-[#841c4f]/30">{order.category}</td>
+                  <td className="p-4 text-center border-b border-[#841c4f]/30">{order.quantity}</td>
+                  <td className="p-4 text-center border-b border-[#841c4f]/30">{order.size}</td>
+                  <td className="p-4 text-center border-b border-[#841c4f]/30">{order.platform}</td>
+                  <td className="p-4 text-center border-b border-[#841c4f]/30">₱{order.amount.toLocaleString()}</td>
                 </tr>
               ))
             ) : (
               <tr>
-                <td colSpan="7" className="p-8 text-center text-gray-500">
+                <td colSpan="7" className="p-8 text-center text-[#841c4f]">
                   No sales data found for the selected criteria
                 </td>
               </tr>
             )}
           </tbody>
-          <tfoot className="bg-[#FBD1E6]/30">
+          <tfoot className="bg-[#FFE2F0] text-[#841c4f]">
             <tr>
-              <td colSpan="6" className="p-3 text-right font-semibold border-t">Total:</td>
-              <td className="p-3 text-right font-bold border-t">₱{totalAmount.toLocaleString()}</td>
+              <td colSpan="6" className="p-4 text-right font-semibold border-t border-[#841c4f]/30">Total:</td>
+              <td className="p-4 text-center font-bold border-t border-[#841c4f]/30">₱{totalAmount.toLocaleString()}</td>
             </tr>
           </tfoot>
         </table>
       </div>
       
       {/* Results summary */}
-      <div className="mt-4 text-sm text-gray-600">
+      <div className="mt-4 text-sm text-[#841c4f]">
         Showing {filteredOrders.length} {filteredOrders.length === 1 ? 'order' : 'orders'} for the selected period
       </div>
     </div>
