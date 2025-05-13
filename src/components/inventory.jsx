@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const PRODUCT_CATEGORIES = [
   { value: 'dress', label: 'Dress' },
@@ -141,12 +143,18 @@ function Inventory() {
             >
               <img
                 src={
-                  `http://localhost:5231${product.imagePath}` ||
-                  'icons/image (2).png'
+                  product.imagePath
+                    ? `http://localhost:5231${product.imagePath}`
+                    : '/icons/image (2).png'
                 }
                 alt={product.name}
                 className="w-full h-full object-cover rounded-xl border border-[#65366F]/30 shadow-lg transition-transform duration-300 group-hover:scale-110 bg-white"
                 style={{ zIndex: 2, position: 'relative' }}
+                onError={(e) => {
+                  console.log('Image load error:', product.imagePath);
+                  e.target.onerror = null; // Prevent infinite loop
+                  e.target.src = '/icons/image (2).png'; // Fallback image
+                }}
               />
             </div>
             {/* Overlay Product Name/Price */}
@@ -364,6 +372,7 @@ function Inventory() {
           fetchProducts={fetchProducts}
         />
       )}
+      <ToastContainer />
     </div>
   );
 }
@@ -1333,9 +1342,34 @@ function ViewOrdersDialog({ product, onClose }) {
         )
       );
       setShowPopup(false);
+
+      // Add success toast
+      toast.success(
+        `Payment status changed to ${
+          !selectedOrder.isPaid ? 'Paid' : 'Pending'
+        }`,
+        {
+          position: 'top-right',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          theme: 'colored',
+        }
+      );
     } catch (error) {
       console.error('Error updating payment status:', error);
-      alert('Failed to update payment status');
+      // Add error toast
+      toast.error('Failed to update payment status', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: 'colored',
+      });
     }
   };
 
@@ -1469,9 +1503,29 @@ function AddProductDialog({ onClose, fetchProducts }) {
       const result = await response.json();
       await fetchProducts();
       onClose();
+
+      // Add success toast
+      toast.success('Product added successfully!', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: 'colored',
+      });
     } catch (error) {
       console.error('Error:', error);
-      alert(error.message);
+      // Add error toast
+      toast.error(error.message, {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: 'colored',
+      });
     }
   };
 
