@@ -1,45 +1,115 @@
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import * as XLSX from 'xlsx';
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 export default function SalesHistory() {
-  const [selectedDate, setSelectedDate] = useState('2025-05-12'); // Updated to current date
-  const [viewPeriod, setViewPeriod] = useState('day'); // 'day', 'week', 'month'
+  const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
+  const [viewPeriod, setViewPeriod] = useState('day');
   const [platformFilter, setPlatformFilter] = useState('All');
   const [categoryFilter, setCategoryFilter] = useState('All');
   const [sortConfig, setSortConfig] = useState({ key: null, direction: 'ascending' });
   const [searchQuery, setSearchQuery] = useState('');
   const [showAnalytics, setShowAnalytics] = useState(false);
+  const [orders, setOrders] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [dashboardData, setDashboardData] = useState({
+    totalRevenue: 0,
+    salesByPlatform: [],
+    salesByCategory: []
+  });
 
-  // Memoized sales data to prevent unnecessary recalculations
-  const salesByDate = useMemo(() => ({
-    '2025-05-10': {
-      orders: [
-        { customer: 'Marlito Nigrito', product: 'Summer Linen Dress', category: 'Dresses', quantity: 2, size: 'M', platform: 'Shopee', amount: 1450 },
-        { customer: 'Alden Recharge', product: 'Classic Denim Jeans', category: 'Jeans', quantity: 1, size: 'L', platform: 'Facebook', amount: 1100 },
-        { customer: 'Gydwreck', product: 'Silk Cami Top', category: 'Tops', quantity: 2, size: 'S', platform: 'Instagram', amount: 800 }
-      ]
-    },
-    '2025-05-11': {
-      orders: [
-        { customer: 'Tung Tung Tung Sahur', product: 'Cotton Graphic Tee', category: 'Tops', quantity: 3, size: 'S', platform: 'Instagram', amount: 980 },
-        { customer: 'Tralalelo tropa lang', product: 'Faux Leather Jacket', category: 'Jackets', quantity: 1, size: 'XL', platform: 'Shopee', amount: 760 },
-        { customer: 'Bombardino bat di nalang ako?', product: 'Wide Leg Trousers', category: 'Pants', quantity: 2, size: 'M', platform: 'Facebook', amount: 1100 }
-      ]
-    },
-    '2025-05-12': {
-      orders: [
-        { customer: 'Bea Cruz', product: 'Pleated Skirt', category: 'Bottoms', quantity: 1, size: 'XS', platform: 'Shopee', amount: 720 },
-        { customer: 'Lara Santos', product: 'Oversized Hoodie', category: 'Sweaters', quantity: 2, size: 'L', platform: 'Instagram', amount: 1300 },
-        { customer: 'Mike Velasquez', product: 'Basic White Tee', category: 'Tops', quantity: 4, size: 'M', platform: 'Facebook', amount: 1000 }
-      ]
-    },
-    '2025-05-13': {
-      orders: [
-        { customer: 'Donna Reyes', product: 'Knitted Cardigan', category: 'Sweaters', quantity: 1, size: 'M', platform: 'Shopee', amount: 880 },
-      ]
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      setLoading(true);
+      
+      // Fetch products
+      const productsResponse = await fetch('http://localhost:5231/api/product', {
+        headers: {
+          Accept: 'application/json',
+        },
+      });
+
+      if (!productsResponse.ok) {
+        throw new Error('Failed to fetch products');
+      }
+
+      const productsData = await productsResponse.json();
+      setProducts(productsData);
+
+      // Fetch all orders for all products
+      const allOrders = [];
+      let totalRevenue = 0;
+      const platformSales = {
+        facebook: 0,
+        instagram: 0,
+        shopee: 0
+      };
+      const categorySales = {};
+
+      for (const product of productsData) {
+        const ordersResponse = await fetch(
+          `http://localhost:5231/api/product/orders/${product.id}`
+        );
+        
+        if (ordersResponse.ok) {
+          const productOrders = await ordersResponse.json();
+          // Add product information to each order
+          const ordersWithProductInfo = productOrders.map(order => {
+            // Calculate total amount if not present
+            const totalAmount = order.totalAmount || (order.quantity * product.price);
+            
+            // Update platform sales
+            const platform = order.platform?.toLowerCase() || 'unknown';
+            platformSales[platform] = (platformSales[platform] || 0) + totalAmount;
+            
+            // Update category sales
+            const category = product.category || 'Uncategorized';
+            categorySales[category] = (categorySales[category] || 0) + totalAmount;
+            
+            // Update total revenue
+            totalRevenue += totalAmount;
+
+            return {
+              ...order,
+              productId: product.id,
+              productName: product.name,
+              productCategory: product.category,
+              productPrice: product.price,
+              totalAmount: totalAmount,
+              date: new Date(order.createdAt).toISOString().split('T')[0],
+              platform: order.platform || 'Unknown',
+              customerName: order.customerName || 'Unknown Customer'
+            };
+          });
+          allOrders.push(...ordersWithProductInfo);
+        }
+      }
+      
+      // Update dashboard data
+      setDashboardData({
+        totalRevenue,
+        salesByPlatform: Object.entries(platformSales).map(([platform, amount]) => ({
+          name: platform.charAt(0).toUpperCase() + platform.slice(1),
+          value: amount
+        })),
+        salesByCategory: Object.entries(categorySales).map(([category, amount]) => ({
+          name: category,
+          value: amount
+        }))
+      });
+      
+      setOrders(allOrders);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    } finally {
+      setLoading(false);
     }
-  }), []);
+  };
 
   // Memoized date range calculations
   const getDateRange = useMemo(() => ({
@@ -75,27 +145,29 @@ export default function SalesHistory() {
   // Advanced filtering and sorting
   const filteredOrders = useMemo(() => {
     const { start, end } = currentDateRange;
-    const periodSales = Object.entries(salesByDate)
-      .filter(([date]) => date >= start && date <= end)
-      .flatMap(([date, data]) => data.orders.map(order => ({...order, date})));
+    let filtered = orders.filter(order => order.date >= start && order.date <= end);
 
     // Apply platform filter
-    let filtered = platformFilter === 'All' 
-      ? periodSales 
-      : periodSales.filter(order => order.platform === platformFilter);
+    if (platformFilter !== 'All') {
+      filtered = filtered.filter(order => 
+        order.platform.toLowerCase() === platformFilter.toLowerCase()
+      );
+    }
     
     // Apply category filter
-    filtered = categoryFilter === 'All'
-      ? filtered
-      : filtered.filter(order => order.category === categoryFilter);
+    if (categoryFilter !== 'All') {
+      filtered = filtered.filter(order => 
+        order.productCategory.toLowerCase() === categoryFilter.toLowerCase()
+      );
+    }
     
     // Apply search query (case-insensitive)
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase();
       filtered = filtered.filter(order => 
-        order.customer.toLowerCase().includes(query) ||
-        order.product.toLowerCase().includes(query) ||
-        order.category.toLowerCase().includes(query) ||
+        order.customerName.toLowerCase().includes(query) ||
+        order.productName.toLowerCase().includes(query) ||
+        order.productCategory.toLowerCase().includes(query) ||
         order.platform.toLowerCase().includes(query)
       );
     }
@@ -114,7 +186,7 @@ export default function SalesHistory() {
     }
 
     return filtered;
-  }, [salesByDate, currentDateRange, platformFilter, categoryFilter, searchQuery, sortConfig]);
+  }, [orders, currentDateRange, platformFilter, categoryFilter, searchQuery, sortConfig]);
 
   // Handle column sorting
   const requestSort = useCallback((key) => {
@@ -140,21 +212,21 @@ export default function SalesHistory() {
     categorySummary,
     dailySales
   } = useMemo(() => {
-    const totalAmount = filteredOrders.reduce((sum, order) => sum + order.amount, 0);
+    const totalAmount = filteredOrders.reduce((sum, order) => sum + order.totalAmount, 0);
     const totalItems = filteredOrders.reduce((sum, order) => sum + order.quantity, 0);
     const averageOrderValue = filteredOrders.length ? Math.round(totalAmount / filteredOrders.length) : 0;
     
     // Platform distribution
     const platformCount = {};
     filteredOrders.forEach(order => {
-      platformCount[order.platform] = (platformCount[order.platform] || 0) + order.amount;
+      platformCount[order.platform] = (platformCount[order.platform] || 0) + order.totalAmount;
     });
     const platformSummary = Object.entries(platformCount).map(([name, value]) => ({ name, value }));
     
     // Category distribution
     const categoryCount = {};
     filteredOrders.forEach(order => {
-      categoryCount[order.category] = (categoryCount[order.category] || 0) + order.amount;
+      categoryCount[order.productCategory] = (categoryCount[order.productCategory] || 0) + order.totalAmount;
     });
     const categorySummary = Object.entries(categoryCount).map(([name, value]) => ({ name, value }));
     
@@ -171,7 +243,7 @@ export default function SalesHistory() {
     }
     
     filteredOrders.forEach(order => {
-      dailySales[order.date] = (dailySales[order.date] || 0) + order.amount;
+      dailySales[order.date] = (dailySales[order.date] || 0) + order.totalAmount;
     });
     
     const dailySalesArray = Object.entries(dailySales).map(([date, amount]) => ({
@@ -191,13 +263,14 @@ export default function SalesHistory() {
 
   // Memoized filter options
   const filterOptions = useMemo(() => {
-    const allOrders = Object.values(salesByDate).flatMap(data => data.orders);
+    const platforms = [...new Set(orders.map(order => order.platform).filter(Boolean))];
+    const categories = [...new Set(orders.map(order => order.productCategory).filter(Boolean))];
     
-    const platforms = [...new Set(allOrders.map(order => order.platform))];
-    const categories = [...new Set(allOrders.map(order => order.category))];
-    
-    return { platforms, categories };
-  }, [salesByDate]);
+    return { 
+      platforms: platforms.length > 0 ? platforms : ['Facebook', 'Instagram', 'Shopee'],
+      categories: categories.length > 0 ? categories : ['Dress', 'Top', 'Bottoms', 'Skirts', 'Accessories', 'Hats', 'Others']
+    };
+  }, [orders]);
 
   // Export functions with better error handling
   const exportToExcel = useCallback(() => {
@@ -232,9 +305,17 @@ export default function SalesHistory() {
 
   const exportAllToExcel = useCallback(() => {
     try {
-      const allOrders = Object.entries(salesByDate).flatMap(([date, data]) => 
-        data.orders.map(order => ({ Date: date, ...order }))
-      );
+      const allOrders = orders.map(order => ({
+        Date: order.date,
+        Customer: order.customerName,
+        Product: order.productName,
+        Category: order.productCategory,
+        Quantity: order.quantity,
+        Size: order.size,
+        Platform: order.platform,
+        Amount: order.totalAmount,
+        Status: order.isPaid ? 'Paid' : 'Pending'
+      }));
       
       const worksheet = XLSX.utils.json_to_sheet(allOrders);
       const workbook = XLSX.utils.book_new();
@@ -245,10 +326,20 @@ export default function SalesHistory() {
       console.error("Error exporting all to Excel:", error);
       alert("Failed to export all data to Excel. Please try again.");
     }
-  }, [salesByDate]);
+  }, [orders]);
 
   // Colors for charts
   const CHART_COLORS = ['#65366F', '#841c4f', '#c45d9c', '#FFE2F0', '#ffea99', '#f9eef5'];
+
+  if (loading) {
+    return (
+      <div className="p-6 text-gray-800 max-w-7xl mx-auto ml-[80px]">
+        <div className="text-center py-8 text-gray-800">
+          Loading sales data...
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="p-6 text-gray-800 max-w-7xl mx-auto ml-[80px]">
@@ -277,7 +368,6 @@ export default function SalesHistory() {
               value={selectedDate}
               onChange={(e) => setSelectedDate(e.target.value)}
               className="border border-[#65366F]/30 px-3 py-2 rounded-lg text-[#841c4f] focus:ring-2 focus:ring-[#65366F] focus:border-transparent bg-white/80 backdrop-blur-sm hover:bg-white/90"
-              max="2025-05-13"
             />
           </div>
           
@@ -470,25 +560,25 @@ export default function SalesHistory() {
               <th className="p-4 text-center border-b border-[#841c4f]/30">
                 <button 
                   className="font-semibold flex items-center justify-center gap-1 w-full"
-                  onClick={() => requestSort('customer')}
+                  onClick={() => requestSort('customerName')}
                 >
-                  Customer{getSortIndicator('customer')}
+                  Customer{getSortIndicator('customerName')}
                 </button>
               </th>
               <th className="p-4 text-center border-b border-[#841c4f]/30">
                 <button 
                   className="font-semibold flex items-center justify-center gap-1 w-full"
-                  onClick={() => requestSort('product')}
+                  onClick={() => requestSort('productName')}
                 >
-                  Product{getSortIndicator('product')}
+                  Product{getSortIndicator('productName')}
                 </button>
               </th>
               <th className="p-4 text-center border-b border-[#841c4f]/30">
                 <button 
                   className="font-semibold flex items-center justify-center gap-1 w-full"
-                  onClick={() => requestSort('category')}
+                  onClick={() => requestSort('productCategory')}
                 >
-                  Category{getSortIndicator('category')}
+                  Category{getSortIndicator('productCategory')}
                 </button>
               </th>
               <th className="p-4 text-center border-b border-[#841c4f]/30">
@@ -518,9 +608,9 @@ export default function SalesHistory() {
               <th className="p-4 text-center border-b border-[#841c4f]/30">
                 <button 
                   className="font-semibold flex items-center justify-center gap-1 w-full"
-                  onClick={() => requestSort('amount')}
+                  onClick={() => requestSort('totalAmount')}
                 >
-                  Amount (₱){getSortIndicator('amount')}
+                  Amount (₱){getSortIndicator('totalAmount')}
                 </button>
               </th>
             </tr>
@@ -532,13 +622,13 @@ export default function SalesHistory() {
                   key={idx} 
                   className={`${idx % 2 === 0 ? 'bg-white' : 'bg-[#f9eef5]'} hover:bg-[#FFE2F0]/50 transition-colors`}
                 >
-                  <td className="p-4 text-center border-b border-[#841c4f]/30">{order.customer}</td>
-                  <td className="p-4 text-center border-b border-[#841c4f]/30">{order.product}</td>
-                  <td className="p-4 text-center border-b border-[#841c4f]/30">{order.category}</td>
+                  <td className="p-4 text-center border-b border-[#841c4f]/30">{order.customerName}</td>
+                  <td className="p-4 text-center border-b border-[#841c4f]/30">{order.productName}</td>
+                  <td className="p-4 text-center border-b border-[#841c4f]/30">{order.productCategory}</td>
                   <td className="p-4 text-center border-b border-[#841c4f]/30">{order.quantity}</td>
                   <td className="p-4 text-center border-b border-[#841c4f]/30">{order.size}</td>
                   <td className="p-4 text-center border-b border-[#841c4f]/30">{order.platform}</td>
-                  <td className="p-4 text-center border-b border-[#841c4f]/30">₱{order.amount.toLocaleString()}</td>
+                  <td className="p-4 text-center border-b border-[#841c4f]/30">₱{order.totalAmount.toLocaleString()}</td>
                 </tr>
               ))
             ) : (
