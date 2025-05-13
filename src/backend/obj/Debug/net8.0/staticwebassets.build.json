@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7H0gpZ+avkVeCe0nz4Tz+r7HsHbJsI9tbOpJ7UNptsU=",
+  "Hash": "6MTtCdEziMcJ6dFabjB9mb8KGNKrhMcYh3l4V3PA024=",
   "Source": "backend",
   "BasePath": "_content/backend",
   "Mode": "Default",
@@ -185,6 +185,27 @@
       "OriginalItemSpec": "wwwroot\\uploads\\2eb4022a-7c05-4e3c-869a-5249adc49727_QCU_Logo_2019.png"
     },
     {
+      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\370cd1e6-26dd-4f21-96e1-8567b7c16cf0_lavagown.jpg",
+      "SourceId": "backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
+      "BasePath": "_content/backend",
+      "RelativePath": "uploads/370cd1e6-26dd-4f21-96e1-8567b7c16cf0_lavagown#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "81tch2nhum",
+      "Integrity": "BDm7GLA6r2DUO1CKwTrNOmQ6uIHoGKXWGfipNM9eqdE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\370cd1e6-26dd-4f21-96e1-8567b7c16cf0_lavagown.jpg"
+    },
+    {
       "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\58df31fa-af81-4f61-a0a0-7da72e52d28f_Diosdado.jpg",
       "SourceId": "backend",
       "SourceType": "Discovered",
@@ -290,12 +311,12 @@
       "OriginalItemSpec": "wwwroot\\uploads\\6051c7bc-c8e6-4f27-ae7c-008fe8b8513a_benegas.jpg"
     },
     {
-      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\62af33bc-60bd-42ae-b67f-24de9b4f14e7_top.jpg",
+      "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\62170306-0a3b-4dd4-8727-11b0746d41e1_botoo.jpg",
       "SourceId": "backend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
-      "RelativePath": "uploads/62af33bc-60bd-42ae-b67f-24de9b4f14e7_top#[.{fingerprint}]?.jpg",
+      "RelativePath": "uploads/62170306-0a3b-4dd4-8727-11b0746d41e1_botoo#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -304,11 +325,11 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "igcduw7ulb",
-      "Integrity": "Us4kiL0D89NDZ3s3w4rYnKP+frW6MNgkO9WCi/Vpue4=",
+      "Fingerprint": "poh37plxqw",
+      "Integrity": "SXeceax8h5s16IQr2MKCK4bGEZVCr1R23/izzoj+v2I=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\62af33bc-60bd-42ae-b67f-24de9b4f14e7_top.jpg"
+      "OriginalItemSpec": "wwwroot\\uploads\\62170306-0a3b-4dd4-8727-11b0746d41e1_botoo.jpg"
     },
     {
       "Identity": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\6874bd3d-d4c6-4bb4-9a2d-32a6a5720af9_benegas.jpg",
@@ -1473,6 +1494,88 @@
       ]
     },
     {
+      "Route": "uploads/370cd1e6-26dd-4f21-96e1-8567b7c16cf0_lavagown.81tch2nhum.jpg",
+      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\370cd1e6-26dd-4f21-96e1-8567b7c16cf0_lavagown.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7985"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BDm7GLA6r2DUO1CKwTrNOmQ6uIHoGKXWGfipNM9eqdE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 07:45:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "81tch2nhum"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/370cd1e6-26dd-4f21-96e1-8567b7c16cf0_lavagown.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-BDm7GLA6r2DUO1CKwTrNOmQ6uIHoGKXWGfipNM9eqdE="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/370cd1e6-26dd-4f21-96e1-8567b7c16cf0_lavagown.jpg",
+      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\370cd1e6-26dd-4f21-96e1-8567b7c16cf0_lavagown.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7985"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BDm7GLA6r2DUO1CKwTrNOmQ6uIHoGKXWGfipNM9eqdE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 07:45:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-BDm7GLA6r2DUO1CKwTrNOmQ6uIHoGKXWGfipNM9eqdE="
+        }
+      ]
+    },
+    {
       "Route": "uploads/58df31fa-af81-4f61-a0a0-7da72e52d28f_Diosdado.dv7686nk40.jpg",
       "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\58df31fa-af81-4f61-a0a0-7da72e52d28f_Diosdado.jpg",
       "Selectors": [],
@@ -1883,8 +1986,8 @@
       ]
     },
     {
-      "Route": "uploads/62af33bc-60bd-42ae-b67f-24de9b4f14e7_top.igcduw7ulb.jpg",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\62af33bc-60bd-42ae-b67f-24de9b4f14e7_top.jpg",
+      "Route": "uploads/62170306-0a3b-4dd4-8727-11b0746d41e1_botoo.jpg",
+      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\62170306-0a3b-4dd4-8727-11b0746d41e1_botoo.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1893,7 +1996,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6094"
+          "Value": "92887"
         },
         {
           "Name": "Content-Type",
@@ -1901,56 +2004,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Us4kiL0D89NDZ3s3w4rYnKP+frW6MNgkO9WCi/Vpue4=\""
+          "Value": "\"SXeceax8h5s16IQr2MKCK4bGEZVCr1R23/izzoj+v2I=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 11:03:45 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "igcduw7ulb"
-        },
-        {
-          "Name": "label",
-          "Value": "uploads/62af33bc-60bd-42ae-b67f-24de9b4f14e7_top.jpg"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-Us4kiL0D89NDZ3s3w4rYnKP+frW6MNgkO9WCi/Vpue4="
-        }
-      ]
-    },
-    {
-      "Route": "uploads/62af33bc-60bd-42ae-b67f-24de9b4f14e7_top.jpg",
-      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\62af33bc-60bd-42ae-b67f-24de9b4f14e7_top.jpg",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "6094"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "image/jpeg"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"Us4kiL0D89NDZ3s3w4rYnKP+frW6MNgkO9WCi/Vpue4=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 11:03:45 GMT"
+          "Value": "Tue, 13 May 2025 05:21:21 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1960,7 +2018,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Us4kiL0D89NDZ3s3w4rYnKP+frW6MNgkO9WCi/Vpue4="
+          "Value": "sha256-SXeceax8h5s16IQr2MKCK4bGEZVCr1R23/izzoj+v2I="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/62170306-0a3b-4dd4-8727-11b0746d41e1_botoo.poh37plxqw.jpg",
+      "AssetFile": "C:\\Users\\QCU\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\62170306-0a3b-4dd4-8727-11b0746d41e1_botoo.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "92887"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SXeceax8h5s16IQr2MKCK4bGEZVCr1R23/izzoj+v2I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 05:21:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "poh37plxqw"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/62170306-0a3b-4dd4-8727-11b0746d41e1_botoo.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-SXeceax8h5s16IQr2MKCK4bGEZVCr1R23/izzoj+v2I="
         }
       ]
     },

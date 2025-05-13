@@ -21,6 +21,30 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", 
+        builder =>
+        {
+            builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()    // This is crucial for DELETE
+                .AllowAnyHeader();
+        });
+});
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", 
+        builder =>
+        {
+            builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+        });
+});
+
 // Add logging
 builder.Services.AddLogging(logging =>
 {
@@ -69,11 +93,16 @@ if (app.Environment.IsDevelopment())
 }
 
 // Make sure CORS is added in the correct order in the middleware pipeline
-app.UseCors(); // Move this up in the pipeline
+app.UseCors(options => options
+    .AllowAnyOrigin()
+    .AllowAnyMethod() // This is important for DELETE
+    .AllowAnyHeader());
 app.UseRouting();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAuthorization();
+app.UseCors("AllowAll");
+app.UseCors("AllowAll");
 app.MapControllers();
 
 app.Run();

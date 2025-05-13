@@ -22,6 +22,8 @@ function Inventory() {
   const [showAddProductDialog, setShowAddProductDialog] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [activeCategory, setActiveCategory] = useState('all');
+  const [showEditMode, setShowEditMode] = useState(false);
+  const [selectedProductForEdit, setSelectedProductForEdit] = useState(null);
 
   useEffect(() => {
     fetchProducts();
@@ -131,10 +133,37 @@ function Inventory() {
     });
   };
 
+  const toggleEditMode = () => {
+    setShowEditMode(!showEditMode);
+    if (showEditMode) {
+      setSelectedProductForEdit(null);
+    }
+  };
+
+  const handleProductSelect = (product) => {
+    if (showEditMode) {
+      setSelectedProductForEdit(product);
+      setShowEditMode(false);
+    }
+  };
+
   const renderProducts = () => (
     <div className="px-12 pl-[62px]">
       {getFilteredProducts().map((product) => (
-        <div key={product.id} className="mb-8 flex items-start gap-6">
+        <div
+          key={product.id}
+          className={`mb-8 flex items-start gap-6 ${
+            showEditMode
+              ? 'cursor-pointer hover:bg-yellow-50 p-2 rounded-lg'
+              : ''
+          }`}
+          onClick={(e) => {
+            // Only handle click if in edit mode
+            if (showEditMode) {
+              handleProductSelect(product);
+            }
+          }}
+        >
           {/* Product Image and Info */}
           <div className="relative w-[150px] flex flex-col items-center group">
             <div
@@ -180,10 +209,7 @@ function Inventory() {
           </div>
 
           {/* Stock Table */}
-          <div
-            className="flex-1 min-h-[218px] h-[218px] bg-[#f9eef5] rounded-xl flex items-stretch shadow-[0_4px_8px_rgba(101,54,111,0.2)] overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
-            onClick={() => handleViewOrders(product)}
-          >
+          <div className="flex-1 min-h-[218px] h-[218px] bg-[#f9eef5] rounded-xl flex items-stretch shadow-[0_4px_8px_rgba(101,54,111,0.2)] overflow-hidden">
             {/* S/M/L Panel */}
             <div className="flex flex-col items-center bg-[#65366F] text-white px-3 py-2 rounded-l-xl w-[48px] gap-[30px]">
               <div className="font-bold mt-[50px]">S</div>
@@ -272,13 +298,19 @@ function Inventory() {
           {/* Action Buttons */}
           <div className="flex flex-col gap-3 items-start justify-start h-[170px] ml-2">
             <button
-              onClick={() => handleOrder(product)}
+              onClick={(e) => {
+                e.stopPropagation(); // Prevent event from bubbling up
+                handleOrder(product);
+              }}
               className="bg-[#FFE2F0] text-[#841c4f] w-[120px] h-[44px] rounded-lg text-base font-semibold hover:bg-[#c599ae] hover:text-white transition-colors"
             >
               Order
             </button>
             <button
-              onClick={() => handleViewOrders(product)}
+              onClick={(e) => {
+                e.stopPropagation(); // Prevent event from bubbling up
+                handleViewOrders(product);
+              }}
               className="bg-[#FFE2F0] text-[#841c4f] w-[120px] h-[44px] rounded-lg text-base font-semibold hover:bg-[#c599ae] hover:text-white transition-colors"
             >
               View Orders
@@ -345,7 +377,10 @@ function Inventory() {
         <img
           src="icons/Group 6.png"
           alt="EDIT"
-          className="w-[60px] h-[60px] transition-transform duration-300 ease-in-out hover:scale-110"
+          className={`w-[60px] h-[60px] transition-transform duration-300 ease-in-out hover:scale-110 cursor-pointer ${
+            showEditMode ? 'ring-4 ring-yellow-400 rounded-full' : ''
+          }`}
+          onClick={toggleEditMode}
         />
         <img
           src="icons/addproduct.png"
@@ -369,6 +404,13 @@ function Inventory() {
       {showAddProductDialog && (
         <AddProductDialog
           onClose={() => setShowAddProductDialog(false)}
+          fetchProducts={fetchProducts}
+        />
+      )}
+      {selectedProductForEdit && (
+        <EditProductDialog
+          product={selectedProductForEdit}
+          onClose={() => setSelectedProductForEdit(null)}
           fetchProducts={fetchProducts}
         />
       )}
@@ -803,9 +845,6 @@ function AddProductForm({ fetchProducts }) {
     try {
       const formDataToSend = new FormData();
 
-      // Log the category before sending
-      console.log('Category being sent:', formData.category);
-
       formDataToSend.append('Name', formData.name);
       formDataToSend.append('Category', formData.category);
       formDataToSend.append('Price', formData.price);
@@ -816,12 +855,6 @@ function AddProductForm({ fetchProducts }) {
       if (formData.image) {
         formDataToSend.append('Image', formData.image);
       }
-
-      // Log the complete FormData
-      console.log(
-        'Form data entries:',
-        Object.fromEntries(formDataToSend.entries())
-      );
 
       const response = await fetch('http://localhost:5231/api/product', {
         method: 'POST',
@@ -834,9 +867,6 @@ function AddProductForm({ fetchProducts }) {
       }
 
       const result = await response.json();
-      // Log the response from the server
-      console.log('Server response:', result);
-
       await fetchProducts();
 
       // Reset form
@@ -854,10 +884,34 @@ function AddProductForm({ fetchProducts }) {
       const dialog = document.querySelector('.dialog-overlay');
       if (dialog) dialog.style.display = 'none';
 
-      alert('Product added successfully!');
+      toast.success('🎉 Product added successfully!', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: 'colored',
+        style: {
+          backgroundColor: '#4CAF50',
+          color: 'white',
+        },
+      });
     } catch (error) {
       console.error('Error submitting form:', error);
-      alert(error.message);
+      toast.error(`❌ ${error.message}`, {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: 'colored',
+        style: {
+          backgroundColor: '#f44336',
+          color: 'white',
+        },
+      });
     }
   };
 
@@ -1112,12 +1166,36 @@ function OrderForm({ product, onClose, onSubmit }) {
 
     // Validate form data
     if (!orderData.customerName.trim()) {
-      alert('Please enter customer name');
+      toast.error('❌ Please enter customer name', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: 'colored',
+        style: {
+          backgroundColor: '#f44336',
+          color: 'white',
+        },
+      });
       return;
     }
 
     if (!orderData.platform) {
-      alert('Please select a platform');
+      toast.error('❌ Please select a platform', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: 'colored',
+        style: {
+          backgroundColor: '#f44336',
+          color: 'white',
+        },
+      });
       return;
     }
 
@@ -1130,8 +1208,21 @@ function OrderForm({ product, onClose, onSubmit }) {
       ];
 
     if (parseInt(orderData.quantity) > remainingStock) {
-      alert(
-        `Not enough stock available! Only ${remainingStock} ${orderData.size} items remaining.`
+      toast.warning(
+        `⚠️ Not enough stock available! Only ${remainingStock} ${orderData.size} items remaining.`,
+        {
+          position: 'top-right',
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          theme: 'colored',
+          style: {
+            backgroundColor: '#ff9800',
+            color: 'white',
+          },
+        }
       );
       return;
     }
@@ -1163,8 +1254,36 @@ function OrderForm({ product, onClose, onSubmit }) {
       const result = await response.json();
       await onSubmit(result);
       onClose();
+
+      // Success toast
+      toast.success('🛍️ Order placed successfully!', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: 'colored',
+        style: {
+          backgroundColor: '#4CAF50',
+          color: 'white',
+        },
+      });
     } catch (error) {
-      alert(error.message);
+      // Error toast
+      toast.error(`❌ ${error.message}`, {
+        position: 'top-right',
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: 'colored',
+        style: {
+          backgroundColor: '#f44336',
+          color: 'white',
+        },
+      });
     }
   };
 
@@ -1504,8 +1623,7 @@ function AddProductDialog({ onClose, fetchProducts }) {
       await fetchProducts();
       onClose();
 
-      // Add success toast
-      toast.success('Product added successfully!', {
+      toast.success('🎉 Product added successfully!', {
         position: 'top-right',
         autoClose: 3000,
         hideProgressBar: false,
@@ -1513,18 +1631,25 @@ function AddProductDialog({ onClose, fetchProducts }) {
         pauseOnHover: true,
         draggable: true,
         theme: 'colored',
+        style: {
+          backgroundColor: '#4CAF50',
+          color: 'white',
+        },
       });
     } catch (error) {
       console.error('Error:', error);
-      // Add error toast
-      toast.error(error.message, {
+      toast.error(`❌ ${error.message}`, {
         position: 'top-right',
-        autoClose: 3000,
+        autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
         theme: 'colored',
+        style: {
+          backgroundColor: '#f44336',
+          color: 'white',
+        },
       });
     }
   };
@@ -1685,6 +1810,303 @@ function getStockColorClass(stock) {
   if (stock >= 4 && stock <= 5) return 'text-yellow-500 font-bold';
   if (stock >= 0 && stock <= 3) return 'text-red-500 font-bold';
   return '';
+}
+
+function EditProductDialog({ product, onClose, fetchProducts }) {
+  const [formData, setFormData] = useState({
+    name: product.name,
+    category: product.category,
+    price: product.price,
+    image: null,
+    small: product.sizes.small,
+    medium: product.sizes.medium,
+    large: product.sizes.large,
+  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent default form submission
+
+    try {
+      const formDataToSend = new FormData();
+      formDataToSend.append('Name', formData.name);
+      formDataToSend.append('Category', formData.category);
+      formDataToSend.append('Price', formData.price);
+      formDataToSend.append('Small', formData.small);
+      formDataToSend.append('Medium', formData.medium);
+      formDataToSend.append('Large', formData.large);
+
+      if (formData.image) {
+        formDataToSend.append('Image', formData.image);
+      }
+
+      const response = await fetch(
+        `http://localhost:5231/api/product/${product.id}`,
+        {
+          method: 'PUT',
+          body: formDataToSend,
+        }
+      );
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to update product');
+      }
+
+      await fetchProducts();
+      onClose();
+
+      toast.success('✨ Product updated successfully!', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: 'colored',
+        style: {
+          backgroundColor: '#2196F3',
+          color: 'white',
+        },
+      });
+    } catch (error) {
+      toast.error(`❌ ${error.message}`, {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: 'colored',
+        style: {
+          backgroundColor: '#f44336',
+          color: 'white',
+        },
+      });
+    }
+  };
+
+  const handleDelete = async (e) => {
+    e.preventDefault();
+
+    if (window.confirm('Are you sure you want to delete this product?')) {
+      try {
+        const response = await fetch(
+          `http://localhost:5231/api/product/${product.id}`,
+          {
+            method: 'DELETE',
+            headers: {
+              Accept: 'application/json',
+            },
+            mode: 'cors',
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error('Failed to delete product');
+        }
+
+        await fetchProducts();
+        onClose();
+
+        toast.success('🗑️ Product deleted successfully!', {
+          position: 'top-right',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          theme: 'colored',
+          style: {
+            backgroundColor: '#FF5722',
+            color: 'white',
+          },
+        });
+      } catch (error) {
+        console.error('Delete error:', error);
+        toast.error(`❌ Failed to delete product: ${error.message}`, {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          theme: 'colored',
+          style: {
+            backgroundColor: '#f44336',
+            color: 'white',
+          },
+        });
+      }
+    }
+  };
+
+  return (
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
+      <div className="bg-white rounded-lg p-6 w-[500px] max-h-[90vh] overflow-y-auto">
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-xl font-bold text-[#841c4f]">Edit Product</h2>
+          <button
+            onClick={onClose}
+            className="text-gray-500 hover:text-gray-700"
+          >
+            ×
+          </button>
+        </div>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            <label className="block text-[#841c4f] mb-2">Product Name:</label>
+            <input
+              type="text"
+              value={formData.name}
+              onChange={(e) =>
+                setFormData({ ...formData, name: e.target.value })
+              }
+              className="w-full p-2 rounded border border-gray-300"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block text-[#841c4f] mb-2">Category:</label>
+            <select
+              value={formData.category}
+              onChange={(e) =>
+                setFormData({ ...formData, category: e.target.value })
+              }
+              className="w-full p-2 rounded border border-gray-300"
+              required
+            >
+              {PRODUCT_CATEGORIES.map((category) => (
+                <option key={category.value} value={category.value}>
+                  {category.label}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-[#841c4f] mb-2">Product Price:</label>
+            <input
+              type="number"
+              value={formData.price}
+              onChange={(e) =>
+                setFormData({ ...formData, price: e.target.value })
+              }
+              className="w-full p-2 rounded border border-gray-300"
+              min="0"
+              step="0.01"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block text-[#841c4f] mb-2">Product Image:</label>
+            <div className="flex items-center gap-3">
+              <label
+                htmlFor="product-image-upload"
+                className="flex items-center gap-2 cursor-pointer px-4 py-2 bg-white/80 border border-gray-300 rounded-lg shadow hover:bg-pink-100 transition"
+              >
+                <img src="/icons/addimage.png" alt="Add" className="w-6 h-6" />
+                <span className="text-[#841c4f] font-semibold">Add Image</span>
+                <input
+                  id="product-image-upload"
+                  type="file"
+                  onChange={(e) =>
+                    setFormData({ ...formData, image: e.target.files[0] })
+                  }
+                  className="hidden"
+                  accept="image/*"
+                />
+              </label>
+              {formData.image && (
+                <span className="text-sm text-gray-700 truncate max-w-[150px]">
+                  {formData.image.name}
+                </span>
+              )}
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <div className="flex justify-between gap-4">
+              <div>
+                <label className="block text-sm text-center mb-1">Small</label>
+                <input
+                  type="number"
+                  value={formData.small}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      small: parseInt(e.target.value) || 0,
+                    })
+                  }
+                  className="w-full p-2 rounded border border-gray-300"
+                  min="0"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm text-center mb-1">Medium</label>
+                <input
+                  type="number"
+                  value={formData.medium}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      medium: parseInt(e.target.value) || 0,
+                    })
+                  }
+                  className="w-full p-2 rounded border border-gray-300"
+                  min="0"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm text-center mb-1">Large</label>
+                <input
+                  type="number"
+                  value={formData.large}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      large: parseInt(e.target.value) || 0,
+                    })
+                  }
+                  className="w-full p-2 rounded border border-gray-300"
+                  min="0"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="flex justify-between mt-6">
+            <button
+              type="button"
+              onClick={handleDelete}
+              className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
+            >
+              Delete Product
+            </button>
+            <div className="flex gap-2">
+              <button
+                type="button"
+                onClick={onClose}
+                className="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                className="px-4 py-2 bg-[#841c4f] text-white rounded-lg hover:bg-[#621c3f] transition-colors"
+              >
+                Save Changes
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
 }
 
 export default Inventory;

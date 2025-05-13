@@ -321,6 +321,137 @@ namespace IPT101.Controllers
                 return StatusCode(500, new { message = "Error updating payment status", error = ex.Message });
             }
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateProduct(int id, [FromForm] ProductViewModel model)
+        {
+            try
+            {
+                var product = await _context.Products
+                    .Include(p => p.Sizes)
+                    .FirstOrDefaultAsync(p => p.Id == id);
+
+                if (product == null)
+                    return NotFound(new { message = "Product not found" });
+
+                // Update product properties
+                product.Name = model.Name;
+                product.Category = model.Category;
+                product.Price = model.Price;
+
+                // Update total and remaining quantities
+                product.Sizes.TotalSmall = model.Small;
+                product.Sizes.TotalMedium = model.Medium;
+                product.Sizes.TotalLarge = model.Large;
+
+                // Update remaining quantities (accounting for sold items)
+                product.Sizes.RemainingSmall = model.Small - (product.Sizes.SmallFB + product.Sizes.SmallIG + product.Sizes.SmallShopee);
+                product.Sizes.RemainingMedium = model.Medium - (product.Sizes.MediumFB + product.Sizes.MediumIG + product.Sizes.MediumShopee);
+                product.Sizes.RemainingLarge = model.Large - (product.Sizes.LargeFB + product.Sizes.LargeIG + product.Sizes.LargeShopee);
+
+                // Handle image update if provided
+                if (model.Image != null && model.Image.Length > 0)
+                {
+                    // Delete old image if exists
+                    if (!string.IsNullOrEmpty(product.ImagePath))
+                    {
+                        var oldImagePath = Path.Combine(_environment.WebRootPath, product.ImagePath.TrimStart('/'));
+                        if (System.IO.File.Exists(oldImagePath))
+                        {
+                            System.IO.File.Delete(oldImagePath);
+                        }
+                    }
+
+                    var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads");
+                    var uniqueFileName = $"{Guid.NewGuid()}_{model.Image.FileName}";
+                    var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await model.Image.CopyToAsync(stream);
+                    }
+
+                    product.ImagePath = $"/uploads/{uniqueFileName}";
+                }
+
+                await _context.SaveChangesAsync();
+
+                return Ok(new
+                {
+                    message = "Product updated successfully",
+                    product = new
+                    {
+                        id = product.Id,
+                        name = product.Name,
+                        category = product.Category,
+                        price = product.Price,
+                        imagePath = product.ImagePath,
+                        sizes = new
+                        {
+                            small = product.Sizes.TotalSmall,
+                            medium = product.Sizes.TotalMedium,
+                            large = product.Sizes.TotalLarge,
+                            remainingSmall = product.Sizes.RemainingSmall,
+                            remainingMedium = product.Sizes.RemainingMedium,
+                            remainingLarge = product.Sizes.RemainingLarge,
+                            smallFB = product.Sizes.SmallFB,
+                            mediumFB = product.Sizes.MediumFB,
+                            largeFB = product.Sizes.LargeFB,
+                            smallIG = product.Sizes.SmallIG,
+                            mediumIG = product.Sizes.MediumIG,
+                            largeIG = product.Sizes.LargeIG,
+                            smallShopee = product.Sizes.SmallShopee,
+                            mediumShopee = product.Sizes.MediumShopee,
+                            largeShopee = product.Sizes.LargeShopee
+                        }
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Error updating product", error = ex.Message });
+            }
+        }
+
+        [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> DeleteProduct(int id)
+        {
+            try
+            {
+                var product = await _context.Products
+                    .Include(p => p.Sizes)
+                    .FirstOrDefaultAsync(p => p.Id == id);
+
+                if (product == null)
+                    return NotFound(new { message = "Product not found" });
+
+                // Delete associated orders first to maintain referential integrity
+                var orders = await _context.Orders.Where(o => o.ProductId == id).ToListAsync();
+                _context.Orders.RemoveRange(orders);
+
+                // Delete the product image if it exists
+                if (!string.IsNullOrEmpty(product.ImagePath))
+                {
+                    var imagePath = Path.Combine(_environment.WebRootPath, product.ImagePath.TrimStart('/'));
+                    if (System.IO.File.Exists(imagePath))
+                    {
+                        System.IO.File.Delete(imagePath);
+                    }
+                }
+
+                _context.Products.Remove(product);
+                await _context.SaveChangesAsync();
+
+                return Ok(new { message = "Product deleted successfully" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Error deleting product", error = ex.Message });
+            }
+        }
     }
 
     public class UpdateStockRequest
