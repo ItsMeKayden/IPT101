@@ -59,33 +59,18 @@ export default function SalesHistory() {
         if (ordersResponse.ok) {
           const productOrders = await ordersResponse.json();
           // Add product information to each order
-          const ordersWithProductInfo = productOrders.map(order => {
-            // Calculate total amount if not present
-            const totalAmount = order.totalAmount || (order.quantity * product.price);
-            
-            // Update platform sales
-            const platform = order.platform?.toLowerCase() || 'unknown';
-            platformSales[platform] = (platformSales[platform] || 0) + totalAmount;
-            
-            // Update category sales
-            const category = product.category || 'Uncategorized';
-            categorySales[category] = (categorySales[category] || 0) + totalAmount;
-            
-            // Update total revenue
-            totalRevenue += totalAmount;
-
-            return {
-              ...order,
-              productId: product.id,
-              productName: product.name,
-              productCategory: product.category,
-              productPrice: product.price,
-              totalAmount: totalAmount,
-              date: new Date(order.createdAt).toISOString().split('T')[0],
-              platform: order.platform || 'Unknown',
-              customerName: order.customerName || 'Unknown Customer'
-            };
-          });
+          const ordersWithProductInfo = productOrders.map(order => ({
+            ...order,
+            productId: product.id,
+            productName: product.name,
+            productCategory: product.category,
+            productPrice: product.price,
+            totalAmount: order.totalAmount || (order.quantity * product.price),
+            date: new Date(order.orderDate || order.createdAt).toISOString().split('T')[0],
+            platform: order.platform || 'Unknown',
+            customerName: order.customerName || 'Unknown Customer',
+            isPaid: order.isPaid
+          }));
           allOrders.push(...ordersWithProductInfo);
         }
       }
@@ -188,6 +173,9 @@ export default function SalesHistory() {
     return filtered;
   }, [orders, currentDateRange, platformFilter, categoryFilter, searchQuery, sortConfig]);
 
+  // Only paid orders for all analytics and totals
+  const paidFilteredOrders = useMemo(() => filteredOrders.filter(order => order.isPaid), [filteredOrders]);
+
   // Handle column sorting
   const requestSort = useCallback((key) => {
     let direction = 'ascending';
@@ -212,20 +200,20 @@ export default function SalesHistory() {
     categorySummary,
     dailySales
   } = useMemo(() => {
-    const totalAmount = filteredOrders.reduce((sum, order) => sum + order.totalAmount, 0);
-    const totalItems = filteredOrders.reduce((sum, order) => sum + order.quantity, 0);
-    const averageOrderValue = filteredOrders.length ? Math.round(totalAmount / filteredOrders.length) : 0;
+    const totalAmount = paidFilteredOrders.reduce((sum, order) => sum + order.totalAmount, 0);
+    const totalItems = paidFilteredOrders.reduce((sum, order) => sum + order.quantity, 0);
+    const averageOrderValue = paidFilteredOrders.length ? Math.round(totalAmount / paidFilteredOrders.length) : 0;
     
     // Platform distribution
     const platformCount = {};
-    filteredOrders.forEach(order => {
+    paidFilteredOrders.forEach(order => {
       platformCount[order.platform] = (platformCount[order.platform] || 0) + order.totalAmount;
     });
     const platformSummary = Object.entries(platformCount).map(([name, value]) => ({ name, value }));
     
     // Category distribution
     const categoryCount = {};
-    filteredOrders.forEach(order => {
+    paidFilteredOrders.forEach(order => {
       categoryCount[order.productCategory] = (categoryCount[order.productCategory] || 0) + order.totalAmount;
     });
     const categorySummary = Object.entries(categoryCount).map(([name, value]) => ({ name, value }));
@@ -242,7 +230,7 @@ export default function SalesHistory() {
       current.setDate(current.getDate() + 1);
     }
     
-    filteredOrders.forEach(order => {
+    paidFilteredOrders.forEach(order => {
       dailySales[order.date] = (dailySales[order.date] || 0) + order.totalAmount;
     });
     
@@ -259,7 +247,7 @@ export default function SalesHistory() {
       categorySummary,
       dailySales: dailySalesArray
     };
-  }, [filteredOrders, currentDateRange]);
+  }, [paidFilteredOrders, currentDateRange]);
 
   // Memoized filter options
   const filterOptions = useMemo(() => {
@@ -275,7 +263,7 @@ export default function SalesHistory() {
   // Export functions with better error handling
   const exportToExcel = useCallback(() => {
     try {
-      const dataToExport = filteredOrders.map(({ date, ...rest }) => ({
+      const dataToExport = paidFilteredOrders.map(({ date, ...rest }) => ({
         Date: date,
         ...rest
       }));
@@ -301,11 +289,11 @@ export default function SalesHistory() {
       console.error("Error exporting to Excel:", error);
       alert("Failed to export to Excel. Please try again.");
     }
-  }, [filteredOrders, viewPeriod, selectedDate]);
+  }, [paidFilteredOrders, viewPeriod, selectedDate]);
 
   const exportAllToExcel = useCallback(() => {
     try {
-      const allOrders = orders.map(order => ({
+      const allPaidOrders = orders.filter(order => order.isPaid).map(order => ({
         Date: order.date,
         Customer: order.customerName,
         Product: order.productName,
@@ -317,7 +305,7 @@ export default function SalesHistory() {
         Status: order.isPaid ? 'Paid' : 'Pending'
       }));
       
-      const worksheet = XLSX.utils.json_to_sheet(allOrders);
+      const worksheet = XLSX.utils.json_to_sheet(allPaidOrders);
       const workbook = XLSX.utils.book_new();
       XLSX.utils.book_append_sheet(workbook, worksheet, "AllSales");
       
@@ -608,6 +596,14 @@ export default function SalesHistory() {
               <th className="p-4 text-center border-b border-[#841c4f]/30">
                 <button 
                   className="font-semibold flex items-center justify-center gap-1 w-full"
+                  onClick={() => requestSort('isPaid')}
+                >
+                  Status{getSortIndicator('isPaid')}
+                </button>
+              </th>
+              <th className="p-4 text-center border-b border-[#841c4f]/30">
+                <button 
+                  className="font-semibold flex items-center justify-center gap-1 w-full"
                   onClick={() => requestSort('totalAmount')}
                 >
                   Amount (₱){getSortIndicator('totalAmount')}
@@ -628,6 +624,7 @@ export default function SalesHistory() {
                   <td className="p-4 text-center border-b border-[#841c4f]/30">{order.quantity}</td>
                   <td className="p-4 text-center border-b border-[#841c4f]/30">{order.size}</td>
                   <td className="p-4 text-center border-b border-[#841c4f]/30">{order.platform}</td>
+                  <td className="p-4 text-center border-b border-[#841c4f]/30">{order.isPaid ? 'Paid' : 'Pending'}</td>
                   <td className="p-4 text-center border-b border-[#841c4f]/30">₱{order.totalAmount.toLocaleString()}</td>
                 </tr>
               ))
@@ -641,8 +638,12 @@ export default function SalesHistory() {
           </tbody>
           <tfoot className="bg-[#FFE2F0] text-[#841c4f]">
             <tr>
-              <td colSpan="6" className="p-4 text-right font-semibold border-t border-[#841c4f]/30">Total:</td>
-              <td className="p-4 text-center font-bold border-t border-[#841c4f]/30">₱{totalAmount.toLocaleString()}</td>
+              <td colSpan="7" className="p-4 text-right font-semibold border-t border-[#841c4f]/30">
+                Total:
+              </td>
+              <td className="p-4 text-center font-bold border-t border-[#841c4f]/30">
+                ₱{totalAmount.toLocaleString()}
+              </td>
             </tr>
           </tfoot>
         </table>
