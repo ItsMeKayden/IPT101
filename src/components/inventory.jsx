@@ -18,18 +18,11 @@ function Inventory() {
   const [showOrderForm, setShowOrderForm] = useState(false);
   const [showOrdersDialog, setShowOrdersDialog] = useState(false);
   const [showAddProductDialog, setShowAddProductDialog] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [activeCategory, setActiveCategory] = useState('all');
 
   useEffect(() => {
     fetchProducts();
-    
-    // Handle category tab activation
-    const categoryTabs = document.querySelectorAll('.tab-btn');
-    categoryTabs.forEach((tab) => {
-      tab.addEventListener('click', () => {
-        categoryTabs.forEach((t) => t.classList.remove('active', 'text-white'));
-        tab.classList.add('active', 'text-white');
-      });
-    });
 
     // Handle Add Button popup
     const addButton = document.querySelector('.add-btn');
@@ -40,9 +33,6 @@ function Inventory() {
     }
 
     return () => {
-      categoryTabs.forEach(tab => {
-        tab.removeEventListener('click', () => {});
-      });
       if (addButton) {
         addButton.removeEventListener('click', () => {});
       }
@@ -128,13 +118,27 @@ function Inventory() {
     }
   };
 
+  const getFilteredProducts = () => {
+    return products.filter((product) => {
+      const matchesSearch = product.name
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase());
+      const matchesCategory =
+        activeCategory === 'all' || product.category === activeCategory;
+      return matchesSearch && matchesCategory;
+    });
+  };
+
   const renderProducts = () => (
     <div className="px-12 pl-[62px]">
-      {products.map((product) => (
+      {getFilteredProducts().map((product) => (
         <div key={product.id} className="mb-8 flex items-start gap-6">
           {/* Product Image and Info */}
           <div className="relative w-[150px] flex flex-col items-center group">
-            <div className="w-[170px] h-[220px] flex items-center justify-center overflow-visible z-20 relative" style={{marginBottom: '-20px'}}>
+            <div
+              className="w-[170px] h-[220px] flex items-center justify-center overflow-visible z-20 relative"
+              style={{ marginBottom: '-20px' }}
+            >
               <img
                 src={
                   `http://localhost:5231${product.imagePath}` ||
@@ -142,19 +146,20 @@ function Inventory() {
                 }
                 alt={product.name}
                 className="w-full h-full object-cover rounded-xl border border-[#65366F]/30 shadow-lg transition-transform duration-300 group-hover:scale-110 bg-white"
-                style={{zIndex: 2, position: 'relative'}}
+                style={{ zIndex: 2, position: 'relative' }}
               />
             </div>
             {/* Overlay Product Name/Price */}
-            <div className="w-[170px] h-[100px] bg-[#ffea99] rounded-xl flex flex-col items-center justify-center py-2 px-2 shadow-lg z-10 border border-yellow-200 relative" style={{marginTop: '-5px'}}>
+            <div
+              className="w-[170px] h-[100px] bg-[#ffea99] rounded-xl flex flex-col items-center justify-center py-2 px-2 shadow-lg z-10 border border-yellow-200 relative"
+              style={{ marginTop: '-5px' }}
+            >
               <div className="font-['OFL_Sorts_Mill_Goudy_TT'] text-[15px] uppercase text-center w-full mt-[25px]">
                 {product.name}
               </div>
               <div className="font-['OFL_Sorts_Mill_Goudy_TT'] text-sm text-center text-[#841c4f] italic">
                 {product?.category &&
-                PRODUCT_CATEGORIES.find(
-                  (cat) => cat.value === product.category
-                )
+                PRODUCT_CATEGORIES.find((cat) => cat.value === product.category)
                   ? PRODUCT_CATEGORIES.find(
                       (cat) => cat.value === product.category
                     ).label
@@ -167,7 +172,7 @@ function Inventory() {
           </div>
 
           {/* Stock Table */}
-          <div 
+          <div
             className="flex-1 min-h-[218px] h-[218px] bg-[#f9eef5] rounded-xl flex items-stretch shadow-[0_4px_8px_rgba(101,54,111,0.2)] overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
             onClick={() => handleViewOrders(product)}
           >
@@ -189,27 +194,66 @@ function Inventory() {
               {/* Remaining */}
               <div className="flex flex-col items-center gap-[30px] mt-2">
                 <div className="font-bold text-[#841c4f]">REMAINING</div>
-                <div className={getStockColorClass(product.sizes?.remainingSmall || 0)}>{product.sizes?.remainingSmall || 0}</div>
-                <div className={getStockColorClass(product.sizes?.remainingMedium || 0)}>{product.sizes?.remainingMedium || 0}</div>
-                <div className={getStockColorClass(product.sizes?.remainingLarge || 0)}>{product.sizes?.remainingLarge || 0}</div>
+                <div
+                  className={getStockColorClass(
+                    product.sizes?.remainingSmall || 0
+                  )}
+                >
+                  {product.sizes?.remainingSmall || 0}
+                </div>
+                <div
+                  className={getStockColorClass(
+                    product.sizes?.remainingMedium || 0
+                  )}
+                >
+                  {product.sizes?.remainingMedium || 0}
+                </div>
+                <div
+                  className={getStockColorClass(
+                    product.sizes?.remainingLarge || 0
+                  )}
+                >
+                  {product.sizes?.remainingLarge || 0}
+                </div>
               </div>
               {/* Facebook */}
               <div className="flex flex-col items-center gap-[30px] mt-2">
-                <div className="font-bold flex items-center gap-1"><img src="icons/image 10.png" alt="Facebook" className="w-5 h-5" />FACEBOOK</div>
+                <div className="font-bold flex items-center gap-1">
+                  <img
+                    src="icons/image 10.png"
+                    alt="Facebook"
+                    className="w-5 h-5"
+                  />
+                  FACEBOOK
+                </div>
                 <div>{product.sizes.smallFB}</div>
                 <div>{product.sizes.mediumFB}</div>
                 <div>{product.sizes.largeFB}</div>
               </div>
               {/* Instagram */}
               <div className="flex flex-col items-center gap-[30px] mt-2">
-                <div className="font-bold flex items-center gap-1"><img src="icons/image 9.png" alt="Instagram" className="w-5 h-5" />INSTAGRAM</div>
+                <div className="font-bold flex items-center gap-1">
+                  <img
+                    src="icons/image 9.png"
+                    alt="Instagram"
+                    className="w-5 h-5"
+                  />
+                  INSTAGRAM
+                </div>
                 <div>{product.sizes.smallIG}</div>
                 <div>{product.sizes.mediumIG}</div>
                 <div>{product.sizes.largeIG}</div>
               </div>
               {/* Shopee */}
               <div className="flex flex-col items-center gap-[30px] mt-2">
-                <div className="font-bold flex items-center gap-1"><img src="icons/image 8.png" alt="Shopee" className="w-5 h-5" />SHOPEE</div>
+                <div className="font-bold flex items-center gap-1">
+                  <img
+                    src="icons/image 8.png"
+                    alt="Shopee"
+                    className="w-5 h-5"
+                  />
+                  SHOPEE
+                </div>
                 <div>{product.sizes.smallShopee}</div>
                 <div>{product.sizes.mediumShopee}</div>
                 <div>{product.sizes.largeShopee}</div>
@@ -241,12 +285,21 @@ function Inventory() {
     <div className="min-h-screen flex flex-col bg-[#faf8f9]">
       <div className="top-0 left-[80px] w-full h-[65px] bg-[#65366F] shadow-md z-10">
         <div className="flex gap-5 h-full items-center justify-center overflow-visible">
-          <CategoryTab name="DRESS" active={true} />
-          <CategoryTab name="TOP" />
-          <CategoryTab name="BOTTOMS" />
-          <CategoryTab name="SKIRTS" />
-          <CategoryTab name="ACCESSORIES" />
-          <CategoryTab name="OTHERS" />
+          <CategoryTab
+            name="ALL"
+            category="all"
+            active={activeCategory === 'all'}
+            onClick={() => setActiveCategory('all')}
+          />
+          {PRODUCT_CATEGORIES.map((cat) => (
+            <CategoryTab
+              key={cat.value}
+              name={cat.label.toUpperCase()}
+              category={cat.value}
+              active={activeCategory === cat.value}
+              onClick={() => setActiveCategory(cat.value)}
+            />
+          ))}
         </div>
       </div>
       <div className="p-5">
@@ -254,8 +307,9 @@ function Inventory() {
           <input
             type="text"
             className="w-[903px] h-[40px] rounded-full border border-[#65366F] px-5 py-0 text-base bg-white text-gray-900"
-            placeholder="Search..."
-            onChange={(e) => console.log('Search:', e.target.value)}
+            placeholder="Search by product name..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
           <img
             src="icons/Search.png"
@@ -272,7 +326,9 @@ function Inventory() {
           </div>
         </div>
         {loading ? (
-          <div className="text-center py-8 text-gray-800">Loading products...</div>
+          <div className="text-center py-8 text-gray-800">
+            Loading products...
+          </div>
         ) : (
           renderProducts()
         )}
@@ -469,28 +525,17 @@ function SubHeader() {
   );
 }
 
-function CategoryTab({ name, active = false }) {
+function CategoryTab({ name, category, active, onClick }) {
   return (
     <div className="relative group">
       <button
         className={`tab-btn bg-transparent border-none text-[#fada5b] text-[23px] w-[150px] cursor-pointer font-['OFL_Sorts_Mill_Goudy_TT'] ${
           active ? 'active text-white' : ''
         }`}
-        data-tab={name.toLowerCase()}
+        onClick={onClick}
       >
         {name}
       </button>
-      <ul className="hidden absolute top-full left-0 bg-white border border-gray-300 z-30 w-full p-0 m-0 list-none group-hover:block shadow-lg">
-        <li className="p-[10px] cursor-pointer hover:bg-[#c45d9c] hover:text-white">
-          {name} 1
-        </li>
-        <li className="p-[10px] cursor-pointer hover:bg-[#c45d9c] hover:text-white">
-          {name} 2
-        </li>
-        <li className="p-[10px] cursor-pointer hover:bg-[#c45d9c] hover:text-white">
-          {name} 3
-        </li>
-      </ul>
     </div>
   );
 }
@@ -1119,8 +1164,8 @@ function OrderForm({ product, onClose, onSubmit }) {
       <div className="bg-gradient-to-b from-[#e7d6f7] to-[#f7d6d0] rounded-lg p-6 w-96 shadow-lg">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-[#841c4f] text-xl font-bold">Place Order</h2>
-          <button 
-            onClick={onClose} 
+          <button
+            onClick={onClose}
             className="text-[#841c4f] text-2xl hover:text-red-600"
           >
             ×
@@ -1234,7 +1279,8 @@ function OrderForm({ product, onClose, onSubmit }) {
 function ViewOrdersDialog({ product, onClose }) {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [confirmDialog, setConfirmDialog] = useState(null);
+  const [showPopup, setShowPopup] = useState(false);
+  const [selectedOrder, setSelectedOrder] = useState(null);
 
   useEffect(() => {
     fetchOrders();
@@ -1257,56 +1303,39 @@ function ViewOrdersDialog({ product, onClose }) {
     }
   };
 
-  const handlePaymentToggle = (order) => {
-    setConfirmDialog({
-      orderId: order.id,
-      currentStatus: order.isPaid,
-      customerName: order.customerName,
-    });
+  const handlePaymentToggle = async (order) => {
+    setSelectedOrder(order);
+    setShowPopup(true);
   };
 
-  const confirmStatusChange = async () => {
+  const confirmPaymentChange = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5231/api/Product/orders/${confirmDialog.orderId}/updatePayment`,
+        `http://localhost:5231/api/Product/orders/${selectedOrder.id}/updatePayment`,
         {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
-            Accept: 'application/json',
           },
           body: JSON.stringify({
-            isPaid: !confirmDialog.currentStatus,
+            isPaid: !selectedOrder.isPaid,
           }),
         }
       );
 
-      console.log('Response status:', response.status);
-
       if (!response.ok) {
-        const errorData = await response.text();
-        console.log('Error response:', errorData);
-        throw new Error(
-          `Failed to update payment status: ${response.status} ${response.statusText}`
-        );
+        throw new Error('Failed to update payment status');
       }
 
-      const data = await response.json();
-      console.log('Update successful:', data);
-
-      // Update local state
       setOrders(
-        orders.map((order) =>
-          order.id === confirmDialog.orderId
-            ? { ...order, isPaid: !confirmDialog.currentStatus }
-            : order
+        orders.map((o) =>
+          o.id === selectedOrder.id ? { ...o, isPaid: !o.isPaid } : o
         )
       );
-
-      setConfirmDialog(null);
+      setShowPopup(false);
     } catch (error) {
-      console.error('Error details:', error);
-      alert(`Failed to update payment status: ${error.message}`);
+      console.error('Error updating payment status:', error);
+      alert('Failed to update payment status');
     }
   };
 
@@ -1326,7 +1355,7 @@ function ViewOrdersDialog({ product, onClose }) {
         {loading ? (
           <div className="text-center py-4">Loading orders...</div>
         ) : (
-          <div className="max-h-[400px] overflow-y-auto">
+          <div className="max-h-[400px] overflow-y-auto relative">
             <table className="w-full border-collapse">
               <thead>
                 <tr className="bg-white/80 backdrop-blur-sm text-[#841c4f]">
@@ -1340,7 +1369,10 @@ function ViewOrdersDialog({ product, onClose }) {
               </thead>
               <tbody>
                 {orders.map((order) => (
-                  <tr key={order.id} className="border-b border-[#d2679f]/30 bg-white/60 backdrop-blur-sm">
+                  <tr
+                    key={order.id}
+                    className="border-b border-[#d2679f]/30 bg-white/60 backdrop-blur-sm"
+                  >
                     <td className="py-2 px-4">{order.customerName}</td>
                     <td className="py-2 px-4 text-center">{order.quantity}</td>
                     <td className="py-2 px-4 text-center">{order.size}</td>
@@ -1349,55 +1381,50 @@ function ViewOrdersDialog({ product, onClose }) {
                       ₱{order.totalAmount.toFixed(2)}
                     </td>
                     <td className="py-2 px-4 text-center">
-                      <span
-                        className={`px-2 py-1 rounded ${
+                      <button
+                        onClick={() => handlePaymentToggle(order)}
+                        className={`px-3 py-1 rounded-full cursor-pointer transition-colors ${
                           order.isPaid
-                            ? 'bg-green-100/80 backdrop-blur-sm text-green-800'
-                            : 'bg-yellow-100/80 backdrop-blur-sm text-yellow-800'
+                            ? 'bg-green-100 text-green-800 hover:bg-green-200'
+                            : 'bg-yellow-100 text-yellow-800 hover:bg-yellow-200'
                         }`}
                       >
                         {order.isPaid ? 'Paid' : 'Pending'}
-                      </span>
+                      </button>
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
+
+            {/* Payment Status Popup - Moved outside the orders table container */}
+            {showPopup && selectedOrder && (
+              <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-[60]">
+                <div className="bg-white rounded-lg shadow-xl p-6 w-80 border-2 border-[#841c4f]/20 transform scale-110">
+                  <p className="text-center text-[#841c4f] text-lg mb-6 font-semibold">
+                    Change status to {selectedOrder.isPaid ? 'Pending' : 'Paid'}
+                    ?
+                  </p>
+                  <div className="flex justify-center gap-4">
+                    <button
+                      onClick={confirmPaymentChange}
+                      className="px-8 py-2 bg-[#841c4f] text-white rounded-lg hover:bg-[#641c3f] transition-colors font-semibold"
+                    >
+                      Yes
+                    </button>
+                    <button
+                      onClick={() => setShowPopup(false)}
+                      className="px-8 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors font-semibold"
+                    >
+                      No
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         )}
       </div>
-
-      {/* Confirmation Dialog */}
-      {confirmDialog && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[60]">
-          <div className="bg-white rounded-lg p-6 max-w-md">
-            <h3 className="text-lg font-bold text-[#841c4f] mb-4">
-              Confirm Status Change
-            </h3>
-            <p className="mb-6">
-              Are you sure you want to mark the order for{' '}
-              <span className="font-semibold">
-                {confirmDialog.customerName}
-              </span>{' '}
-              as {confirmDialog.currentStatus ? 'pending' : 'paid'}?
-            </p>
-            <div className="flex justify-end gap-4">
-              <button
-                onClick={() => setConfirmDialog(null)}
-                className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={confirmStatusChange}
-                className="px-4 py-2 bg-[#841c4f] text-white rounded hover:bg-[#6a183f]"
-              >
-                Confirm
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
@@ -1451,7 +1478,7 @@ function AddProductDialog({ onClose, fetchProducts }) {
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
       <div className="max-w-[500px] w-full rounded-xl relative bg-gradient-to-b from-[#e7d6f7] to-[#f7d6d0] shadow-lg">
-        <button 
+        <button
           onClick={onClose}
           className="close-button absolute top-2 right-2 text-[#841c4f] text-2xl font-bold z-10"
         >
@@ -1463,7 +1490,9 @@ function AddProductDialog({ onClose, fetchProducts }) {
             <input
               type="text"
               value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, name: e.target.value })
+              }
               className="w-full p-2 rounded border border-gray-300"
               required
             />
@@ -1474,7 +1503,9 @@ function AddProductDialog({ onClose, fetchProducts }) {
             <label className="block text-[#841c4f] mb-2">Category:</label>
             <select
               value={formData.category}
-              onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, category: e.target.value })
+              }
               className="w-full p-2 rounded border border-gray-300"
               required
             >
@@ -1492,7 +1523,9 @@ function AddProductDialog({ onClose, fetchProducts }) {
             <input
               type="number"
               value={formData.price}
-              onChange={(e) => setFormData({ ...formData, price: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, price: e.target.value })
+              }
               className="w-full p-2 rounded border border-gray-300"
               min="0"
               step="0.01"
@@ -1503,19 +1536,26 @@ function AddProductDialog({ onClose, fetchProducts }) {
           <div>
             <label className="block text-[#841c4f] mb-2">Product Image:</label>
             <div className="flex items-center gap-3">
-              <label htmlFor="product-image-upload" className="flex items-center gap-2 cursor-pointer px-4 py-2 bg-white/80 border border-gray-300 rounded-lg shadow hover:bg-pink-100 transition">
+              <label
+                htmlFor="product-image-upload"
+                className="flex items-center gap-2 cursor-pointer px-4 py-2 bg-white/80 border border-gray-300 rounded-lg shadow hover:bg-pink-100 transition"
+              >
                 <img src="/icons/addimage.png" alt="Add" className="w-6 h-6" />
                 <span className="text-[#841c4f] font-semibold">Add Image</span>
                 <input
                   id="product-image-upload"
                   type="file"
-                  onChange={(e) => setFormData({ ...formData, image: e.target.files[0] })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, image: e.target.files[0] })
+                  }
                   className="hidden"
                   accept="image/*"
                 />
               </label>
               {formData.image && (
-                <span className="text-sm text-gray-700 truncate max-w-[150px]">{formData.image.name}</span>
+                <span className="text-sm text-gray-700 truncate max-w-[150px]">
+                  {formData.image.name}
+                </span>
               )}
             </div>
           </div>
