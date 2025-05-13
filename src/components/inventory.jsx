@@ -1812,6 +1812,39 @@ function getStockColorClass(stock) {
   return '';
 }
 
+// Delete Confirmation Dialog Component
+function DeleteConfirmationDialog({ isOpen, onClose, onConfirm }) {
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-[60]">
+      <div className="bg-white rounded-lg p-6 w-[400px] shadow-xl border-2 border-[#841c4f]/20">
+        <h2 className="text-[#841c4f] text-xl font-bold mb-4">
+          Confirm Delete
+        </h2>
+        <p className="text-gray-600 mb-6">
+          Are you sure you want to delete this product? This action cannot be
+          undone.
+        </p>
+        <div className="flex justify-end gap-3">
+          <button
+            onClick={onClose}
+            className="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
+          >
+            Cancel
+          </button>
+          <button
+            onClick={onConfirm}
+            className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function EditProductDialog({ product, onClose, fetchProducts }) {
   const [formData, setFormData] = useState({
     name: product.name,
@@ -1822,6 +1855,7 @@ function EditProductDialog({ product, onClose, fetchProducts }) {
     medium: product.sizes.medium,
     large: product.sizes.large,
   });
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent default form submission
@@ -1885,58 +1919,54 @@ function EditProductDialog({ product, onClose, fetchProducts }) {
     }
   };
 
-  const handleDelete = async (e) => {
-    e.preventDefault();
-
-    if (window.confirm('Are you sure you want to delete this product?')) {
-      try {
-        const response = await fetch(
-          `http://localhost:5231/api/product/${product.id}`,
-          {
-            method: 'DELETE',
-            headers: {
-              Accept: 'application/json',
-            },
-            mode: 'cors',
-          }
-        );
-
-        if (!response.ok) {
-          throw new Error('Failed to delete product');
+  const handleDelete = async () => {
+    try {
+      const response = await fetch(
+        `http://localhost:5231/api/product/${product.id}`,
+        {
+          method: 'DELETE',
+          headers: {
+            Accept: 'application/json',
+          },
+          mode: 'cors',
         }
+      );
 
-        await fetchProducts();
-        onClose();
-
-        toast.success('🗑️ Product deleted successfully!', {
-          position: 'top-right',
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          theme: 'colored',
-          style: {
-            backgroundColor: '#FF5722',
-            color: 'white',
-          },
-        });
-      } catch (error) {
-        console.error('Delete error:', error);
-        toast.error(`❌ Failed to delete product: ${error.message}`, {
-          position: 'top-right',
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          theme: 'colored',
-          style: {
-            backgroundColor: '#f44336',
-            color: 'white',
-          },
-        });
+      if (!response.ok) {
+        throw new Error('Failed to delete product');
       }
+
+      await fetchProducts();
+      onClose();
+
+      toast.success('🗑️ Product deleted successfully!', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: 'colored',
+        style: {
+          backgroundColor: '#FF5722',
+          color: 'white',
+        },
+      });
+    } catch (error) {
+      console.error('Delete error:', error);
+      toast.error(`❌ Failed to delete product: ${error.message}`, {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: 'colored',
+        style: {
+          backgroundColor: '#f44336',
+          color: 'white',
+        },
+      });
     }
   };
 
@@ -2082,7 +2112,7 @@ function EditProductDialog({ product, onClose, fetchProducts }) {
           <div className="flex justify-between mt-6">
             <button
               type="button"
-              onClick={handleDelete}
+              onClick={() => setShowDeleteConfirm(true)}
               className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
             >
               Delete Product
@@ -2104,6 +2134,14 @@ function EditProductDialog({ product, onClose, fetchProducts }) {
             </div>
           </div>
         </form>
+        <DeleteConfirmationDialog
+          isOpen={showDeleteConfirm}
+          onClose={() => setShowDeleteConfirm(false)}
+          onConfirm={() => {
+            handleDelete();
+            setShowDeleteConfirm(false);
+          }}
+        />
       </div>
     </div>
   );
