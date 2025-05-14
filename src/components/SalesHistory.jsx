@@ -66,7 +66,7 @@ export default function SalesHistory() {
             productCategory: product.category,
             productPrice: product.price,
             totalAmount: order.totalAmount || (order.quantity * product.price),
-            date: new Date(order.orderDate || order.createdAt).toISOString().split('T')[0],
+            orderDate: order.orderDate || order.createdAt,
             platform: order.platform || 'Unknown',
             customerName: order.customerName || 'Unknown Customer',
             isPaid: order.isPaid
@@ -130,7 +130,14 @@ export default function SalesHistory() {
   // Advanced filtering and sorting
   const filteredOrders = useMemo(() => {
     const { start, end } = currentDateRange;
-    let filtered = orders.filter(order => order.date >= start && order.date <= end);
+    const startDate = new Date(start);
+    const endDate = new Date(end);
+    startDate.setHours(0,0,0,0);
+    endDate.setHours(23,59,59,999);
+    let filtered = orders.filter(order => {
+      const orderDate = new Date(order.orderDate);
+      return orderDate >= startDate && orderDate <= endDate;
+    });
 
     // Apply platform filter
     if (platformFilter !== 'All') {
@@ -546,66 +553,56 @@ export default function SalesHistory() {
           <thead className="bg-[#65366F] text-white">
             <tr>
               <th className="p-4 text-center border-b border-[#841c4f]/30">
-                <button 
-                  className="font-semibold flex items-center justify-center gap-1 w-full"
-                  onClick={() => requestSort('customerName')}
-                >
+                <button className="font-semibold flex items-center justify-center gap-1 w-full"
+                  onClick={() => requestSort('customerName')}>
                   Customer{getSortIndicator('customerName')}
                 </button>
               </th>
               <th className="p-4 text-center border-b border-[#841c4f]/30">
-                <button 
-                  className="font-semibold flex items-center justify-center gap-1 w-full"
-                  onClick={() => requestSort('productName')}
-                >
+                <button className="font-semibold flex items-center justify-center gap-1 w-full"
+                  onClick={() => requestSort('productName')}>
                   Product{getSortIndicator('productName')}
                 </button>
               </th>
               <th className="p-4 text-center border-b border-[#841c4f]/30">
-                <button 
-                  className="font-semibold flex items-center justify-center gap-1 w-full"
-                  onClick={() => requestSort('productCategory')}
-                >
+                <button className="font-semibold flex items-center justify-center gap-1 w-full"
+                  onClick={() => requestSort('productCategory')}>
                   Category{getSortIndicator('productCategory')}
                 </button>
               </th>
               <th className="p-4 text-center border-b border-[#841c4f]/30">
-                <button 
-                  className="font-semibold flex items-center justify-center gap-1 w-full"
-                  onClick={() => requestSort('quantity')}
-                >
+                <button className="font-semibold flex items-center justify-center gap-1 w-full"
+                  onClick={() => requestSort('quantity')}>
                   Qty{getSortIndicator('quantity')}
                 </button>
               </th>
               <th className="p-4 text-center border-b border-[#841c4f]/30">
-                <button 
-                  className="font-semibold flex items-center justify-center gap-1 w-full"
-                  onClick={() => requestSort('size')}
-                >
+                <button className="font-semibold flex items-center justify-center gap-1 w-full"
+                  onClick={() => requestSort('size')}>
                   Size{getSortIndicator('size')}
                 </button>
               </th>
               <th className="p-4 text-center border-b border-[#841c4f]/30">
-                <button 
-                  className="font-semibold flex items-center justify-center gap-1 w-full"
-                  onClick={() => requestSort('platform')}
-                >
+                <button className="font-semibold flex items-center justify-center gap-1 w-full"
+                  onClick={() => requestSort('platform')}>
                   Platform{getSortIndicator('platform')}
                 </button>
               </th>
               <th className="p-4 text-center border-b border-[#841c4f]/30">
-                <button 
-                  className="font-semibold flex items-center justify-center gap-1 w-full"
-                  onClick={() => requestSort('isPaid')}
-                >
+                <button className="font-semibold flex items-center justify-center gap-1 w-full"
+                  onClick={() => requestSort('orderDate')}>
+                  Date{getSortIndicator('orderDate')}
+                </button>
+              </th>
+              <th className="p-4 text-center border-b border-[#841c4f]/30">
+                <button className="font-semibold flex items-center justify-center gap-1 w-full"
+                  onClick={() => requestSort('isPaid')}>
                   Status{getSortIndicator('isPaid')}
                 </button>
               </th>
               <th className="p-4 text-center border-b border-[#841c4f]/30">
-                <button 
-                  className="font-semibold flex items-center justify-center gap-1 w-full"
-                  onClick={() => requestSort('totalAmount')}
-                >
+                <button className="font-semibold flex items-center justify-center gap-1 w-full"
+                  onClick={() => requestSort('totalAmount')}>
                   Amount (₱){getSortIndicator('totalAmount')}
                 </button>
               </th>
@@ -624,13 +621,14 @@ export default function SalesHistory() {
                   <td className="p-4 text-center border-b border-[#841c4f]/30">{order.quantity}</td>
                   <td className="p-4 text-center border-b border-[#841c4f]/30">{order.size}</td>
                   <td className="p-4 text-center border-b border-[#841c4f]/30">{order.platform}</td>
+                  <td className="p-4 text-center border-b border-[#841c4f]/30">{new Date(order.orderDate).toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric'})}</td>
                   <td className="p-4 text-center border-b border-[#841c4f]/30">{order.isPaid ? 'Paid' : 'Pending'}</td>
                   <td className="p-4 text-center border-b border-[#841c4f]/30">₱{order.totalAmount.toLocaleString()}</td>
                 </tr>
               ))
             ) : (
               <tr>
-                <td colSpan="7" className="p-8 text-center text-[#841c4f]">
+                <td colSpan="9" className="p-8 text-center text-[#841c4f]">
                   No sales data found for the selected criteria
                 </td>
               </tr>
@@ -638,7 +636,7 @@ export default function SalesHistory() {
           </tbody>
           <tfoot className="bg-[#FFE2F0] text-[#841c4f]">
             <tr>
-              <td colSpan="7" className="p-4 text-right font-semibold border-t border-[#841c4f]/30">
+              <td colSpan="8" className="p-4 text-right font-semibold border-t border-[#841c4f]/30">
                 Total:
               </td>
               <td className="p-4 text-center font-bold border-t border-[#841c4f]/30">
