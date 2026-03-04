@@ -58,10 +58,7 @@ namespace IPT101.Controllers
                         LargeFB = 0,
                         SmallIG = 0,
                         MediumIG = 0,
-                        LargeIG = 0,
-                        SmallShopee = 0,
-                        MediumShopee = 0,
-                        LargeShopee = 0
+                        LargeIG = 0
                     }
                 };
 
@@ -137,10 +134,7 @@ namespace IPT101.Controllers
                             largeFB = p.Sizes.LargeFB,
                             smallIG = p.Sizes.SmallIG,
                             mediumIG = p.Sizes.MediumIG,
-                            largeIG = p.Sizes.LargeIG,
-                            smallShopee = p.Sizes.SmallShopee,
-                            mediumShopee = p.Sizes.MediumShopee,
-                            largeShopee = p.Sizes.LargeShopee
+                            largeIG = p.Sizes.LargeIG
                         }
                     })
                     .ToListAsync();
@@ -208,9 +202,6 @@ namespace IPT101.Controllers
                             case "instagram":
                                 product.Sizes.SmallIG += request.Quantity;
                                 break;
-                            case "shopee":
-                                product.Sizes.SmallShopee += request.Quantity;
-                                break;
                         }
                         break;
 
@@ -224,9 +215,6 @@ namespace IPT101.Controllers
                             case "instagram":
                                 product.Sizes.MediumIG += request.Quantity;
                                 break;
-                            case "shopee":
-                                product.Sizes.MediumShopee += request.Quantity;
-                                break;
                         }
                         break;
 
@@ -239,9 +227,6 @@ namespace IPT101.Controllers
                                 break;
                             case "instagram":
                                 product.Sizes.LargeIG += request.Quantity;
-                                break;
-                            case "shopee":
-                                product.Sizes.LargeShopee += request.Quantity;
                                 break;
                         }
                         break;
@@ -269,13 +254,45 @@ namespace IPT101.Controllers
             }
         }
 
+        [HttpGet("orders")]
+        public async Task<IActionResult> GetAllOrders()
+        {
+            try
+            {
+                var orders = await _context.Orders
+                    .Where(o => o.Platform.ToLower() != "shopee")
+                    .Include(o => o.Product)
+                    .OrderByDescending(o => o.OrderDate)
+                    .Select(o => new
+                    {
+                        id = o.Id,
+                        customerName = o.CustomerName,
+                        quantity = o.Quantity,
+                        size = o.Size,
+                        platform = o.Platform,
+                        totalAmount = o.TotalAmount,
+                        isPaid = o.IsPaid,
+                        orderDate = o.OrderDate,
+                        productId = o.ProductId,
+                        productName = o.Product.Name
+                    })
+                    .ToListAsync();
+
+                return Ok(orders);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Error fetching all orders", error = ex.Message });
+            }
+        }
+
         [HttpGet("orders/{productId}")]
         public async Task<IActionResult> GetOrders(int productId)
         {
             try
             {
                 var orders = await _context.Orders
-                    .Where(o => o.ProductId == productId)
+                    .Where(o => o.ProductId == productId && o.Platform.ToLower() != "shopee")
                     .OrderByDescending(o => o.OrderDate)
                     .Select(o => new
                     {
@@ -345,9 +362,9 @@ namespace IPT101.Controllers
                 product.Sizes.TotalLarge = model.Large;
 
                 // Update remaining quantities (accounting for sold items)
-                product.Sizes.RemainingSmall = model.Small - (product.Sizes.SmallFB + product.Sizes.SmallIG + product.Sizes.SmallShopee);
-                product.Sizes.RemainingMedium = model.Medium - (product.Sizes.MediumFB + product.Sizes.MediumIG + product.Sizes.MediumShopee);
-                product.Sizes.RemainingLarge = model.Large - (product.Sizes.LargeFB + product.Sizes.LargeIG + product.Sizes.LargeShopee);
+                product.Sizes.RemainingSmall = model.Small - (product.Sizes.SmallFB + product.Sizes.SmallIG);
+                product.Sizes.RemainingMedium = model.Medium - (product.Sizes.MediumFB + product.Sizes.MediumIG);
+                product.Sizes.RemainingLarge = model.Large - (product.Sizes.LargeFB + product.Sizes.LargeIG);
 
                 // Handle image update if provided
                 if (model.Image != null && model.Image.Length > 0)
@@ -399,10 +416,7 @@ namespace IPT101.Controllers
                             largeFB = product.Sizes.LargeFB,
                             smallIG = product.Sizes.SmallIG,
                             mediumIG = product.Sizes.MediumIG,
-                            largeIG = product.Sizes.LargeIG,
-                            smallShopee = product.Sizes.SmallShopee,
-                            mediumShopee = product.Sizes.MediumShopee,
-                            largeShopee = product.Sizes.LargeShopee
+                            largeIG = product.Sizes.LargeIG
                         }
                     }
                 });

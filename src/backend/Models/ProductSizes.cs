@@ -29,9 +29,6 @@ namespace IPT101.Models
         public int SmallIG { get; set; }
         public int MediumIG { get; set; }
         public int LargeIG { get; set; }
-        public int SmallShopee { get; set; }
-        public int MediumShopee { get; set; }
-        public int LargeShopee { get; set; }
 
         public Product Product { get; set; } = null!;
     }

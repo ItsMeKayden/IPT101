@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using IPT101.Data;
-using Pomelo.EntityFrameworkCore.MySql;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,28 +10,6 @@ builder.WebHost.ConfigureKestrel(serverOptions =>
 });
 
 // Add CORS services
-builder.Services.AddCors(options =>
-{
-    options.AddDefaultPolicy(builder =>
-    {
-        builder.AllowAnyOrigin()
-               .AllowAnyHeader()
-               .AllowAnyMethod();
-    });
-});
-
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowAll", 
-        builder =>
-        {
-            builder
-                .AllowAnyOrigin()
-                .AllowAnyMethod()    // This is crucial for DELETE
-                .AllowAnyHeader();
-        });
-});
-
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", 
@@ -59,18 +36,10 @@ builder.Services.AddControllers().AddNewtonsoftJson(options =>
     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
 });
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-var serverVersion = new MySqlServerVersion(new Version(8, 0, 0));
-
+// SQLite configuration - Simple, no external dependencies needed
+var dbPath = Path.Combine(AppContext.BaseDirectory, "ipt101.db");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseMySql(connectionString, serverVersion,
-        mysqlOptions =>
-        {
-            mysqlOptions.EnableRetryOnFailure(
-                maxRetryCount: 3,
-                maxRetryDelay: TimeSpan.FromSeconds(5),
-                errorNumbersToAdd: null);
-        })
+    options.UseSqlite($"Data Source={dbPath}")
 );
 
 builder.Services.AddEndpointsApiExplorer();
@@ -78,12 +47,13 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Add this line to debug routes
-app.Use(async (context, next) =>
+// Auto-create and migrate database on startup
+using (var scope = app.Services.CreateScope())
 {
-    Console.WriteLine($"Request Path: {context.Request.Path}");
-    await next();
-});
+    var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    db.Database.Migrate();
+    db.Database.EnsureCreated();
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -92,17 +62,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// Make sure CORS is added in the correct order in the middleware pipeline
-app.UseCors(options => options
-    .AllowAnyOrigin()
-    .AllowAnyMethod() // This is important for DELETE
-    .AllowAnyHeader());
-app.UseRouting();
+app.UseCors("AllowAll");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAuthorization();
-app.UseCors("AllowAll");
-app.UseCors("AllowAll");
 app.MapControllers();
 
 app.Run();

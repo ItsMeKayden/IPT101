@@ -143,9 +143,9 @@ export default function Sidebar({ children }) {
 
       {/* Main Content Area */}
       <div
-        className={`flex-1 flex flex-col transition-all duration-300 pl-10 overflow-x-hidden ${
+        className={`flex-1 flex flex-col pl-10 overflow-x-hidden transition-all duration-700 ${
           blurred ? 'blur-sm' : ''
-        } ${contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} transition-opacity transition-transform duration-700`}
+        } ${contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
       >
         {children}
       </div>

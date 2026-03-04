@@ -5,7 +5,7 @@ const OrderForm = ({ product, onClose, onSubmit }) => {
     customerName: '',
     quantity: 1,
     size: 'small', // Must match exactly what the API expects (lowercase)
-    platform: '', // Must be 'facebook', 'instagram', or 'shopee'
+    platform: '', // Must be 'facebook' or 'instagram'
     totalAmount: product.price,
   });
 
@@ -167,18 +167,6 @@ const OrderForm = ({ product, onClose, onSubmit }) => {
                   alt="Instagram"
                   className="w-8 h-8"
                 />
-              </label>
-              <label className="flex items-center gap-2">
-                <input
-                  type="radio"
-                  name="platform"
-                  value="shopee"
-                  checked={formData.platform === 'shopee'}
-                  onChange={(e) =>
-                    setFormData({ ...formData, platform: e.target.value })
-                  }
-                />
-                <img src="icons/image 8.png" alt="Shopee" className="w-8 h-8" />
               </label>
             </div>
           </div>

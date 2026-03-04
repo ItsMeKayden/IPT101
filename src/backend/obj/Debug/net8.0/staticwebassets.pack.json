@@ -1,8 +1,24 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\00524108-564e-48f4-94f7-20f72391bb91_pleated skirt.jpg",
+      "PackagePath": "staticwebassets\\uploads\\00524108-564e-48f4-94f7-20f72391bb91_pleated skirt.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\03c469e1-dd8d-474f-b095-c996278f4e41_3D rose fabric • gartered waist.jpg",
+      "PackagePath": "staticwebassets\\uploads\\03c469e1-dd8d-474f-b095-c996278f4e41_3D rose fabric • gartered waist.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\0758425b-a0d3-4b74-b7f5-59f1c89a3359_Collared button-down midi dress.jpg",
+      "PackagePath": "staticwebassets\\uploads\\0758425b-a0d3-4b74-b7f5-59f1c89a3359_Collared button-down midi dress.jpg"
+    },
+    {
       "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\0884ded3-7a51-4054-af35-4eda0c55b04a_QCU_Logo_2019.png",
       "PackagePath": "staticwebassets\\uploads\\0884ded3-7a51-4054-af35-4eda0c55b04a_QCU_Logo_2019.png"
+    },
+    {
+      "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\094fca92-51d1-4386-834a-c9f4ce6f5beb_boho skirt • gartered waist.jpg",
+      "PackagePath": "staticwebassets\\uploads\\094fca92-51d1-4386-834a-c9f4ce6f5beb_boho skirt • gartered waist.jpg"
     },
     {
       "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\12_6687c9c9-e0e8-44b7-87fd-af2d955e518f_SpoilerImgTroll.png",
@@ -25,12 +41,32 @@
       "PackagePath": "staticwebassets\\uploads\\20836143-b3b6-49f0-aaa9-22e0ac54b0d7_SpoilerImgTroll.png"
     },
     {
+      "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\220244be-ea62-4689-9549-5eecc1c93663_knitted top with attached shawl.jpg",
+      "PackagePath": "staticwebassets\\uploads\\220244be-ea62-4689-9549-5eecc1c93663_knitted top with attached shawl.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\256a9e07-03b7-4641-b3d2-2f03ed7ff5fd_wide leg pleated trousers.jpg",
+      "PackagePath": "staticwebassets\\uploads\\256a9e07-03b7-4641-b3d2-2f03ed7ff5fd_wide leg pleated trousers.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\28db4839-d310-4c95-90b1-41b62bbfb5b4_eyelet knitted top.jpg",
+      "PackagePath": "staticwebassets\\uploads\\28db4839-d310-4c95-90b1-41b62bbfb5b4_eyelet knitted top.jpg"
+    },
+    {
       "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\2e3767c0-32b5-4e45-8170-d86c6831a1e0_QCU_Logo_2019.png",
       "PackagePath": "staticwebassets\\uploads\\2e3767c0-32b5-4e45-8170-d86c6831a1e0_QCU_Logo_2019.png"
     },
     {
       "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\2eb4022a-7c05-4e3c-869a-5249adc49727_QCU_Logo_2019.png",
       "PackagePath": "staticwebassets\\uploads\\2eb4022a-7c05-4e3c-869a-5249adc49727_QCU_Logo_2019.png"
+    },
+    {
+      "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\30cd3eb1-d475-41e6-ad5f-bbe992b8bd5f_batwing sleeves.jpg",
+      "PackagePath": "staticwebassets\\uploads\\30cd3eb1-d475-41e6-ad5f-bbe992b8bd5f_batwing sleeves.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\3eb3f560-e717-4308-9926-ccc05bd30f56_niklis.webp",
+      "PackagePath": "staticwebassets\\uploads\\3eb3f560-e717-4308-9926-ccc05bd30f56_niklis.webp"
     },
     {
       "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\3efced43-9378-4349-9985-5df9fe568138_malupiton.jpg",
@@ -61,12 +97,20 @@
       "PackagePath": "staticwebassets\\uploads\\6874bd3d-d4c6-4bb4-9a2d-32a6a5720af9_benegas.jpg"
     },
     {
+      "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\68c7421a-d0c5-4fb7-9005-8f5fe6022100_loose cotton dress.jpg",
+      "PackagePath": "staticwebassets\\uploads\\68c7421a-d0c5-4fb7-9005-8f5fe6022100_loose cotton dress.jpg"
+    },
+    {
       "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\6bf959eb-ae16-4c71-b1c4-fc69ecacc5bc_pexels-harsh-raj-gond-218020-1670848.jpg",
       "PackagePath": "staticwebassets\\uploads\\6bf959eb-ae16-4c71-b1c4-fc69ecacc5bc_pexels-harsh-raj-gond-218020-1670848.jpg"
     },
     {
       "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\6c38741e-b4c7-48b6-9219-db3af86c7c90_SpoilerImgTroll.png",
       "PackagePath": "staticwebassets\\uploads\\6c38741e-b4c7-48b6-9219-db3af86c7c90_SpoilerImgTroll.png"
+    },
+    {
+      "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\6e585b63-cba0-4988-b9bb-7e950846a095_padded dress.jpg",
+      "PackagePath": "staticwebassets\\uploads\\6e585b63-cba0-4988-b9bb-7e950846a095_padded dress.jpg"
     },
     {
       "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\74364907-b87e-47b5-bcca-a71d40024efb_SpoilerImgTroll.png",
@@ -81,8 +125,20 @@
       "PackagePath": "staticwebassets\\uploads\\7a5e6cab-2a6a-4ce3-a0d0-01db93939662_Crop Calendar.png"
     },
     {
+      "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\7cebd0c1-74de-4c78-be8b-a1a2bd76755a_Two-Piece Illusion Midi Dress.jpg",
+      "PackagePath": "staticwebassets\\uploads\\7cebd0c1-74de-4c78-be8b-a1a2bd76755a_Two-Piece Illusion Midi Dress.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\8d58c975-5527-4c5c-9629-c9f8b340cf0e_gugil.png",
+      "PackagePath": "staticwebassets\\uploads\\8d58c975-5527-4c5c-9629-c9f8b340cf0e_gugil.png"
+    },
+    {
       "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\9425bf48-0584-40c1-ab58-a4dbca3ee615_QCU_Logo_2019.png",
       "PackagePath": "staticwebassets\\uploads\\9425bf48-0584-40c1-ab58-a4dbca3ee615_QCU_Logo_2019.png"
+    },
+    {
+      "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\99c1caee-8097-47cf-8c37-b53a8f709157_bottoms.jpg",
+      "PackagePath": "staticwebassets\\uploads\\99c1caee-8097-47cf-8c37-b53a8f709157_bottoms.jpg"
     },
     {
       "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\a8584cef-b08a-413b-a144-cdfcd0dd6b48_QCU_Logo_2019.png",
@@ -97,12 +153,20 @@
       "PackagePath": "staticwebassets\\uploads\\ab0d2130-6e9b-4a15-84dc-8d8241363918_SpoilerImgTroll.png"
     },
     {
+      "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\b3448855-5a14-468b-8b56-871e0a0d2d85_satin mermaid skirt.jpg",
+      "PackagePath": "staticwebassets\\uploads\\b3448855-5a14-468b-8b56-871e0a0d2d85_satin mermaid skirt.jpg"
+    },
+    {
       "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\b5c3d723-019a-4086-94b8-9717f40d3f41_addproduct.png",
       "PackagePath": "staticwebassets\\uploads\\b5c3d723-019a-4086-94b8-9717f40d3f41_addproduct.png"
     },
     {
       "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ba1b3a61-0e67-4053-a967-27690c8f2ea7_QCU_Logo_2019.png",
       "PackagePath": "staticwebassets\\uploads\\ba1b3a61-0e67-4053-a967-27690c8f2ea7_QCU_Logo_2019.png"
+    },
+    {
+      "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\bd3a4cef-31f7-4458-b0b1-d13646277e25_knitted top.jpg",
+      "PackagePath": "staticwebassets\\uploads\\bd3a4cef-31f7-4458-b0b1-d13646277e25_knitted top.jpg"
     },
     {
       "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\be3e61fd-d33f-4559-86fe-b9f6379a3af4_Snapinst.app_485645352_18008255768726067_7072190477111491614_n_1080.jpg",
@@ -117,6 +181,10 @@
       "PackagePath": "staticwebassets\\uploads\\c57cb970-ec8f-4197-90a7-4451379fec57_Diosdado Macapagal.jpg"
     },
     {
+      "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\cf40ce2e-dae8-4310-92c7-2e8c89af4b4b_hats.jpg",
+      "PackagePath": "staticwebassets\\uploads\\cf40ce2e-dae8-4310-92c7-2e8c89af4b4b_hats.jpg"
+    },
+    {
       "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\d27329c5-fa19-4afd-838f-77e7f723435f_QCU_Logo_2019.png",
       "PackagePath": "staticwebassets\\uploads\\d27329c5-fa19-4afd-838f-77e7f723435f_QCU_Logo_2019.png"
     },
@@ -129,6 +197,10 @@
       "PackagePath": "staticwebassets\\uploads\\d5c74aeb-684c-4fa7-a5dc-fdac7953916c_Screenshot_20241106-000200_1.png"
     },
     {
+      "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\d7e5185d-d9e7-4a29-b953-1f3aa5ee3afa_skirt.jpg",
+      "PackagePath": "staticwebassets\\uploads\\d7e5185d-d9e7-4a29-b953-1f3aa5ee3afa_skirt.jpg"
+    },
+    {
       "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\ddaf6720-6223-4c5d-8708-577e58823382_Diosdado.jpg",
       "PackagePath": "staticwebassets\\uploads\\ddaf6720-6223-4c5d-8708-577e58823382_Diosdado.jpg"
     },
@@ -139,6 +211,18 @@
     {
       "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\df355002-86e9-460d-a197-5845a6b2e333_malupiton.jpg",
       "PackagePath": "staticwebassets\\uploads\\df355002-86e9-460d-a197-5845a6b2e333_malupiton.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\dfe70d4b-c49c-4c8c-9fc6-f749d374f176_knitted top• embroidered flowers.jpg",
+      "PackagePath": "staticwebassets\\uploads\\dfe70d4b-c49c-4c8c-9fc6-f749d374f176_knitted top• embroidered flowers.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\e6942dc0-ffd9-440e-8bda-003deb3ee900_brislit.webp",
+      "PackagePath": "staticwebassets\\uploads\\e6942dc0-ffd9-440e-8bda-003deb3ee900_brislit.webp"
+    },
+    {
+      "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\e6f2536a-47b1-48a3-a960-13a451a39932_cargo pants.jpg",
+      "PackagePath": "staticwebassets\\uploads\\e6f2536a-47b1-48a3-a960-13a451a39932_cargo pants.jpg"
     },
     {
       "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\e831e0bc-bd93-45db-afa7-befe6f1fcd0a_Screenshot_20241106-000200_1.png",
@@ -161,8 +245,12 @@
       "PackagePath": "staticwebassets\\uploads\\ecaa71c6-d421-4038-a3a0-0f5f71b0b9c8_malupiton.jpg"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.backend.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
-      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+      "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\f040365b-393e-4957-a131-59112fa0ca5d_wide leg trousers.jpg",
+      "PackagePath": "staticwebassets\\uploads\\f040365b-393e-4957-a131-59112fa0ca5d_wide leg trousers.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ADZ\\Documents\\GitHub\\IPT101\\src\\backend\\wwwroot\\uploads\\f7085e59-1b1b-45b5-a1ef-9bc5ccf345ae_pleated dress with detachable cape.jpg",
+      "PackagePath": "staticwebassets\\uploads\\f7085e59-1b1b-45b5-a1ef-9bc5ccf345ae_pleated dress with detachable cape.jpg"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.backend.Microsoft.AspNetCore.StaticWebAssets.props",

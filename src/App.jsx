@@ -6,9 +6,9 @@ import {
   Navigate,
 } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
-import Dashboard from './components/Dashboard';
-import Inventory from './components/inventory';
-import SalesHistory from './components/SalesHistory';
+import Dashboard from './components/dashboard/index';
+import Inventory from './components/inventory/index'; 
+import SalesHistory from './components/salesHistory/index';
 
 export default function App() {
   return (
